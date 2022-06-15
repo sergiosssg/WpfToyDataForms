@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WpfToyDataForms
 {
 
-    public class AccountPeriodTime
+    public partial class AccountPeriodTime
     {
         public int Year
         {
@@ -26,4 +26,11 @@ namespace WpfToyDataForms
         }
 
     }
+
+    public partial class BaseEnums
+    {
+
+
+    }
+
 }
