@@ -34,8 +34,6 @@ namespace WpfToyDataForms
 
     public partial class DbAppContext : DbContext
     {
-
-/*
         public DbSet<PO_TEL_VID_CONNECT> pO_TEL_VID_CONNECTs { get; set; }
 
         public DbSet<PO_TEL_OPERATOR> pO_TEL_OPERATORs { get; set; }
@@ -45,7 +43,7 @@ namespace WpfToyDataForms
         {
             modelBuilder.Entity<PO_TEL_OPERATOR>().HasOne(telefonOperator => telefonOperator.ParentIDConnect).WithMany(p => p.TelefonOperators).HasForeignKey(fk => fk.ParentIDConnect);
         }
-*/
+
 
     }
 
