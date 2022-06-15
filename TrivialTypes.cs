@@ -33,4 +33,14 @@ namespace WpfToyDataForms
 
     }
 
+
+    public partial class Zone
+    {
+        public string Name
+        {
+            get;
+            set;
+        }
+    }
+
 }
