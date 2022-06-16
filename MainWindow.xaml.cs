@@ -36,7 +36,7 @@ namespace WpfToyDataForms
 
         public MainWindow()
         {
-            OptionsOFContext = DataBaseFacilities.OptionsOfDbContext();
+            this.OptionsOFContext = DataBaseFacilities.OptionsOfDbContext();
             InitializeComponent();
         }
 
@@ -44,7 +44,7 @@ namespace WpfToyDataForms
         private int InitializeDbContexts()
         {
             
-            DbAppContext = new DbAppContext(OptionsOFContext);
+            this.DbAppContext = new DbAppContext(OptionsOFContext);
 
 
             return 1;
