@@ -22,6 +22,8 @@ namespace WpfToyDataForms
     public partial class MainWindow : Window
     {
 
+        private bool _contextIsInitialized;
+
         public ICollection<PO_TEL_VID_CONNECT> CollectionOf_TEL_VID_CONNECTs
         {
             set;
@@ -48,11 +50,11 @@ namespace WpfToyDataForms
         }
 
 
-        private int InitializeDbContexts()
+        private bool InitializeDbContexts()
         {
             this.DbAppContext = new DbAppContext(OptionsOFContext);
 
-            return 1;
+            return (this._contextIsInitialized = true);
         }
 
 
@@ -66,5 +68,9 @@ namespace WpfToyDataForms
             return this.CollectionOf_TEL_VID_CONNECTs.Count;
         }
 
+        private void btnLoadAll_Click(object sender, RoutedEventArgs e)
+        {
+            ;
+        }
     }
 }

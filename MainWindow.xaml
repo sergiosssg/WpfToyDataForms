@@ -53,7 +53,7 @@
                     <ColumnDefinition Width="22*"/>
                 </Grid.ColumnDefinitions>
             </Grid>
-            <Button x:Name="btnLoadAll" Content="Загрузить всё ..." HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Margin="1,1,1,1"/>
+            <Button x:Name="btnLoadAll" Content="Загрузить всё ..." HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Margin="1,1,1,1" Click="btnLoadAll_Click"/>
             <Button x:Name="btnShowFilterForm" Content="Фильтр" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Margin="1,1,1,1" IsEnabled="False"/>
             <Button x:Name="btnShowTweakForm" Content="Настройки" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="1,1,1,1"/>
         </ToolBar>
