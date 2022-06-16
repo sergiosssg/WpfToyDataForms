@@ -61,9 +61,9 @@ namespace WpfToyDataForms
 
             DbAppContext.pO_TEL_VID_CONNECTs.Load();
 
-            CollectionOf_TEL_VID_CONNECTs = DbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
+            this.CollectionOf_TEL_VID_CONNECTs = DbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
 
-            throw new NotImplementedException();
+            return this.CollectionOf_TEL_VID_CONNECTs.Count;
         }
 
     }
