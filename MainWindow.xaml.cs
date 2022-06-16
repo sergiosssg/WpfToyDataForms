@@ -70,7 +70,17 @@ namespace WpfToyDataForms
 
         private void btnLoadAll_Click(object sender, RoutedEventArgs e)
         {
-            ;
+            if (!this._contextIsInitialized)
+            {
+                this.InitializeDbContexts();
+            }
+            if (this._contextIsInitialized)
+            {
+                if (Load_PO_TEL_VID_CONNECT() > 0)
+                {
+
+                }
+            }
         }
     }
 }
