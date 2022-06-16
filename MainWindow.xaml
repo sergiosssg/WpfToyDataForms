@@ -7,6 +7,56 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblStatusBar" Grid.Column="1" Grid.Row="12" Content="Label" Grid.ColumnSpan="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1" FontSize="14" Background="#FFC9CDD6"/>
+        <ToolBar x:Name="mainToolBar" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="11"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="5,5,5,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="22*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Button x:Name="btnLoadAll" Content="Загрузить всё ..." HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Margin="1,1,1,1"/>
+            <Button x:Name="btnShowFilterForm" Content="Фильтр" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Margin="1,1,1,1" IsEnabled="False"/>
+            <Button x:Name="btnShowTweakForm" Content="Настройки" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="1,1,1,1"/>
+        </ToolBar>
 
     </Grid>
 </Window>

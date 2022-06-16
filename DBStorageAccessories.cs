@@ -34,6 +34,10 @@ namespace WpfToyDataForms
 
     public partial class DbAppContext : DbContext
     {
+        public DbAppContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<PO_TEL_VID_CONNECT> pO_TEL_VID_CONNECTs { get; set; }
 
         public DbSet<PO_TEL_OPERATOR> pO_TEL_OPERATORs { get; set; }

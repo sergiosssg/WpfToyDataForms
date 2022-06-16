@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,34 @@ namespace WpfToyDataForms
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        
+        public DbContextOptions<DbAppContext> OptionsOFContext
+        {
+            get;
+        }
+
+        public DbAppContext dbAppContext
+        {
+            get;
+        }
+
         public MainWindow()
         {
+            OptionsOFContext = DataBaseFacilities.OptionsOfDbContext();
             InitializeComponent();
+        }
+
+        private DbAppContext GetDbAppContext()
+        {
+            return dbAppContext;
+        }
+
+        private int InitializeDbContexts(DbAppContext dbAppContext)
+        {
+            dbAppContext = new DbAppContext(OptionsOFContext);
+
+            throw new NotImplementedException();
         }
     }
 }
