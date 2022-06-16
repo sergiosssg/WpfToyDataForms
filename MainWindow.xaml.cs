@@ -78,7 +78,7 @@ namespace WpfToyDataForms
             {
                 if (Load_PO_TEL_VID_CONNECT() > 0)
                 {
-
+                    btnShowFilterForm.IsEnabled = true;
                 }
             }
         }

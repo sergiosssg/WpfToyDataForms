@@ -57,14 +57,14 @@
             <Button x:Name="btnShowFilterForm" Content="Фильтр" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Margin="1,1,1,1" IsEnabled="False"/>
             <Button x:Name="btnShowTweakForm" Content="Настройки" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="1,1,1,1"/>
         </ToolBar>
-        <TabControl x:Name="mainTabCtrl" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="11" Grid.RowSpan="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1" Visibility="Hidden">
-            <TabItem x:Name="tabItem001" Header="Справочник Виды связи" Visibility="Hidden">
+        <TabControl x:Name="mainTabCtrl" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="11" Grid.RowSpan="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
+            <TabItem x:Name="tabItem001" Header="Справочник .. Виды связи">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem x:Name="tabItem002" Header="TabItem" Visibility="Hidden">
+            <TabItem x:Name="tabItem002" Header=" &lt;&lt; Справочник виды связи &gt;&gt;">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem x:Name="tabItem003" Header="TabItem" Visibility="Hidden">
+            <TabItem x:Name="tabItem003" Header="Справочник телеф. операторы">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>

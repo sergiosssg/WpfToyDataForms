@@ -65,7 +65,7 @@ namespace WpfToyDataForms
 
         [Column("KOD_OPERATOR")]
         [MaxLength(2)]
-        public string KodOfOperator
+        public string? KodOfOperator
         { // KOD_OPERATOR - код оператора связи
             get;
             set;
@@ -73,7 +73,7 @@ namespace WpfToyDataForms
 
         [Column("NAME_OPERATOR")]
         [MaxLength(50)]
-        public string NameOfOperator
+        public string? NameOfOperator
         { // NAME_OPERATOR - наименование оператора связи
             get;
             set;
@@ -101,7 +101,7 @@ namespace WpfToyDataForms
 
         [Column("NOM_DOG")]
         [MaxLength(22)]
-        public string NumberOfContract
+        public string? NumberOfContract
         { // NOM_DOG  - номер договора
             get;
             set;
