@@ -30,6 +30,7 @@ namespace WpfToyDataForms
 
         public DbAppContext dbAppContext
         {
+            private set;
             get;
         }
 
@@ -44,11 +45,13 @@ namespace WpfToyDataForms
             return dbAppContext;
         }
 
-        private int InitializeDbContexts(DbAppContext dbAppContext)
+        private int InitializeDbContexts()
         {
+            
             dbAppContext = new DbAppContext(OptionsOFContext);
 
-            throw new NotImplementedException();
+
+            return 1;
         }
     }
 }
