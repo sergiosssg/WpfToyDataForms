@@ -28,7 +28,7 @@ namespace WpfToyDataForms
             get;
         }
 
-        public DbAppContext dbAppContext
+        public DbAppContext DbAppContext
         {
             private set;
             get;
@@ -40,15 +40,11 @@ namespace WpfToyDataForms
             InitializeComponent();
         }
 
-        private DbAppContext GetDbAppContext()
-        {
-            return dbAppContext;
-        }
 
         private int InitializeDbContexts()
         {
             
-            dbAppContext = new DbAppContext(OptionsOFContext);
+            DbAppContext = new DbAppContext(OptionsOFContext);
 
 
             return 1;
