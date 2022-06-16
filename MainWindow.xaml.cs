@@ -22,7 +22,14 @@ namespace WpfToyDataForms
     public partial class MainWindow : Window
     {
 
-        
+        public ICollection<PO_TEL_VID_CONNECT> CollectionOf_TEL_VID_CONNECTs
+        {
+            set;
+            get;
+        }
+
+
+
         public DbContextOptions<DbAppContext> OptionsOFContext
         {
             get;
