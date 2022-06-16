@@ -31,6 +31,13 @@ namespace WpfToyDataForms
         }
 
 
+        public ICollection<PO_TEL_OPERATOR> CollectionOf_TEL_OPERATORs
+        {
+            set;
+            get;
+        }
+
+
 
         public DbContextOptions<DbAppContext> OptionsOFContext
         {
@@ -68,6 +75,17 @@ namespace WpfToyDataForms
             return this.CollectionOf_TEL_VID_CONNECTs.Count;
         }
 
+        public int Load_PO_TEL_OPERATOR()
+        {
+
+            DbAppContext.pO_TEL_OPERATORs.Load();
+
+            this.CollectionOf_TEL_OPERATORs = DbAppContext.pO_TEL_OPERATORs.ToList<PO_TEL_OPERATOR>();
+
+            return this.CollectionOf_TEL_OPERATORs.Count;
+        }
+
+
         private void btnLoadAll_Click(object sender, RoutedEventArgs e)
         {
             if (!this._contextIsInitialized)
@@ -76,7 +94,7 @@ namespace WpfToyDataForms
             }
             if (this._contextIsInitialized)
             {
-                if (Load_PO_TEL_VID_CONNECT() > 0)
+                if (Load_PO_TEL_VID_CONNECT() > 0 || Load_PO_TEL_OPERATOR() > 0)
                 {
                     btnShowFilterForm.IsEnabled = true;
                 }
