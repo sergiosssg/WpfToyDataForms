@@ -43,11 +43,17 @@ namespace WpfToyDataForms
 
         private int InitializeDbContexts()
         {
-            
             this.DbAppContext = new DbAppContext(OptionsOFContext);
-
 
             return 1;
         }
+
+
+        public int Load_PO_TEL_VID_CONNECT()
+        {
+
+            throw new NotImplementedException();
+        }
+
     }
 }
