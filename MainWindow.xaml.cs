@@ -59,6 +59,10 @@ namespace WpfToyDataForms
         public int Load_PO_TEL_VID_CONNECT()
         {
 
+            DbAppContext.pO_TEL_VID_CONNECTs.Load();
+
+            CollectionOf_TEL_VID_CONNECTs = DbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
+
             throw new NotImplementedException();
         }
 
