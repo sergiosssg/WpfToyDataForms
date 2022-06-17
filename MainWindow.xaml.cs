@@ -94,7 +94,9 @@ namespace WpfToyDataForms
             }
             if (this._contextIsInitialized)
             {
-                if (Load_PO_TEL_VID_CONNECT() > 0 || Load_PO_TEL_OPERATOR() > 0)
+                var Is_Loaded_PO_TEL_VID_CONNECT = Load_PO_TEL_VID_CONNECT() > 0;
+                var Is_Loaded_PO_TEL_OPERATOR = Load_PO_TEL_OPERATOR() > 0;
+                if (Is_Loaded_PO_TEL_VID_CONNECT || Is_Loaded_PO_TEL_OPERATOR)
                 {
                     btnShowFilterForm.IsEnabled = true;
                 }

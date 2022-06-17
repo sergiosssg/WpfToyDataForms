@@ -38,7 +38,7 @@ namespace WpfToyDataForms
             set;
         }
 
-        //public ICollection<PO_TEL_OPERATOR> TelefonOperators { get; set; }
+        public ICollection<PO_TEL_OPERATOR> TelefonOperators { get; set; }
 
 
         public PO_TEL_VID_CONNECT()
@@ -46,7 +46,7 @@ namespace WpfToyDataForms
             this.IDConnect = 0;
             this.KodOfConnect = string.Empty;
             this.NameOfConnect = string.Empty;
-            //this.TelefonOperators = new List<PO_TEL_OPERATOR>();
+            this.TelefonOperators = new List<PO_TEL_OPERATOR>();
         }
 
     }
@@ -91,12 +91,7 @@ namespace WpfToyDataForms
             get;
             set;
         }
-/*
-        public PO_TEL_VID_CONNECT ParentIDConnect
-        { // ID_CONNECT  ссылка на вид связи
-            get;
-            set;
-        }*/
+
 
         [Column("ID_KAGENT")]
         public int? IDKagent
@@ -120,6 +115,11 @@ namespace WpfToyDataForms
             set;
         }
 
+        public PO_TEL_VID_CONNECT? ParentIDConnect
+        { // ID_CONNECT  ссылка на вид связи
+            get;
+            set;
+        }
     }
 
 
