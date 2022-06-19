@@ -38,15 +38,16 @@ namespace WpfToyDataForms
         {
         }
 
-        public DbSet<PO_TEL_VID_CONNECT> pO_TEL_VID_CONNECTs { get; set; }
+        public DbSet<PO_TEL_VID_CONNECT>? pO_TEL_VID_CONNECTs { get; set; } = null;
 
-        public DbSet<PO_TEL_OPERATOR> pO_TEL_OPERATORs { get; set; }
+        public DbSet<PO_TEL_OPERATOR>? pO_TEL_OPERATORs { get; set; } = null;
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // modelBuilder.Entity<PO_TEL_OPERATOR>().HasOne(telefonOperator => telefonOperator.ParentIDConnect).WithMany(p => p.TelefonOperators).HasForeignKey(fk => fk.ParentIDConnect);
-            modelBuilder.Entity<PO_TEL_OPERATOR>().HasOne(telefonOperator => telefonOperator.ParentIDConnect).WithMany(p => p.TelefonOperators);
+            //modelBuilder.Entity<PO_TEL_OPERATOR>().HasOne(telefonOperator => telefonOperator.ParentIDConnect).WithMany(p => p.TelefonOperators);
+            modelBuilder.Entity<PO_TEL_OPERATOR>().HasOne( p => p.ParentIDConnect).WithMany( p => p.TelefonOperators).HasForeignKey( p => p.IDConnect);
         }
 
 
