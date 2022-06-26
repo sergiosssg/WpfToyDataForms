@@ -102,5 +102,11 @@ namespace WpfToyDataForms
                 }
             }
         }
+
+        private  void visualize_PO_TEL_VID_CONNECT(ICollection<PO_TEL_VID_CONNECT> vid_connects)
+        {
+
+        }
+
     }
 }
