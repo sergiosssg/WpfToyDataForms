@@ -38,7 +38,7 @@
             <RowDefinition Height="16*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lblStatusBar" Grid.Column="1" Grid.Row="12" Content="Label" Grid.ColumnSpan="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1" FontSize="14" Background="#FFC9CDD6"/>
+       <Label x:Name="lblStatusBar" Grid.Column="1" Grid.Row="12" Content="Label" Grid.ColumnSpan="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1" FontSize="14" Background="#FFC9CDD6"/>
         <ToolBar x:Name="mainToolBar" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="11"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="5,5,5,5">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -60,7 +60,9 @@
         <TabControl x:Name="mainTabCtrl" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="11" Grid.RowSpan="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
             <TabItem x:Name="tabItem001" Header="Справочник .. Виды связи">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                    <DataGrid x:Name="Spr001dataGrid" d:ItemsSource="{d:Binding}">
+                        
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabItem002" Header=" &lt;&lt; Справочник виды связи &gt;&gt;">
