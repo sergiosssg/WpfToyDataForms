@@ -103,7 +103,7 @@ namespace WpfToyDataForms
             }
         }
 
-        private  void visualize_PO_TEL_VID_CONNECT(ICollection<PO_TEL_VID_CONNECT> vid_connects)
+        private  void visualize_PO_TEL_VID_CONNECT(Control dataViewControl,   ICollection<PO_TEL_VID_CONNECT> vid_connects)
         {
 
         }
