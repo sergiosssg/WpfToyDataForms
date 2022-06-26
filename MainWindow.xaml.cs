@@ -105,7 +105,12 @@ namespace WpfToyDataForms
 
         private  void visualize_PO_TEL_VID_CONNECT(Control dataViewControl,   ICollection<PO_TEL_VID_CONNECT> vid_connects)
         {
+            if ((dataViewControl != null) && (dataViewControl.GetType() == typeof(DataGrid)))
+            {
+                DataGrid dGrid = (DataGrid)dataViewControl;
 
+                //dGrid.ItemsSource = vid_connects.t<PO_TEL_VID_CONNECT>().;
+            }
         }
 
     }
