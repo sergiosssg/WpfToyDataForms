@@ -100,6 +100,7 @@ namespace WpfToyDataForms
                 {
                     btnShowFilterForm.IsEnabled = true;
                     visualize_PO_TEL_VID_CONNECT( dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
+                    btnSaveChanges.IsEnabled = true;
                 }
             }
         }
