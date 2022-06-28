@@ -110,6 +110,8 @@ namespace WpfToyDataForms
                 DataGrid dGrid = (DataGrid)dataViewControl;
 
                 //dGrid.ItemsSource = vid_connects.t<PO_TEL_VID_CONNECT>().;
+
+                dGrid.ItemsSource = vid_connects;
             }
         }
 
