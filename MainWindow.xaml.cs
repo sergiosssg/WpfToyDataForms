@@ -118,14 +118,15 @@ namespace WpfToyDataForms
 
                 DataGridTextColumn dataGridTextColumn1 = new DataGridTextColumn();
 
-                DataGridTextColumn dataGridTextColumn2 = new DataGridTextColumn();
 
-                BetterDataGrid.AutoFilterDataGrid autoFilterDataGrid;
+                //BetterDataGrid.AutoFilterDataGrid autoFilterDataGrid;
 
-                dGrid.ItemsSource = vid_connects;
+                //dGrid.ItemsSource = vid_connects;
 
-                
+                dGrid.IsEnabled = true;
 
+
+                dGrid.IsSynchronizedWithCurrentItem = true;
 
             }
         }
