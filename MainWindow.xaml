@@ -62,7 +62,7 @@
             <TabItem x:Name="tabItem001" Header="Справочник .. Виды связи">
 
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"  x:Name="dataGridSpr001" d:ItemsSource="{d:Binding Items}" >
+                    <DataGrid Background="#FFF1ECEC" RowBackground="#FFF5F6F7" AlternatingRowBackground="#FFE6E6E6"  x:Name="dataGridSpr001" d:ItemsSource="{d:Binding Items}" >
                         
                     </DataGrid>
                 </Grid>
