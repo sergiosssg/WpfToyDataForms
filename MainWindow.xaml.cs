@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+
 namespace WpfToyDataForms
 {
     /// <summary>
@@ -113,8 +115,18 @@ namespace WpfToyDataForms
 
                 //dGrid.ItemsSource = vid_connects.t<PO_TEL_VID_CONNECT>().;
 
+
+                DataGridTextColumn dataGridTextColumn1 = new DataGridTextColumn();
+
+                DataGridTextColumn dataGridTextColumn2 = new DataGridTextColumn();
+
+                BetterDataGrid.AutoFilterDataGrid autoFilterDataGrid;
+
                 dGrid.ItemsSource = vid_connects;
+
                 
+
+
             }
         }
 
