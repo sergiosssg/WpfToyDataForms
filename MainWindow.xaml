@@ -59,6 +59,10 @@
             <Button x:Name="btnSaveChanges" Content="Сохранить" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="1,1,1,1" Padding="2,2,2,2" IsEnabled="False"/>
         </ToolBar>
         <TabControl x:Name="mainTabCtrl" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="11" Grid.RowSpan="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
+            <TabControl.Resources>
+                <ObjectDataProvider x:Key="ResDbContext" ObjectType="{x:Type local:DbAppContext}"/>
+                <ObjectDataProvider x:Key="ResVidOfConnect" ObjectInstance="{StaticResource ResDbContext}"/>
+            </TabControl.Resources>
             <TabItem x:Name="tabItem001" Header="Справочник .. Виды связи">
 
                 <Grid Background="#FFE5E5E5">
