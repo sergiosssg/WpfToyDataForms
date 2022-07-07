@@ -125,6 +125,7 @@ namespace WpfToyDataForms
 
                 dGrid.IsEnabled = true;
 
+                //dGrid.SetBinding();
 
                 dGrid.IsSynchronizedWithCurrentItem = true;
 
