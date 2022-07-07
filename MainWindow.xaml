@@ -63,6 +63,9 @@
                 <ObjectDataProvider x:Key="ResDbContext" ObjectType="{x:Type local:DbAppContext}"/>
                 <ObjectDataProvider x:Key="ResVidOfConnect" ObjectInstance="{StaticResource ResDbContext}"/>
             </TabControl.Resources>
+            <TabControl.DataContext>
+                <local:DataBaseFacilities/>
+            </TabControl.DataContext>
             <TabItem x:Name="tabItem001" Header="Справочник .. Виды связи">
 
                 <Grid Background="#FFE5E5E5">
