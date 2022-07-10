@@ -121,7 +121,9 @@ namespace WpfToyDataForms
 
                 //BetterDataGrid.AutoFilterDataGrid autoFilterDataGrid;
 
-                //dGrid.ItemsSource = vid_connects;
+                //dGrid.DataContext = vid_connects;
+
+                dGrid.ItemsSource = vid_connects;
 
                 dGrid.IsEnabled = true;
 
