@@ -43,8 +43,8 @@ namespace WpfToyDataForms
         {
             DbConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-            builder["Data Source"] = "localhost";             // Home setting string
-            //builder["Data Source"] = @"localhost\SQLExpress";   //  Office setting string
+            //builder["Data Source"] = "localhost";             // Home setting string
+            builder["Data Source"] = @"localhost\SQLExpress";   //  Office setting string
 
             builder["Database"] = "sampd_cexs";
 
