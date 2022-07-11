@@ -131,6 +131,9 @@ namespace WpfToyDataForms
 
                 dGrid.IsSynchronizedWithCurrentItem = true;
 
+
+                dataViewControl.Visibility = Visibility.Visible;
+
             }
         }
 
