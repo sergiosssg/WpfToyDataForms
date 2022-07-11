@@ -121,11 +121,13 @@ namespace WpfToyDataForms
 
                 //BetterDataGrid.AutoFilterDataGrid autoFilterDataGrid;
 
-                //dGrid.ItemsSource = vid_connects;
+                dGrid.ItemsSource = vid_connects;
+
+                var items = dGrid.Items;
 
                 dGrid.IsEnabled = true;
 
-                //dGrid.SetBinding();
+                //dGrid.SetBinding();  zzz
 
                 dGrid.IsSynchronizedWithCurrentItem = true;
 
