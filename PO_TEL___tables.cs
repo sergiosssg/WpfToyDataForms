@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -38,7 +39,8 @@ namespace WpfToyDataForms
             set;
         }
 
-        public ICollection<PO_TEL_OPERATOR> TelefonOperators { get; set; }
+        //public ICollection<PO_TEL_OPERATOR> TelefonOperators { get; set; }
+        public virtual ObservableCollection<PO_TEL_OPERATOR>? TelefonOperators { get; set; }
 
 
         public PO_TEL_VID_CONNECT()
@@ -46,7 +48,8 @@ namespace WpfToyDataForms
             this.IDConnect = 0;
             this.KodOfConnect = string.Empty;
             this.NameOfConnect = string.Empty;
-            this.TelefonOperators = new List<PO_TEL_OPERATOR>();
+            //this.TelefonOperators = new List<PO_TEL_OPERATOR>();
+            this.TelefonOperators = new ObservableCollection<PO_TEL_OPERATOR>();
         }
 
     }
