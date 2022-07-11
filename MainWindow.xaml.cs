@@ -101,13 +101,13 @@ namespace WpfToyDataForms
                 if (Is_Loaded_PO_TEL_VID_CONNECT || Is_Loaded_PO_TEL_OPERATOR)
                 {
                     btnShowFilterForm.IsEnabled = true;
-                    visualize_PO_TEL_VID_CONNECT( dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
+                    visualize_PO_TEL_VID_CONNECT(dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
                     //btnSaveChanges.IsEnabled = true;
                 }
             }
         }
 
-        private  void visualize_PO_TEL_VID_CONNECT(Control dataViewControl,   ICollection<PO_TEL_VID_CONNECT> vid_connects)
+        private void visualize_PO_TEL_VID_CONNECT(Control dataViewControl, ICollection<PO_TEL_VID_CONNECT> vid_connects)
         {
             if ((dataViewControl != null) && (dataViewControl.GetType() == typeof(DataGrid)))
             {
@@ -137,5 +137,40 @@ namespace WpfToyDataForms
             }
         }
 
+        private void dataGridSpr001_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            var isControlChanged = false;
+
+            var typeOfSender = sender.GetType().ToString();
+
+            var typeOfEvetArgs = e.GetType().ToString();
+
+            if (!isControlChanged)
+            {
+                ; ; ;
+            }
+            ;
+        }
+
+        private void dataGridSpr001_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            DataGrid vvDataGrid;
+
+            if (sender.GetType() == typeof(DataGrid))
+            {
+                vvDataGrid = (DataGrid)sender;
+                var sss = vvDataGrid.RenderSize;
+
+
+
+                var vvEventArg = e.GetPosition;
+
+
+            }
+
+
+
+            ;
+        }
     }
 }
