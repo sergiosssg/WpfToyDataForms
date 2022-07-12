@@ -72,7 +72,11 @@
                         
                     </ToolBarPanel>
                     <Grid Background="#FFE5E5E5" HorizontalAlignment="Stretch">
-                        <DataGrid Background="#FFF1ECEC" RowBackground="#FFF5F6F7" AlternatingRowBackground="#FFE6E6E6"  x:Name="dataGridSpr001" d:ItemsSource="{Binding }" DataContext="{Binding CollectionOf_TEL_VID_CONNECTs, BindsDirectlyToSource=True, RelativeSource={RelativeSource FindAncestor, AncestorLevel=2, AncestorType={x:Type local:MainWindow}}}" IsSynchronizedWithCurrentItem="False" Visibility="Hidden" BeginningEdit="dataGridSpr001_BeginningEdit" MouseRightButtonUp="dataGridSpr001_MouseRightButtonUp" />
+                        <DataGrid Background="#FFF1ECEC" RowBackground="#FFF5F6F7" AlternatingRowBackground="#FFE6E6E6"  x:Name="dataGridSpr001" d:ItemsSource="{Binding }" DataContext="{Binding CollectionOf_TEL_VID_CONNECTs, BindsDirectlyToSource=True, RelativeSource={RelativeSource FindAncestor, AncestorLevel=2, AncestorType={x:Type local:MainWindow}}}" IsSynchronizedWithCurrentItem="False" Visibility="Hidden" BeginningEdit="dataGridSpr001_BeginningEdit" MouseRightButtonUp="dataGridSpr001_MouseRightButtonUp" >
+                            <DataGrid.Columns>
+                                
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </Grid>
                 </StackPanel>
             </TabItem>
