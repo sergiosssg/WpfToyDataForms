@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dgx="clr-namespace:DataGridExtensions;assembly=DataGridExtensions"
         xmlns:local="clr-namespace:WpfToyDataForms"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -82,7 +83,7 @@
             </TabItem>
             <TabItem x:Name="tabItem002" Header=" &lt;&lt; Справочник виды связи &gt;&gt;">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid  x:Name="dataGridSpr002" ItemsSource="{Binding}" />
+                    <DataGrid  x:Name="dataGridSpr002" ItemsSource="{Binding}"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabItem003" Header="Справочник телеф. операторы">

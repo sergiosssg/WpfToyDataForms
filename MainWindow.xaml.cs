@@ -144,7 +144,7 @@ namespace WpfToyDataForms
 
                 foreach (var ccol in columns)
                 {
-                    ; ; ;
+                    var s = ccol.Header.ToString; ; ;
                 }
 
                 dataViewControl.Visibility = Visibility.Visible;
