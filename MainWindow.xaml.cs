@@ -24,6 +24,10 @@ namespace WpfToyDataForms
     public partial class MainWindow : Window
     {
 
+        //DataGridExtensions.DataGridFilter _dataGridFilter;
+
+        DataGrid _additionalDataGrid;
+
         private bool _contextIsInitialized;
 
         public ICollection<PO_TEL_VID_CONNECT> CollectionOf_TEL_VID_CONNECTs
@@ -61,6 +65,8 @@ namespace WpfToyDataForms
 
         private bool InitializeDbContexts()
         {
+
+            //this._dataGridFilter = new 
             this.DbAppContext = new DbAppContext(OptionsOFContext);
 
             return (this._contextIsInitialized = true);
@@ -132,6 +138,15 @@ namespace WpfToyDataForms
                 dGrid.IsSynchronizedWithCurrentItem = true;
 
 
+                var columns = dGrid.Columns;
+
+
+
+                foreach (var ccol in columns)
+                {
+                    ; ; ;
+                }
+
                 dataViewControl.Visibility = Visibility.Visible;
 
             }
@@ -142,6 +157,9 @@ namespace WpfToyDataForms
             if ((dataViewControl != null) && (dataViewControl.GetType() == typeof(DataGrid)))
             {
                 DataGrid dGrid = (DataGrid)dataViewControl;
+
+
+                
             }
         }
 
