@@ -81,7 +81,9 @@
                 </StackPanel>
             </TabItem>
             <TabItem x:Name="tabItem002" Header=" &lt;&lt; Справочник виды связи &gt;&gt;">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid  x:Name="dataGridSpr002"/>
+                </Grid>
             </TabItem>
             <TabItem x:Name="tabItem003" Header="Справочник телеф. операторы">
                 <Grid Background="#FFE5E5E5"/>
