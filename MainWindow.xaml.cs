@@ -101,13 +101,13 @@ namespace WpfToyDataForms
                 if (Is_Loaded_PO_TEL_VID_CONNECT || Is_Loaded_PO_TEL_OPERATOR)
                 {
                     btnShowFilterForm.IsEnabled = true;
-                    visualize_PO_TEL_VID_CONNECT(dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
+                    visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
                     //btnSaveChanges.IsEnabled = true;
                 }
             }
         }
 
-        private void visualize_PO_TEL_VID_CONNECT(Control dataViewControl, ICollection<PO_TEL_VID_CONNECT> vid_connects)
+        private void visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(Control dataViewControl, ICollection<PO_TEL_VID_CONNECT> vid_connects)
         {
             if ((dataViewControl != null) && (dataViewControl.GetType() == typeof(DataGrid)))
             {
