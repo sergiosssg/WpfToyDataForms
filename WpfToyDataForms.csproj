@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoFilterDataGrid" Version="1.0.21221.1631" />
+    <PackageReference Include="DataGridExtensions" Version="2.5.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
     <PackageReference Include="WpfAutoGrid" Version="1.4.0" />

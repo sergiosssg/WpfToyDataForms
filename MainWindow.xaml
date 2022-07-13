@@ -68,7 +68,7 @@
             </TabControl.DataContext>
             <TabItem x:Name="tabItem001" Header="Справочник .. Виды связи">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <ToolBarPanel Height="32">
+                    <ToolBarPanel x:Name="toolBar4TabItem001" Height="32" IsEnabled="False" Visibility="Hidden">
                         
                     </ToolBarPanel>
                     <Grid Background="#FFE5E5E5" HorizontalAlignment="Stretch">
