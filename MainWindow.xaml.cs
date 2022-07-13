@@ -137,6 +137,16 @@ namespace WpfToyDataForms
             }
         }
 
+        private void visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(Control dataViewControl, ICollection<PO_TEL_VID_CONNECT> vid_connects)
+        {
+            if ((dataViewControl != null) && (dataViewControl.GetType() == typeof(DataGrid)))
+            {
+                DataGrid dGrid = (DataGrid)dataViewControl;
+            }
+        }
+
+
+
         private void dataGridSpr001_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
             var isControlChanged = false;
