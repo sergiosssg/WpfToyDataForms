@@ -108,7 +108,7 @@ namespace WpfToyDataForms
                 {
                     btnShowFilterForm.IsEnabled = true;
                     visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
-                    visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(dataGridSpr002, CollectionOf_TEL_VID_CONNECTs);
+                    visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(dataGridSpr002, CollectionOf_TEL_VID_CONNECTs);
                     //btnSaveChanges.IsEnabled = true;
                 }
             }
@@ -159,8 +159,13 @@ namespace WpfToyDataForms
             {
                 DataGrid dGrid = (DataGrid)dataViewControl;
 
+                Binding binding = new Binding();
 
-                
+                binding.Source = vid_connects;
+
+                dGrid.SetBinding( DataGrid.ItemsSourceProperty , binding);
+
+
             }
         }
 
