@@ -8,6 +8,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
+        
+        <!--
+        
+        <CollectionViewSource x:Key="CollectionOfVIDConnect" d:Source="{d:DesignInstance {x:Type = PO_TEL_VID_CONNECT}, CreateList=True}"/>
+        
+        -->
+
+        <CollectionViewSource x:Key="CollectionOfVIDConnect" Source="{}, CreateList=True"/>
         <dgx:RegexContentFilterFactory x:Key="RegexContentFilterFactory"/>
         <dgx:SimpleContentFilterFactory x:Key="SimpleContentFilterFactory"/>
         <!-- Template for a simple integer dgx control. -->
