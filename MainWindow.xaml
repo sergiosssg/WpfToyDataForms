@@ -171,8 +171,12 @@
             </TabItem>
             <TabItem x:Name="tabItem003" Header="Справочник телеф. операторы">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid  x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="True" MinRowHeight="22">
-                        
+                    <DataGrid  x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>
+                            <DataGridTextColumn Header="Код" Binding="{Binding KodOfConnect}"/>
+                            <DataGridTextColumn Header="Название" Binding="{Binding NameOfConnect}"/>
+                        </DataGrid.Columns>
                     </DataGrid>
 
                 </Grid>
