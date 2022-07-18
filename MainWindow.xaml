@@ -16,6 +16,27 @@
         
         -->
 
+        <col:Hashtable x:Key='debuggableHashForDataGrid'>
+            <col:DictionaryEntry x:Key='hashEntry1' Key='11' Value='aaa'></col:DictionaryEntry>
+            <col:DictionaryEntry x:Key='hashEntry2' Key='12' Value='aba'></col:DictionaryEntry>
+            <col:DictionaryEntry x:Key='hashEntry3' Key='13' Value='aca'></col:DictionaryEntry>
+            <col:DictionaryEntry x:Key='hashEntry4' Key='14' Value='ada'></col:DictionaryEntry>
+            <col:DictionaryEntry x:Key='hashEntry5' Key='21' Value='abb'></col:DictionaryEntry>
+            <col:DictionaryEntry x:Key='hashEntry6' Key='22' Value='acc'></col:DictionaryEntry>
+            <col:DictionaryEntry x:Key='hashEntry7' Key='23' Value='adc'></col:DictionaryEntry>
+            <col:DictionaryEntry x:Key='hashEntry8' Key='24' Value='ddd'></col:DictionaryEntry>
+        </col:Hashtable>
+
+        <col:ArrayList x:Key="debuggableListOfTelVidConnectForDataGrid">
+            <local:PO_TEL_VID_CONNECT IDConnect="991" KodOfConnect="7" NameOfConnect="мобильная улучшенная Сумы"/>
+            <local:PO_TEL_VID_CONNECT IDConnect="992" KodOfConnect="8" NameOfConnect="мобильная улучшенная Киев"/>
+            <local:PO_TEL_VID_CONNECT IDConnect="993" KodOfConnect="7" NameOfConnect="стационарная улучшенная Сумы"/>
+            <local:PO_TEL_VID_CONNECT IDConnect="994" KodOfConnect="9" NameOfConnect="стационарная улучшенная Киев"/>
+            <local:PO_TEL_VID_CONNECT IDConnect="995" KodOfConnect="9" NameOfConnect="стационарная улучшенная"/>
+            <local:PO_TEL_VID_CONNECT IDConnect="996" KodOfConnect="9" NameOfConnect="мобильная улучшенная"/>
+        </col:ArrayList>
+        
+
         <CollectionContainer x:Key="ResourceOfCollection">
             
         </CollectionContainer>
