@@ -170,7 +170,12 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabItem003" Header="Справочник телеф. операторы">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid  x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="True" MinRowHeight="22">
+                        
+                    </DataGrid>
+
+                </Grid>
             </TabItem>
         </TabControl>
 
