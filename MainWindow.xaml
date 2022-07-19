@@ -28,12 +28,12 @@
         </col:Hashtable>
 
         <col:ArrayList x:Key="debuggableListOfTelVidConnectForDataGrid">
-            <local:PO_TEL_VID_CONNECT IDConnect="991" KodOfConnect="7" NameOfConnect="мобильная улучшенная Сумы"/>
+            <local:PO_TEL_VID_CONNECT IDConnect="991" KodOfConnect="9" NameOfConnect="мобильная улучшенная Сумы"/>
             <local:PO_TEL_VID_CONNECT IDConnect="992" KodOfConnect="8" NameOfConnect="мобильная улучшенная Киев"/>
-            <local:PO_TEL_VID_CONNECT IDConnect="993" KodOfConnect="7" NameOfConnect="стационарная улучшенная Сумы"/>
-            <local:PO_TEL_VID_CONNECT IDConnect="994" KodOfConnect="9" NameOfConnect="стационарная улучшенная Киев"/>
-            <local:PO_TEL_VID_CONNECT IDConnect="995" KodOfConnect="9" NameOfConnect="стационарная улучшенная"/>
-            <local:PO_TEL_VID_CONNECT IDConnect="996" KodOfConnect="9" NameOfConnect="мобильная улучшенная"/>
+            <local:PO_TEL_VID_CONNECT IDConnect="993" KodOfConnect="9" NameOfConnect="стационарная улучшенная Сумы"/>
+            <local:PO_TEL_VID_CONNECT IDConnect="994" KodOfConnect="6" NameOfConnect="стационарная улучшенная Киев"/>
+            <local:PO_TEL_VID_CONNECT IDConnect="995" KodOfConnect="7" NameOfConnect="стационарная улучшенная"/>
+            <local:PO_TEL_VID_CONNECT IDConnect="996" KodOfConnect="4" NameOfConnect="мобильная улучшенная"/>
         </col:ArrayList>
         
 
@@ -171,13 +171,31 @@
             </TabItem>
             <TabItem x:Name="tabItem003" Header="Справочник телеф. операторы">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid  x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="26*"/>
+                        <RowDefinition Height="120*"/>
+                        <RowDefinition Height="120*"/>
+                        <RowDefinition Height="120*"/>
+                        <RowDefinition Height="120*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32*"/>
+                        <ColumnDefinition Width="32*"/>
+                        <ColumnDefinition Width="32*"/>
+                        <ColumnDefinition Width="32*"/>
+                        <ColumnDefinition Width="32*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Orientation="Horizontal">
+                        <ComboBox HorizontalAlignment="Left" Margin="13,1,1,1" VerticalAlignment="Center" Width="120" Padding="1,1,1,1"/>
+                    </StackPanel>
+                    <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4" x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>
                             <DataGridTextColumn Header="Код" Binding="{Binding KodOfConnect}"/>
                             <DataGridTextColumn Header="Название" Binding="{Binding NameOfConnect}"/>
                         </DataGrid.Columns>
                     </DataGrid>
+
 
                 </Grid>
             </TabItem>
