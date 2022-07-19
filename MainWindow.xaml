@@ -193,7 +193,14 @@
                             </ComboBox.Resources>
                         </ComboBox>
                     </StackPanel>
-                    <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4" x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22">
+                    <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4" x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22" GotFocus="dataGridSpr003_GotFocus">
+                        <DataGrid.Triggers>
+                            <!--
+                            <Trigger Property="Selected"/>
+                            
+                            -->
+                            
+                        </DataGrid.Triggers>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>
                             <DataGridTextColumn Header="Код" Binding="{Binding KodOfConnect}"/>

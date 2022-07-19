@@ -208,5 +208,37 @@ namespace WpfToyDataForms
 
             ;
         }
+
+        private void dataGridSpr003_GotFocus(object sender, RoutedEventArgs e)
+        {
+            DataGrid dG;
+
+            if(sender.GetType() == typeof(DataGrid))
+            {
+                dG = (DataGrid)sender;
+
+
+                var currColumn = dG.CurrentColumn;
+
+                var tCurrColumn = currColumn.GetType().Name;
+
+                var header = currColumn.Header;
+
+                var tHeader = header.GetType().Name;
+
+                var sortMemberPath = currColumn.SortMemberPath;
+
+                var tSortMemberPath = sortMemberPath.GetType().Name;
+            }
+
+            ;
+            ;
+            ;
+        }
+
+
+
+
+
     }
 }
