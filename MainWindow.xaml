@@ -177,6 +177,7 @@
                         <RowDefinition Height="120*"/>
                         <RowDefinition Height="120*"/>
                         <RowDefinition Height="120*"/>
+                        <RowDefinition Height="26*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="32*"/>
@@ -186,7 +187,11 @@
                         <ColumnDefinition Width="32*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Orientation="Horizontal">
-                        <ComboBox HorizontalAlignment="Left" Margin="13,1,1,1" VerticalAlignment="Center" Width="120" Padding="1,1,1,1"/>
+                        <ComboBox HorizontalAlignment="Left" Margin="13,1,1,1" VerticalAlignment="Center" Width="120" Padding="1,1,1,1">
+                            <ComboBox.Resources>
+                                
+                            </ComboBox.Resources>
+                        </ComboBox>
                     </StackPanel>
                     <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4" x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22">
                         <DataGrid.Columns>
@@ -195,6 +200,9 @@
                             <DataGridTextColumn Header="Название" Binding="{Binding NameOfConnect}"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <StatusBar x:Name="statusBar003" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5">
+                        <Label  x:Name="lbl4statusBar0301"/>
+                    </StatusBar>
 
 
                 </Grid>
