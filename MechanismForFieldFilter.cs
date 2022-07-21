@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace WpfToyDataForms
 {
-     public partial class TypeOfColumnValueForFieldFilter
+    public partial class TypeOfColumnValueForFieldFilter
     {
 
     }
+
+    public partial class ColumnValueForFieldFilter
+    {
+
+    }
+
+
 }
