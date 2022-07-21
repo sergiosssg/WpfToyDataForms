@@ -218,6 +218,9 @@ namespace WpfToyDataForms
                 dG = (DataGrid)sender;
 
 
+                dG.SelectionUnit = DataGridSelectionUnit.CellOrRowHeader;
+
+
                 var currColumn = dG.CurrentColumn;
 
                 var tCurrColumn = currColumn.GetType().Name;
