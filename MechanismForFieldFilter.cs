@@ -91,6 +91,21 @@ namespace WpfToyDataForms
             this._value = default(T);
         }
 
+        public ColumnValueForFieldFilter( T newValu)
+        {
+            this._typeOfColumnValueForFieldFilter = new TypeOfColumnValueForFieldFilter();
+            this._value = newValu;
+            this._IamEmpty = true;
+        }
+
+
+        public ColumnValueForFieldFilter(T newValu, TypeOfColumnValueForFieldFilter typeOfColumnValueForFieldFilter)
+        {
+            this._typeOfColumnValueForFieldFilter = typeOfColumnValueForFieldFilter;
+            this._value = newValu;
+            this._IamEmpty = true;
+        }
+
 
         public bool IsEmpty
         {
