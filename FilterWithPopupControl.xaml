@@ -12,9 +12,12 @@
         
         
     </UserControl.Resources>
-    <StackPanel x:Name="stackPanelForComboBoxFilterControl">
-        <ComboBox>
+    <StackPanel x:Name="stackPanelForComboBoxFilterControl" Orientation="Horizontal">
+        <ComboBox MinWidth="44">
             
         </ComboBox>
+        <Button MinWidth="28">
+            
+        </Button>
     </StackPanel>
 </UserControl>

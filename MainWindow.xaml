@@ -9,7 +9,7 @@
         xmlns:col='clr-namespace:System.Collections;assembly=mscorlib'
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        
+
         <!--
         
         <CollectionViewSource x:Key="CollectionOfVIDConnect" d:Source="{d:DesignInstance {x:Type = PO_TEL_VID_CONNECT}, CreateList=True}"/>
@@ -35,12 +35,12 @@
             <local:PO_TEL_VID_CONNECT IDConnect="995" KodOfConnect="7" NameOfConnect="стационарная улучшенная"/>
             <local:PO_TEL_VID_CONNECT IDConnect="996" KodOfConnect="4" NameOfConnect="мобильная улучшенная"/>
         </col:ArrayList>
-        
+
 
         <CollectionContainer x:Key="ResourceOfCollection">
-            
+
         </CollectionContainer>
-        
+
         <CollectionViewSource x:Key="CollectionOfVIDConnect" Source="{}, CreateList=True"/>
         <dgx:RegexContentFilterFactory x:Key="RegexContentFilterFactory"/>
         <dgx:SimpleContentFilterFactory x:Key="SimpleContentFilterFactory"/>
@@ -186,20 +186,28 @@
                         <ColumnDefinition Width="32*"/>
                         <ColumnDefinition Width="32*"/>
                     </Grid.ColumnDefinitions>
+                    <local:FilterWithPopupControl>
+                        
+                    </local:FilterWithPopupControl>
+                    <!--
                     <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Orientation="Horizontal">
+                        
+                        
                         <ComboBox HorizontalAlignment="Left" Margin="13,1,1,1" VerticalAlignment="Center" Width="120" Padding="1,1,1,1">
                             <ComboBox.Resources>
                                 
                             </ComboBox.Resources>
                         </ComboBox>
+                        
                     </StackPanel>
+                    -->
                     <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4" x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22" GotFocus="dataGridSpr003_GotFocus">
                         <DataGrid.Triggers>
                             <!--
                             <Trigger Property="Selected"/>
                             
                             -->
-                            
+
                         </DataGrid.Triggers>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>

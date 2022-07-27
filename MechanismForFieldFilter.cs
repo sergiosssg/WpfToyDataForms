@@ -13,6 +13,12 @@ namespace WpfToyDataForms
     }
 
 
+    public enum OperatorSign
+    {
+        EQ, NE, GT, LT, GE, LE
+    }
+
+
     public partial class TypeOfColumnValueForFieldFilter
     {
         private string _columnName;
