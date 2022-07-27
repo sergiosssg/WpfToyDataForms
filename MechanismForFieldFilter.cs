@@ -130,7 +130,6 @@ namespace WpfToyDataForms
             get => this._typeOfColumnValueForFieldFilter;
             set => this._typeOfColumnValueForFieldFilter = value;
         }
-
     }
 
 
