@@ -36,6 +36,46 @@ namespace WpfToyDataForms
             this.NameOfType = "string";
             this.SortingDirection = SortingDirection.Ascending;
         }
+
+        public TypeOfColumnValueForFieldFilter(string fieldName)
+        {
+            this._fieldName = fieldName;
+            this._columnName = fieldName;
+            this.NameOfType = "string";
+            this.SortingDirection = SortingDirection.Ascending;
+        }
+        public TypeOfColumnValueForFieldFilter(string fieldName, string columnName)
+        {
+            this._fieldName = fieldName;
+            this._columnName = columnName;
+            this.NameOfType = "string";
+            this.SortingDirection = SortingDirection.Ascending;
+        }
+        public TypeOfColumnValueForFieldFilter(string fieldName, string columnName, string nameOfType)
+        {
+            this._fieldName = fieldName;
+            this._columnName = columnName;
+            this.NameOfType = nameOfType;
+            this.SortingDirection = SortingDirection.Ascending;
+        }
+
+        public TypeOfColumnValueForFieldFilter(string fieldName, string columnName, Type typeOfField)
+        {
+            this._fieldName = fieldName;
+            this._columnName = columnName;
+            this.NameOfType = typeOfField.Name;
+            this.SortingDirection = SortingDirection.Ascending;
+        }
+
+        public TypeOfColumnValueForFieldFilter(string fieldName, string columnName, string nameOfType, SortingDirection sortingDirection)
+        {
+            this._fieldName = fieldName;
+            this._columnName = columnName;
+            this.NameOfType = nameOfType;
+            this.SortingDirection = sortingDirection;
+        }
+
+
     }
 
     public partial class ColumnValueForFieldFilter<T>
