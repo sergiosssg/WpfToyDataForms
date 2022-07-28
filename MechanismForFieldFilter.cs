@@ -147,33 +147,44 @@ namespace WpfToyDataForms
 
     public partial class OperatorForFieldValueChainForInteger
     {
+        private LogicSign _logicSign;
         private OperatorSign _operatorSign;
         private ColumnValueForFieldFilter<int> _columnValueForFieldFilter;
 
         public OperatorForFieldValueChainForInteger()
         {
+            this._logicSign = LogicSign._AND_;
             this._operatorSign = OperatorSign.EQ;
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>();
         }
 
         public OperatorForFieldValueChainForInteger(int iValue)
         {
+            this._logicSign = LogicSign._AND_;
             this._operatorSign = OperatorSign.EQ;
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>( iValue);
         }
 
         public OperatorForFieldValueChainForInteger(OperatorSign  operatorSign, int iValue)
         {
+            this._logicSign = LogicSign._AND_;
             this._operatorSign = operatorSign;
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>(iValue);
         }
 
         public OperatorForFieldValueChainForInteger(OperatorSign operatorSign, ColumnValueForFieldFilter<int> columnValue)
         {
+            this._logicSign = LogicSign._AND_;
             this._operatorSign = operatorSign;
             this._columnValueForFieldFilter = columnValue;
         }
 
+
+        public LogicSign LogicSignProperety
+        {
+            get => this._logicSign;
+            set => this._logicSign = value;
+        }
 
         public OperatorSign OperatorSignProperty
         {
