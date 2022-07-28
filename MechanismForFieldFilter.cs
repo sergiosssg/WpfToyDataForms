@@ -18,6 +18,11 @@ namespace WpfToyDataForms
         EQ, NE, GT, LT, GE, LE
     }
 
+    public enum LogicSign
+    {
+        _AND_, _OR_
+    }
+
 
     public partial class TypeOfColumnValueForFieldFilter
     {
