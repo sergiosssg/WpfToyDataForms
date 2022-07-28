@@ -139,4 +139,30 @@ namespace WpfToyDataForms
     }
 
 
+
+    public partial class OperatorForFieldValueChainForInteger
+    {
+        private OperatorSign _operatorSign;
+        private ColumnValueForFieldFilter<int> _columnValueForFieldFilter;
+
+        public OperatorForFieldValueChainForInteger()
+        {
+            this._operatorSign = OperatorSign.EQ;
+            this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>();
+        }
+
+        public OperatorSign OperatorSignProperty
+        {
+            get => this._operatorSign;
+            set =>this._operatorSign = value;
+    }
+
+        public ColumnValueForFieldFilter<int> ColumnValueForFieldFilterProperty
+        {
+            get => this._columnValueForFieldFilter;
+            set => this._columnValueForFieldFilter= value;
+        }
+    }
+
+
 }
