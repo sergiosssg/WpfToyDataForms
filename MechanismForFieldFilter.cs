@@ -102,7 +102,7 @@ namespace WpfToyDataForms
             this._value = default(T);
         }
 
-        public ColumnValueForFieldFilter( T newValu)
+        public ColumnValueForFieldFilter(T newValu)
         {
             this._typeOfColumnValueForFieldFilter = new TypeOfColumnValueForFieldFilter();
             this._value = newValu;
@@ -162,10 +162,10 @@ namespace WpfToyDataForms
         {
             this._logicSign = LogicSign._AND_;
             this._operatorSign = OperatorSign.EQ;
-            this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>( iValue);
+            this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>(iValue);
         }
 
-        public OperatorForFieldValueChainForInteger(OperatorSign  operatorSign, int iValue)
+        public OperatorForFieldValueChainForInteger(OperatorSign operatorSign, int iValue)
         {
             this._logicSign = LogicSign._AND_;
             this._operatorSign = operatorSign;
@@ -189,13 +189,13 @@ namespace WpfToyDataForms
         public OperatorSign OperatorSignProperty
         {
             get => this._operatorSign;
-            set =>this._operatorSign = value;
-    }
+            set => this._operatorSign = value;
+        }
 
         public ColumnValueForFieldFilter<int> ColumnValueForFieldFilterProperty
         {
             get => this._columnValueForFieldFilter;
-            set => this._columnValueForFieldFilter= value;
+            set => this._columnValueForFieldFilter = value;
         }
     }
 
