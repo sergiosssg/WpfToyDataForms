@@ -179,7 +179,6 @@ namespace WpfToyDataForms
             this._columnValueForFieldFilter = columnValue;
         }
 
-
         public LogicSign LogicSignProperety
         {
             get => this._logicSign;
