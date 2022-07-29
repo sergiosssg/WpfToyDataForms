@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace WpfToyDataForms
 {
 
+    
+
     public enum SortingDirection
     {
         Ascending, Descending
@@ -23,6 +25,11 @@ namespace WpfToyDataForms
         _AND_, _OR_
     }
 
+
+    public interface IFieldFilterPredicatable<T>
+    {
+        Predicate<T> GetFieldFilterPredicate();
+    }
 
     public partial class TypeOfColumnValueForFieldFilter
     {
