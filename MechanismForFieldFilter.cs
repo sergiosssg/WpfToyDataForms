@@ -28,7 +28,7 @@ namespace WpfToyDataForms
 
     public interface IFieldFilterPredicatable<T>
     {
-        Predicate<T> GetFieldFilterPredicate();
+        Func<bool?, T, bool> GetFieldFilterPredicate();
     }
 
     public partial class TypeOfColumnValueForFieldFilter
@@ -152,7 +152,7 @@ namespace WpfToyDataForms
 
 
 
-    public partial class OperatorForFieldValueChainForInteger
+    public partial class OperatorForFieldValueChainForInteger : IFieldFilterPredicatable<int>
     {
         private LogicSign _logicSign;
         private OperatorSign _operatorSign;
@@ -202,6 +202,11 @@ namespace WpfToyDataForms
         {
             get => this._columnValueForFieldFilter;
             set => this._columnValueForFieldFilter = value;
+        }
+
+        public Func<bool? ,int, bool> GetFieldFilterPredicate()
+        {
+            throw new NotImplementedException();
         }
     }
 
