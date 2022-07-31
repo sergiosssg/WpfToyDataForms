@@ -155,30 +155,39 @@ namespace WpfToyDataForms
     public partial class OperatorForFieldValueChainForInteger : IFieldFilterPredicatable<int>
     {
 
-        private IDictionary<OperatorSign, Func<bool?, int, bool>> _mapOfFuncsForOperatorSignForConjunction = new Dictionary<OperatorSign, Func<bool?, int, bool>>
+
+
+
+        private IDictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>> _mapOfFuncs;
+
+        private void Initialize(int coparedValue)
         {
-            [OperatorSign.EQ] = (prevResult, elem) =>  (prevResult != null)? true  :  true,
-            [OperatorSign.NE] = (prevResult, elem) => (prevResult != null) ? false : false,
-            [OperatorSign.GT] = (prevResult, elem) => (prevResult != null) ? false : false,
-            [OperatorSign.LT] = (prevResult, elem) => (prevResult != null) ? false : false,
-            [OperatorSign.GE] = (prevResult, elem) => (prevResult != null) ? false : false,
-            [OperatorSign.LE] = (prevResult, elem) => (prevResult != null) ? false : false
+            IDictionary < OperatorSign, Func<bool?, int, bool> > mapOfFuncsForOperatorSignForConjunction = new Dictionary<OperatorSign, Func<bool?, int, bool>>
+            {
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == coparedValue) ? true : false ): (prevResult == true && elem == coparedValue)?  true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != coparedValue) ? true : false ): (prevResult == true && elem != coparedValue) ? true : false,
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > coparedValue) ? true : false) : (prevResult == true && elem > coparedValue) ? true : false,
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < coparedValue) ? true : false) : (prevResult == true && elem < coparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= coparedValue) ? true : false) : (prevResult == true && elem >= coparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= coparedValue) ? true : false) : (prevResult == true && elem <= coparedValue) ? true : false
+            };
 
-        };
+            IDictionary<OperatorSign, Func<bool?, int, bool>> mapOfFuncsForOperatorSignForDisjunction = new Dictionary<OperatorSign, Func<bool?, int, bool>>
+            {
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == coparedValue) ? true : false) : (prevResult == true || elem == coparedValue) ? true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != coparedValue) ? true : false) : (prevResult == true || elem != coparedValue) ? true : false,
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > coparedValue) ? true : false) : (prevResult == true || elem > coparedValue) ? true : false,
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < coparedValue) ? true : false) : (prevResult == true || elem < coparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= coparedValue) ? true : false) : (prevResult == true || elem >= coparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= coparedValue) ? true : false) : (prevResult == true || elem <= coparedValue) ? true : false
+            };
 
-        private IDictionary<OperatorSign, Func<bool?, int, bool>> _mapOfFuncsForOperatorSignForDisjunction = new Dictionary<OperatorSign, Func<bool?, int, bool>> 
-        { 
-        };
-
-
-
-        /*private static IDictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>>  _mapOfFuncs =
-        {
-            null, 
-            null
-        }*/
-
-
+            this._mapOfFuncs = new Dictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>>
+            {
+                [LogicSign._AND_] = mapOfFuncsForOperatorSignForConjunction,
+                [LogicSign._OR_] = mapOfFuncsForOperatorSignForDisjunction
+            };
+    }
 
         private LogicSign _logicSign;
         private OperatorSign _operatorSign;
