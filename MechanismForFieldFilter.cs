@@ -37,8 +37,6 @@ namespace WpfToyDataForms
         private string _fieldName;
 
 
-
-
         public string ColumnNAme { get => this._columnName; set { this._columnName = value; } }
 
         public string FieldNAme { get => this._fieldName; set { this._fieldName = value; } }
