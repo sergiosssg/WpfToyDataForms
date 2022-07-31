@@ -154,10 +154,6 @@ namespace WpfToyDataForms
 
     public partial class OperatorForFieldValueChainForInteger : IFieldFilterPredicatable<int>
     {
-
-
-
-
         private IDictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>> _mapOfFuncs;
 
         private void Initialize(int coparedValue)
@@ -239,10 +235,8 @@ namespace WpfToyDataForms
             set => this._columnValueForFieldFilter = value;
         }
 
-        public Func<bool? ,int, bool> GetFieldFilterPredicate()
-        {
-            throw new NotImplementedException();
-        }
+        public Func<bool? ,int, bool> GetFieldFilterPredicate() => this._mapOfFuncs[this._logicSign][this._operatorSign];
+
     }
 
 
