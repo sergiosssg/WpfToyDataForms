@@ -194,23 +194,19 @@ namespace WpfToyDataForms
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>();
         }
 
-        public OperatorForFieldValueChainForInteger(int iValue)
+        public OperatorForFieldValueChainForInteger(int iValue) : this()
         {
-            this._logicSign = LogicSign._AND_;
-            this._operatorSign = OperatorSign.EQ;
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>(iValue);
         }
 
-        public OperatorForFieldValueChainForInteger(OperatorSign operatorSign, int iValue)
+        public OperatorForFieldValueChainForInteger(OperatorSign operatorSign, int iValue) : this()
         {
-            this._logicSign = LogicSign._AND_;
             this._operatorSign = operatorSign;
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>(iValue);
         }
 
-        public OperatorForFieldValueChainForInteger(OperatorSign operatorSign, ColumnValueForFieldFilter<int> columnValue)
+        public OperatorForFieldValueChainForInteger(OperatorSign operatorSign, ColumnValueForFieldFilter<int> columnValue) : this()
         {
-            this._logicSign = LogicSign._AND_;
             this._operatorSign = operatorSign;
             this._columnValueForFieldFilter = columnValue;
         }
