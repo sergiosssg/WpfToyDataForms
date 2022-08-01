@@ -197,29 +197,33 @@ namespace WpfToyDataForms
             this._logicSign = LogicSign._AND_;
             this._operatorSign = OperatorSign.EQ;
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>();
+            this.Initialize(this._columnValueForFieldFilter.ValueProperty);
         }
 
         public OperatorForFieldValueChainForInteger(int iValue) : this()
         {
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>(iValue);
+            this.Initialize(this._columnValueForFieldFilter.ValueProperty);
         }
 
         public OperatorForFieldValueChainForInteger(OperatorSign operatorSign, int iValue) : this()
         {
             this._operatorSign = operatorSign;
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>(iValue);
+            this.Initialize(this._columnValueForFieldFilter.ValueProperty);
         }
 
         public OperatorForFieldValueChainForInteger(OperatorSign operatorSign, ColumnValueForFieldFilter<int> columnValue) : this()
         {
             this._operatorSign = operatorSign;
             this._columnValueForFieldFilter = columnValue;
+            this.Initialize(this._columnValueForFieldFilter.ValueProperty);
         }
 
         public LogicSign LogicSignProperety
         {
             get => this._logicSign;
-            set => this._logicSign = value;
+            set { this._logicSign = value; this.Initialize(this._columnValueForFieldFilter.ValueProperty); }
         }
 
         public OperatorSign OperatorSignProperty
