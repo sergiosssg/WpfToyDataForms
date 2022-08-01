@@ -111,7 +111,7 @@ namespace WpfToyDataForms
         {
             this._typeOfColumnValueForFieldFilter = new TypeOfColumnValueForFieldFilter();
             this._value = newValu;
-            this._IamEmpty = true;
+            this._IamEmpty = false;
         }
 
 
@@ -119,7 +119,7 @@ namespace WpfToyDataForms
         {
             this._typeOfColumnValueForFieldFilter = typeOfColumnValueForFieldFilter;
             this._value = newValu;
-            this._IamEmpty = true;
+            this._IamEmpty = false;
         }
 
 
@@ -128,7 +128,7 @@ namespace WpfToyDataForms
             get => this.IsEmpty;
         }
 
-        public T ValueProperty
+        public T? ValueProperty
         {
             get => this._value;
             set
@@ -136,6 +136,11 @@ namespace WpfToyDataForms
                 if (value != null)
                 {
                     this._value = value;
+                    this._IamEmpty = false;
+                }
+                else
+                {
+                    this._value = default(T);
                     this._IamEmpty = true;
                 }
             }
