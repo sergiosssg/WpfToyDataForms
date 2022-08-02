@@ -223,7 +223,7 @@ namespace WpfToyDataForms
         public LogicSign LogicSignProperety
         {
             get => this._logicSign;
-            set { this._logicSign = value; this.Initialize(this._columnValueForFieldFilter.ValueProperty); }
+            set => this._logicSign = value;
         }
 
         public OperatorSign OperatorSignProperty
@@ -235,7 +235,7 @@ namespace WpfToyDataForms
         public ColumnValueForFieldFilter<int> ColumnValueForFieldFilterProperty
         {
             get => this._columnValueForFieldFilter;
-            set => this._columnValueForFieldFilter = value;
+            set  { this._columnValueForFieldFilter = value; this.Initialize(this._columnValueForFieldFilter.ValueProperty); }
         }
 
         public Func<bool? ,int, bool> GetFieldFilterPredicate() => this._mapOfFuncs[this._logicSign][this._operatorSign];
