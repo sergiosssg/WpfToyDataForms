@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,10 @@ namespace WpfToyDataForms
 
     public enum LogicSign
     {
-        _AND_, _OR_
+        _AS_IS_,_AND_, _OR_
     }
+
+
 
 
     public interface IFieldFilterPredicatable<T>
@@ -93,6 +96,36 @@ namespace WpfToyDataForms
 
 
     }
+
+
+
+    public  partial  class CollectionOfEnums
+    {
+        private ObservableCollection<LogicSign> _collectionOfLogicSign;
+
+        private ObservableCollection<OperatorSign> _collectionOfOperatorSign;
+
+
+        public CollectionOfEnums()
+        {
+            this._collectionOfLogicSign = new ObservableCollection<LogicSign>
+            {
+               LogicSign._AS_IS_, LogicSign._AND_, LogicSign._OR_
+            };
+
+            this._collectionOfOperatorSign = new ObservableCollection<OperatorSign>
+            {
+                OperatorSign.EQ, OperatorSign.GT, OperatorSign.GE, OperatorSign.LT, OperatorSign.LE, OperatorSign.NE
+            };
+        }
+
+        public ObservableCollection<LogicSign> GetAllLogicSign() => this._collectionOfLogicSign;
+
+        public ObservableCollection<OperatorSign> GetAllOperatorSign() => this._collectionOfOperatorSign;
+
+    }
+
+
 
     public partial class ColumnValueForFieldFilter<T>
     {
@@ -181,8 +214,19 @@ namespace WpfToyDataForms
                 [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= coparedValue) ? true : false) : (prevResult == true || elem <= coparedValue) ? true : false
             };
 
+            IDictionary<OperatorSign, Func<bool?, int, bool>> mapOfFuncsForOperatorSignForAsIs = new Dictionary<OperatorSign, Func<bool?, int, bool>>
+            {
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == coparedValue) ? true : false) : ( elem == coparedValue) ? true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != coparedValue) ? true : false) : ( elem != coparedValue) ? true : false,
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > coparedValue) ? true : false) : ( elem > coparedValue) ? true : false,
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < coparedValue) ? true : false) : ( elem < coparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= coparedValue) ? true : false) : ( elem >= coparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= coparedValue) ? true : false) : ( elem <= coparedValue) ? true : false
+            };
+
             this._mapOfFuncs = new Dictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>>
             {
+                [LogicSign._AS_IS_] = mapOfFuncsForOperatorSignForAsIs,
                 [LogicSign._AND_] = mapOfFuncsForOperatorSignForConjunction,
                 [LogicSign._OR_] = mapOfFuncsForOperatorSignForDisjunction
             };
@@ -223,7 +267,7 @@ namespace WpfToyDataForms
         public LogicSign LogicSignProperety
         {
             get => this._logicSign;
-            set { this._logicSign = value; this.Initialize(this._columnValueForFieldFilter.ValueProperty); }
+            set => this._logicSign = value;
         }
 
         public OperatorSign OperatorSignProperty
@@ -235,7 +279,7 @@ namespace WpfToyDataForms
         public ColumnValueForFieldFilter<int> ColumnValueForFieldFilterProperty
         {
             get => this._columnValueForFieldFilter;
-            set => this._columnValueForFieldFilter = value;
+            set  { this._columnValueForFieldFilter = value; this.Initialize(this._columnValueForFieldFilter.ValueProperty); }
         }
 
         public Func<bool? ,int, bool> GetFieldFilterPredicate() => this._mapOfFuncs[this._logicSign][this._operatorSign];
