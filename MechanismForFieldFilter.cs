@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace WpfToyDataForms
     {
         _AS_IS_,_AND_, _OR_
     }
+
+
 
 
     public interface IFieldFilterPredicatable<T>
@@ -93,6 +96,36 @@ namespace WpfToyDataForms
 
 
     }
+
+
+
+    public  partial  class CollectionOfEnums
+    {
+        private ObservableCollection<LogicSign> _collectionOfLogicSign;
+
+        private ObservableCollection<OperatorSign> _collectionOfOperatorSign;
+
+
+        public CollectionOfEnums()
+        {
+            this._collectionOfLogicSign = new ObservableCollection<LogicSign>
+            {
+               LogicSign._AS_IS_, LogicSign._AND_, LogicSign._OR_
+            };
+
+            this._collectionOfOperatorSign = new ObservableCollection<OperatorSign>
+            {
+                OperatorSign.EQ, OperatorSign.GT, OperatorSign.GE, OperatorSign.LT, OperatorSign.LE, OperatorSign.NE
+            };
+        }
+
+        public ObservableCollection<LogicSign> GetAllLogicSign() => this._collectionOfLogicSign;
+
+        public ObservableCollection<OperatorSign> GetAllOperatorSign() => this._collectionOfOperatorSign;
+
+    }
+
+
 
     public partial class ColumnValueForFieldFilter<T>
     {

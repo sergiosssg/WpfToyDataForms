@@ -7,6 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="28" d:DesignWidth="120">
     <Grid>
+        <Grid.Resources>
+            
+        </Grid.Resources>
         <StackPanel x:Name="stackPanelForOneRowComboBoxFilterControl" Orientation="Horizontal">
             <ComboBox /><ComboBox /><TextBlock /><ComboBox /><TextBlock />
         </StackPanel>
