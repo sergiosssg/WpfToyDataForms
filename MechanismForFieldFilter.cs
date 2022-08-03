@@ -22,7 +22,7 @@ namespace WpfToyDataForms
 
     public enum LogicSign
     {
-        _AND_, _OR_
+        _AS_IS_,_AND_, _OR_
     }
 
 
@@ -181,8 +181,19 @@ namespace WpfToyDataForms
                 [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= coparedValue) ? true : false) : (prevResult == true || elem <= coparedValue) ? true : false
             };
 
+            IDictionary<OperatorSign, Func<bool?, int, bool>> mapOfFuncsForOperatorSignForAsIs = new Dictionary<OperatorSign, Func<bool?, int, bool>>
+            {
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == coparedValue) ? true : false) : ( elem == coparedValue) ? true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != coparedValue) ? true : false) : ( elem != coparedValue) ? true : false,
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > coparedValue) ? true : false) : ( elem > coparedValue) ? true : false,
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < coparedValue) ? true : false) : ( elem < coparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= coparedValue) ? true : false) : ( elem >= coparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= coparedValue) ? true : false) : ( elem <= coparedValue) ? true : false
+            };
+
             this._mapOfFuncs = new Dictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>>
             {
+                [LogicSign._AS_IS_] = mapOfFuncsForOperatorSignForAsIs,
                 [LogicSign._AND_] = mapOfFuncsForOperatorSignForConjunction,
                 [LogicSign._OR_] = mapOfFuncsForOperatorSignForDisjunction
             };
