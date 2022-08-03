@@ -8,7 +8,8 @@
              d:DesignHeight="28" d:DesignWidth="120">
     <Grid>
         <Grid.Resources>
-            
+            <ObjectDataProvider x:Key="OperatorSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllOperatorSign" />
+            <ObjectDataProvider x:Key="LogicSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllLogicSign" />
         </Grid.Resources>
         <StackPanel x:Name="stackPanelForOneRowComboBoxFilterControl" Orientation="Horizontal">
             <ComboBox /><ComboBox /><TextBlock /><ComboBox /><TextBlock />
