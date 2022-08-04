@@ -128,7 +128,15 @@ namespace WpfToyDataForms
 
     public  static  class StringsIntoEnumTransformator
     {
+        static public OperatorSign GetOperatorSignFromString(String sOperatorSign)
+        {
+            throw new NotImplementedException();
+        }
 
+        static public LogicSign GetLogicSignFromString(String sLogicSign)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 
