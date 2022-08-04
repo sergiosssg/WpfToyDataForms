@@ -11,11 +11,7 @@
         <Grid.Resources>
             <ObjectDataProvider x:Key="OperatorSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllOperatorSign" />
             <ObjectDataProvider x:Key="LogicSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllLogicSign" />
-            <x:Array x:Key="collectionOfLogicOperators" Type="sys:String">
-                <sys:String>and</sys:String>
-                <sys:String>or</sys:String>
-            </x:Array>
-            <!--
+             <!--
             <x:Array x:Key="collectionOfComparisionOperators" Type="sys:String">
                 <sys:String>eq</sys:String>
             </x:Array>
@@ -28,8 +24,18 @@
             </VectorCollection>
         </Grid.Resources>
         <StackPanel x:Name="stackPanelForOneRowComboBoxFilterControl" Orientation="Horizontal">
-            <ComboBox x:Name="cmbBoxForLogicalOperationSign"></ComboBox>
-            <ComboBox x:Name="cmbBoxForComparisionOperationSignLeftBoundary"></ComboBox>
+            <ComboBox x:Name="cmbBoxForLogicalOperationSign">
+                <sys:String>and</sys:String>
+                <sys:String>or</sys:String>
+            </ComboBox>
+            <ComboBox x:Name="cmbBoxForComparisionOperationSignLeftBoundary">
+                <sys:String>==</sys:String>
+                <sys:String>&gt;=</sys:String>
+                <sys:String>&gt;</sys:String>
+                <sys:String>&lt;=</sys:String>
+                <sys:String>&lt;</sys:String>
+                <sys:String>!=</sys:String>
+            </ComboBox>
             <TextBlock />
             <ComboBox ></ComboBox>
             <TextBlock />
