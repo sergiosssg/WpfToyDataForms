@@ -11,14 +11,14 @@
         <Grid.Resources>
             <ObjectDataProvider x:Key="OperatorSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllOperatorSign" />
             <ObjectDataProvider x:Key="LogicSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllLogicSign" />
-             <!--
+            <!--
             <x:Array x:Key="collectionOfComparisionOperators" Type="sys:String">
                 <sys:String>eq</sys:String>
             </x:Array>
             -->
-            
-            
-            
+
+
+
             <VectorCollection x:Key="collectionOfComparisionOperators">
 
             </VectorCollection>
@@ -36,7 +36,13 @@
                 <sys:String>&lt;</sys:String>
                 <sys:String>!=</sys:String>
             </ComboBox>
+            <TextBox x:Name="txbValueForFilterLeftBoundary" MaxWidth="0" MinWidth="32"/>
+            <!--
+            
             <TextBlock x:Name="txbValueForFilterLeftBoundary" MaxWidth="0" MinWidth="32"/>
+            
+            -->
+            
             <ComboBox x:Name="cmbBoxForComparisionOperationSignRightBoundary" Visibility="Hidden"></ComboBox>
             <TextBlock x:Name="txbValueForFilterRightBoundary" MinWidth="32" Visibility="Hidden"/>
         </StackPanel>
