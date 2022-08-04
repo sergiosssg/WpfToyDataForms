@@ -172,7 +172,7 @@
             <TabItem x:Name="tabItem003" Header="Справочник телеф. операторы">
                 <Grid Background="#FFE5E5E5">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="26*"/>
+                        <RowDefinition Height="36*"/>
                         <RowDefinition Height="120*"/>
                         <RowDefinition Height="120*"/>
                         <RowDefinition Height="120*"/>
