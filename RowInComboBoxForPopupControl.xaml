@@ -12,7 +12,11 @@
             <ObjectDataProvider x:Key="LogicSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllLogicSign" />
         </Grid.Resources>
         <StackPanel x:Name="stackPanelForOneRowComboBoxFilterControl" Orientation="Horizontal">
-            <ComboBox /><ComboBox /><TextBlock /><ComboBox /><TextBlock />
+            <ComboBox x:Name="cmbBoxForLogicalOperationSign"></ComboBox>
+            <ComboBox x:Name="cmbBoxForComparisionOperationSignLeftBoundary"></ComboBox>
+            <TextBlock />
+            <ComboBox ></ComboBox>
+            <TextBlock />
         </StackPanel>
     </Grid>
 </UserControl>
