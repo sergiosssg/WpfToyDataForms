@@ -12,7 +12,8 @@
             <ObjectDataProvider x:Key="OperatorSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllOperatorSign" />
             <ObjectDataProvider x:Key="LogicSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllLogicSign" />
             <x:Array x:Key="collectionOfLogicOperators" Type="sys:String">
-
+                <sys:String>and</sys:String>
+                <sys:String>or</sys:String>
             </x:Array>
             <VectorCollection x:Key="collectionOfComparisionOperators">
                 
