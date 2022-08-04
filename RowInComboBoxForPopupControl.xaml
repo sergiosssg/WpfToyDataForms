@@ -15,8 +15,16 @@
                 <sys:String>and</sys:String>
                 <sys:String>or</sys:String>
             </x:Array>
+            <!--
+            <x:Array x:Key="collectionOfComparisionOperators" Type="sys:String">
+                <sys:String>eq</sys:String>
+            </x:Array>
+            -->
+            
+            
+            
             <VectorCollection x:Key="collectionOfComparisionOperators">
-                
+
             </VectorCollection>
         </Grid.Resources>
         <StackPanel x:Name="stackPanelForOneRowComboBoxFilterControl" Orientation="Horizontal">
