@@ -126,6 +126,11 @@ namespace WpfToyDataForms
     }
 
 
+    public  static  class StringsIntoEnumTransformator
+    {
+
+    }
+
 
     public partial class ColumnValueForFieldFilter<T>
     {
