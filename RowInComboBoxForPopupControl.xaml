@@ -37,12 +37,6 @@
                 <sys:String>!=</sys:String>
             </ComboBox>
             <TextBox x:Name="txbValueForFilterLeftBoundary" MaxWidth="0" MinWidth="32"/>
-            <!--
-            
-            <TextBlock x:Name="txbValueForFilterLeftBoundary" MaxWidth="0" MinWidth="32"/>
-            
-            -->
-            
             <ComboBox x:Name="cmbBoxForComparisionOperationSignRightBoundary" Visibility="Hidden"></ComboBox>
             <TextBlock x:Name="txbValueForFilterRightBoundary" MinWidth="32" Visibility="Hidden"/>
         </StackPanel>
