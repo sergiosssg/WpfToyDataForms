@@ -36,9 +36,9 @@
                 <sys:String>&lt;</sys:String>
                 <sys:String>!=</sys:String>
             </ComboBox>
-            <TextBlock />
-            <ComboBox ></ComboBox>
-            <TextBlock />
+            <TextBlock x:Name="txbValueForFilterLeftBoundary"/>
+            <ComboBox x:Name="cmbBoxForComparisionOperationSignRightBoundary"></ComboBox>
+            <TextBlock x:Name="txbValueForFilterRightBoundary"/>
         </StackPanel>
     </Grid>
 </UserControl>
