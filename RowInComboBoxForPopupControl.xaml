@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfToyDataForms"
              mc:Ignorable="d" 
@@ -10,6 +11,12 @@
         <Grid.Resources>
             <ObjectDataProvider x:Key="OperatorSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllOperatorSign" />
             <ObjectDataProvider x:Key="LogicSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllLogicSign" />
+            <VectorCollection x:Key="collectionOfLogicOperators">
+                
+            </VectorCollection>
+            <VectorCollection x:Key="collectionOfComparisionOperators">
+                
+            </VectorCollection>
         </Grid.Resources>
         <StackPanel x:Name="stackPanelForOneRowComboBoxFilterControl" Orientation="Horizontal">
             <ComboBox x:Name="cmbBoxForLogicalOperationSign"></ComboBox>
