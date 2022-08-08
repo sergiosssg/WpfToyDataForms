@@ -25,6 +25,7 @@
         </Grid.Resources>
         <StackPanel x:Name="stackPanelForOneRowComboBoxFilterControl" Orientation="Horizontal">
             <ComboBox x:Name="cmbBoxForLogicalOperationSign">
+                <sys:String>as is</sys:String>
                 <sys:String>and</sys:String>
                 <sys:String>or</sys:String>
             </ComboBox>
