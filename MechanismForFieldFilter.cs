@@ -99,6 +99,7 @@ namespace WpfToyDataForms
 
 
 
+    /*
     public  partial  class CollectionOfEnums
     {
         private ObservableCollection<LogicSign> _collectionOfLogicSign;
@@ -123,7 +124,7 @@ namespace WpfToyDataForms
 
         public ObservableCollection<OperatorSign> GetAllOperatorSign() => this._collectionOfOperatorSign;
 
-    }
+    }*/
 
 
     public  static  class StringsIntoEnumTransformator

@@ -9,9 +9,10 @@
              d:DesignHeight="28" d:DesignWidth="174">
     <Grid>
         <Grid.Resources>
+            <!--
             <ObjectDataProvider x:Key="OperatorSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllOperatorSign" />
             <ObjectDataProvider x:Key="LogicSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllLogicSign" />
-            <!--
+            
             <x:Array x:Key="collectionOfComparisionOperators" Type="sys:String">
                 <sys:String>eq</sys:String>
             </x:Array>
