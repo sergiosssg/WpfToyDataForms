@@ -128,15 +128,13 @@ namespace WpfToyDataForms
 
     public  static  class StringsIntoEnumTransformator
     {
-        static public OperatorSign GetOperatorSignFromString(String sOperatorSign)
-        {
-            throw new NotImplementedException();
-        }
+        readonly private  static Dictionary<String, OperatorSign> _dict_Strings2OperatorSign = new Dictionary<string, OperatorSign> { ["=="]= OperatorSign.EQ, [">"] = OperatorSign.GT, [">="] = OperatorSign.GE, ["<"] = OperatorSign.LT, ["<="] = OperatorSign.LE, ["!="] = OperatorSign.NE };
 
-        static public LogicSign GetLogicSignFromString(String sLogicSign)
-        {
-            throw new NotImplementedException();
-        }
+        readonly private static Dictionary<String, LogicSign> _dict_Strings2LogicSign = new Dictionary<string, LogicSign> { ["as is"] = LogicSign._AS_IS_, ["and"] = LogicSign._AND_, ["or"] = LogicSign._OR_ };
+
+        static public OperatorSign GetOperatorSignFromString(String sOperatorSign) => _dict_Strings2OperatorSign[sOperatorSign];
+
+        static public LogicSign GetLogicSignFromString(String sLogicSign) => _dict_Strings2LogicSign[sLogicSign];
     }
 
 
