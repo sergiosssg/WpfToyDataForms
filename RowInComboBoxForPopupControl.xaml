@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfToyDataForms"
              mc:Ignorable="d" 
-             d:DesignHeight="28" d:DesignWidth="120">
+             d:DesignHeight="28" d:DesignWidth="174">
     <Grid>
         <Grid.Resources>
             <ObjectDataProvider x:Key="OperatorSignProvider"   ObjectType="{x:Type local:CollectionOfEnums}" MethodName="GetAllOperatorSign" />
@@ -24,6 +24,7 @@
             </VectorCollection>
         </Grid.Resources>
         <StackPanel x:Name="stackPanelForOneRowComboBoxFilterControl" Orientation="Horizontal">
+            <ComboBox x:Name="cmbBoxForFieldNames"/>
             <ComboBox x:Name="cmbBoxForLogicalOperationSign">
                 <sys:String>as is</sys:String>
                 <sys:String>and</sys:String>
