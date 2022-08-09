@@ -10,12 +10,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
 
-        <!--
-        
-        <CollectionViewSource x:Key="CollectionOfVIDConnect" d:Source="{d:DesignInstance {x:Type = PO_TEL_VID_CONNECT}, CreateList=True}"/>
-        
-        -->
-
         <col:Hashtable x:Key='debuggableHashForDataGrid'>
             <col:DictionaryEntry x:Key='hashEntry1' Key='11' Value='aaa'></col:DictionaryEntry>
             <col:DictionaryEntry x:Key='hashEntry2' Key='12' Value='aba'></col:DictionaryEntry>
@@ -36,7 +30,6 @@
             <local:PO_TEL_VID_CONNECT IDConnect="996" KodOfConnect="4" NameOfConnect="мобильная улучшенная"/>
         </col:ArrayList>
 
-
         <CollectionContainer x:Key="ResourceOfCollection">
 
         </CollectionContainer>
@@ -46,17 +39,11 @@
         <dgx:SimpleContentFilterFactory x:Key="SimpleContentFilterFactory"/>
         <!-- Template for a simple integer dgx control. -->
         <ControlTemplate x:Key="IntegerFilter">
-            <!--
-            
-            <src:IntegerGreatherThanFilterControl Filter="{Binding Path=Filter, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=dgx:DataGridFilterColumnControl}}"/>
-            -->
+
         </ControlTemplate>
 
         <ControlTemplate x:Key="FilterWithPopup">
-            <!--
-            
-            <src:FilterWithPopupControl Filter="{Binding Path=Filter, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=dgx:DataGridFilterColumnControl}}"/>
-            -->
+
         </ControlTemplate>
     </Window.Resources>
     <Grid>
@@ -189,25 +176,10 @@
                     <local:FilterWithPopupControl>
                         
                     </local:FilterWithPopupControl>
-                    <!--
-                    <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Orientation="Horizontal">
-                        
-                        
-                        <ComboBox HorizontalAlignment="Left" Margin="13,1,1,1" VerticalAlignment="Center" Width="120" Padding="1,1,1,1">
-                            <ComboBox.Resources>
-                                
-                            </ComboBox.Resources>
-                        </ComboBox>
-                        
-                    </StackPanel>
-                    -->
+
                     <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4" x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22" GotFocus="dataGridSpr003_GotFocus">
                         <DataGrid.Triggers>
-                            <!--
-                            <Trigger Property="Selected"/>
                             
-                            -->
-
                         </DataGrid.Triggers>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>

@@ -25,7 +25,10 @@
             </VectorCollection>
         </Grid.Resources>
         <StackPanel x:Name="stackPanelForOneRowComboBoxFilterControl" Orientation="Horizontal">
-            <ComboBox x:Name="cmbBoxForFieldNames"/>
+            <ComboBox x:Name="cmbBoxForFieldNames">
+
+
+            </ComboBox>
             <ComboBox x:Name="cmbBoxForLogicalOperationSign">
                 <sys:String>as is</sys:String>
                 <sys:String>and</sys:String>
