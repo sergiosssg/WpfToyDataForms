@@ -34,6 +34,7 @@ namespace WpfToyDataForms
         Func<bool?, T, bool> GetFieldFilterPredicate();
     }
 
+
     public partial class TypeOfColumnValueForFieldFilter
     {
         private string _columnName;
@@ -96,35 +97,6 @@ namespace WpfToyDataForms
 
 
     }
-
-
-
-    /*
-    public  partial  class CollectionOfEnums
-    {
-        private ObservableCollection<LogicSign> _collectionOfLogicSign;
-
-        private ObservableCollection<OperatorSign> _collectionOfOperatorSign;
-
-
-        public CollectionOfEnums()
-        {
-            this._collectionOfLogicSign = new ObservableCollection<LogicSign>
-            {
-               LogicSign._AS_IS_, LogicSign._AND_, LogicSign._OR_
-            };
-
-            this._collectionOfOperatorSign = new ObservableCollection<OperatorSign>
-            {
-                OperatorSign.EQ, OperatorSign.GT, OperatorSign.GE, OperatorSign.LT, OperatorSign.LE, OperatorSign.NE
-            };
-        }
-
-        public ObservableCollection<LogicSign> GetAllLogicSign() => this._collectionOfLogicSign;
-
-        public ObservableCollection<OperatorSign> GetAllOperatorSign() => this._collectionOfOperatorSign;
-
-    }*/
 
 
     public  static  class StringsIntoEnumTransformator
@@ -197,7 +169,6 @@ namespace WpfToyDataForms
             set => this._typeOfColumnValueForFieldFilter = value;
         }
     }
-
 
 
     public partial class OperatorForFieldValueChainForInteger : IFieldFilterPredicatable<int>
