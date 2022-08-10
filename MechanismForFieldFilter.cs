@@ -15,7 +15,6 @@ namespace WpfToyDataForms
         Ascending, Descending
     }
 
-
     public enum OperatorSign
     {
         EQ, NE, GT, LT, GE, LE
