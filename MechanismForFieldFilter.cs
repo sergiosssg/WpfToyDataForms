@@ -28,10 +28,23 @@ namespace WpfToyDataForms
 
 
 
-    public interface IFieldFilterPredicatable<T>
+    public interface IFieldFilterPredicatableGetter<T>
     {
         Func<bool?, T, bool> GetFieldFilterPredicate();
     }
+
+
+    public interface IFieldFilterPredicatableInitializer<T>
+    {
+        void InitializePredicates(T comparedT);
+    }
+
+
+    public interface IFieldFilterPredicatesIntializerAndGetter<T> : IFieldFilterPredicatableGetter<T>, IFieldFilterPredicatableInitializer<T>
+    {
+
+    }
+
 
 
     public partial class TypeOfColumnValueForFieldFilter
@@ -175,18 +188,13 @@ namespace WpfToyDataForms
         }
     }
 
-    public interface IFieldFilterInitializerOfPredicates<T>
-    {
-        void InitializePredicates(T comparedT);
-    }
 
 
-
-    public partial class OperatorForFieldValueChainForInteger : IFieldFilterPredicatable<int>
+    public partial class OperatorForFieldValueChainForInteger : IFieldFilterPredicatesIntializerAndGetter<int>
     {
         private IDictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>> _mapOfFuncs;
 
-        private void InitializePredicates(int comparedValue)
+        public void InitializePredicates(int comparedValue)
         {
             IDictionary < OperatorSign, Func<bool?, int, bool> > mapOfFuncsForOperatorSignForConjunction = new Dictionary<OperatorSign, Func<bool?, int, bool>>
             {
