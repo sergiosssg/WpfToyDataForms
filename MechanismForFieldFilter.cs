@@ -140,6 +140,12 @@ namespace WpfToyDataForms
         }
 
 
+        public void clearValue()
+        {
+            this._IamEmpty = true;
+            this._value = default(T);
+        }
+
         public bool IsEmpty
         {
             get => this.IsEmpty;
