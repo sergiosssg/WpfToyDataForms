@@ -180,36 +180,36 @@ namespace WpfToyDataForms
     {
         private IDictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>> _mapOfFuncs;
 
-        private void Initialize(int coparedValue)
+        private void Initialize(int comparedValue)
         {
             IDictionary < OperatorSign, Func<bool?, int, bool> > mapOfFuncsForOperatorSignForConjunction = new Dictionary<OperatorSign, Func<bool?, int, bool>>
             {
-                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == coparedValue) ? true : false ): (prevResult == true && elem == coparedValue)?  true : false,
-                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != coparedValue) ? true : false ): (prevResult == true && elem != coparedValue) ? true : false,
-                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > coparedValue) ? true : false) : (prevResult == true && elem > coparedValue) ? true : false,
-                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < coparedValue) ? true : false) : (prevResult == true && elem < coparedValue) ? true : false,
-                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= coparedValue) ? true : false) : (prevResult == true && elem >= coparedValue) ? true : false,
-                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= coparedValue) ? true : false) : (prevResult == true && elem <= coparedValue) ? true : false
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == comparedValue) ? true : false ): (prevResult == true && elem == comparedValue)?  true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != comparedValue) ? true : false ): (prevResult == true && elem != comparedValue) ? true : false,
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (prevResult == true && elem > comparedValue) ? true : false,
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (prevResult == true && elem < comparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (prevResult == true && elem >= comparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (prevResult == true && elem <= comparedValue) ? true : false
             };
 
             IDictionary<OperatorSign, Func<bool?, int, bool>> mapOfFuncsForOperatorSignForDisjunction = new Dictionary<OperatorSign, Func<bool?, int, bool>>
             {
-                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == coparedValue) ? true : false) : (prevResult == true || elem == coparedValue) ? true : false,
-                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != coparedValue) ? true : false) : (prevResult == true || elem != coparedValue) ? true : false,
-                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > coparedValue) ? true : false) : (prevResult == true || elem > coparedValue) ? true : false,
-                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < coparedValue) ? true : false) : (prevResult == true || elem < coparedValue) ? true : false,
-                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= coparedValue) ? true : false) : (prevResult == true || elem >= coparedValue) ? true : false,
-                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= coparedValue) ? true : false) : (prevResult == true || elem <= coparedValue) ? true : false
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == comparedValue) ? true : false) : (prevResult == true || elem == comparedValue) ? true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != comparedValue) ? true : false) : (prevResult == true || elem != comparedValue) ? true : false,
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (prevResult == true || elem > comparedValue) ? true : false,
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (prevResult == true || elem < comparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (prevResult == true || elem >= comparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (prevResult == true || elem <= comparedValue) ? true : false
             };
 
             IDictionary<OperatorSign, Func<bool?, int, bool>> mapOfFuncsForOperatorSignForAsIs = new Dictionary<OperatorSign, Func<bool?, int, bool>>
             {
-                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == coparedValue) ? true : false) : ( elem == coparedValue) ? true : false,
-                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != coparedValue) ? true : false) : ( elem != coparedValue) ? true : false,
-                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > coparedValue) ? true : false) : ( elem > coparedValue) ? true : false,
-                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < coparedValue) ? true : false) : ( elem < coparedValue) ? true : false,
-                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= coparedValue) ? true : false) : ( elem >= coparedValue) ? true : false,
-                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= coparedValue) ? true : false) : ( elem <= coparedValue) ? true : false
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == comparedValue) ? true : false) : ( elem == comparedValue) ? true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != comparedValue) ? true : false) : ( elem != comparedValue) ? true : false,
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : ( elem > comparedValue) ? true : false,
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : ( elem < comparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : ( elem >= comparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : ( elem <= comparedValue) ? true : false
             };
 
             this._mapOfFuncs = new Dictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>>
