@@ -175,12 +175,18 @@ namespace WpfToyDataForms
         }
     }
 
+    public interface IFieldFilterInitializerOfPredicates<T>
+    {
+        void InitializePredicates(T comparedT);
+    }
+
+
 
     public partial class OperatorForFieldValueChainForInteger : IFieldFilterPredicatable<int>
     {
         private IDictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>> _mapOfFuncs;
 
-        private void Initialize(int comparedValue)
+        private void InitializePredicates(int comparedValue)
         {
             IDictionary < OperatorSign, Func<bool?, int, bool> > mapOfFuncsForOperatorSignForConjunction = new Dictionary<OperatorSign, Func<bool?, int, bool>>
             {
@@ -229,27 +235,27 @@ namespace WpfToyDataForms
             this._logicSign = LogicSign._AND_;
             this._operatorSign = OperatorSign.EQ;
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>();
-            this.Initialize(this._columnValueForFieldFilter.ValueProperty);
+            this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty);
         }
 
         public OperatorForFieldValueChainForInteger(int iValue) : this()
         {
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>(iValue);
-            this.Initialize(this._columnValueForFieldFilter.ValueProperty);
+            this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty);
         }
 
         public OperatorForFieldValueChainForInteger(OperatorSign operatorSign, int iValue) : this()
         {
             this._operatorSign = operatorSign;
             this._columnValueForFieldFilter = new ColumnValueForFieldFilter<int>(iValue);
-            this.Initialize(this._columnValueForFieldFilter.ValueProperty);
+            this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty);
         }
 
         public OperatorForFieldValueChainForInteger(OperatorSign operatorSign, ColumnValueForFieldFilter<int> columnValue) : this()
         {
             this._operatorSign = operatorSign;
             this._columnValueForFieldFilter = columnValue;
-            this.Initialize(this._columnValueForFieldFilter.ValueProperty);
+            this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty);
         }
 
         public LogicSign LogicSignProperety
@@ -267,7 +273,7 @@ namespace WpfToyDataForms
         public ColumnValueForFieldFilter<int> ColumnValueForFieldFilterProperty
         {
             get => this._columnValueForFieldFilter;
-            set  { this._columnValueForFieldFilter = value; this.Initialize(this._columnValueForFieldFilter.ValueProperty); }
+            set  { this._columnValueForFieldFilter = value; this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty); }
         }
 
         public Func<bool? ,int, bool> GetFieldFilterPredicate() => this._mapOfFuncs[this._logicSign][this._operatorSign];
