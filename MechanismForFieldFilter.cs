@@ -189,7 +189,6 @@ namespace WpfToyDataForms
     }
 
 
-
     public partial class OperatorForFieldValueChainForInteger : IFieldFilterPredicatesIntializerAndGetter<int>
     {
         private IDictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>> _mapOfFuncs;
