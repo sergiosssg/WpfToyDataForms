@@ -289,4 +289,116 @@ namespace WpfToyDataForms
     }
 
 
+    public partial class OperatorForFieldValueChainForString : IFieldFilterPredicatesIntializerAndGetter<string>
+    {
+        private IDictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, string, bool>>> _mapOfFuncs;
+
+        public void InitializePredicates(string comparedValue)
+        {
+            IDictionary<OperatorSign, Func<bool?, string, bool>> mapOfFuncsForOperatorSignForConjunction = new Dictionary<OperatorSign, Func<bool?, string, bool>>
+            {
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem.Equals(comparedValue)) ? true : false) : (prevResult == true && elem.Equals(comparedValue)) ? true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? (!elem.Equals(comparedValue) ? true : false) : (prevResult == true && !elem.Equals(comparedValue)) ? true : false,
+                
+/*              ,
+
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (prevResult == true && elem > comparedValue) ? true : false
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (prevResult == true && elem < comparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (prevResult == true && elem >= comparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (prevResult == true && elem <= comparedValue) ? true : false
+*/
+            };
+
+            IDictionary<OperatorSign, Func<bool?, string, bool>> mapOfFuncsForOperatorSignForDisjunction = new Dictionary<OperatorSign, Func<bool?, string, bool>>
+            {
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem.Equals(comparedValue)) ? true : false) : (prevResult == true || elem.Equals(comparedValue)) ? true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? (!elem.Equals(comparedValue) ? true : false) : (prevResult == true || !elem.Equals(comparedValue)) ? true : false
+                
+/*                ,
+
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (prevResult == true || elem > comparedValue) ? true : false,
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (prevResult == true || elem < comparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (prevResult == true || elem >= comparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (prevResult == true || elem <= comparedValue) ? true : false
+*/
+            };
+
+            IDictionary<OperatorSign, Func<bool?, string, bool>> mapOfFuncsForOperatorSignForAsIs = new Dictionary<OperatorSign, Func<bool?, string, bool>>
+            {
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem.Equals(comparedValue)) ? true : false) : (elem.Equals(comparedValue)) ? true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? (!elem.Equals(comparedValue) ? true : false) : (!elem.Equals(comparedValue)) ? true : false
+                
+/*                ,
+
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (elem > comparedValue) ? true : false,
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (elem < comparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (elem >= comparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (elem <= comparedValue) ? true : false
+*/
+            };
+
+            this._mapOfFuncs = new Dictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, string, bool>>>
+            {
+                [LogicSign._AS_IS_] = mapOfFuncsForOperatorSignForAsIs,
+                [LogicSign._AND_] = mapOfFuncsForOperatorSignForConjunction,
+                [LogicSign._OR_] = mapOfFuncsForOperatorSignForDisjunction
+            };
+        }
+
+        private LogicSign _logicSign;
+        private OperatorSign _operatorSign;
+        private ColumnValueForFieldFilter<string> _columnValueForFieldFilter;
+
+        public OperatorForFieldValueChainForString()
+        {
+            this._logicSign = LogicSign._AND_;
+            this._operatorSign = OperatorSign.EQ;
+            this._columnValueForFieldFilter = new ColumnValueForFieldFilter<string>();
+            this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty);
+        }
+
+        public OperatorForFieldValueChainForString(string sValue) : this()
+        {
+            this._columnValueForFieldFilter = new ColumnValueForFieldFilter<string>(sValue);
+            this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty);
+        }
+
+        public OperatorForFieldValueChainForString(OperatorSign operatorSign, string sValue) : this()
+        {
+            this._operatorSign = operatorSign;
+            this._columnValueForFieldFilter = new ColumnValueForFieldFilter<string>(sValue);
+            this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty);
+        }
+
+        public OperatorForFieldValueChainForString(OperatorSign operatorSign, ColumnValueForFieldFilter<string> columnValue) : this()
+        {
+            this._operatorSign = operatorSign;
+            this._columnValueForFieldFilter = columnValue;
+            this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty);
+        }
+
+        public LogicSign LogicSignProperety
+        {
+            get => this._logicSign;
+            set => this._logicSign = value;
+        }
+
+        public OperatorSign OperatorSignProperty
+        {
+            get => this._operatorSign;
+            set => this._operatorSign = value;
+        }
+
+        public ColumnValueForFieldFilter<string> ColumnValueForFieldFilterProperty
+        {
+            get => this._columnValueForFieldFilter;
+            set { this._columnValueForFieldFilter = value; this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty); }
+        }
+
+        public Func<bool?, string, bool> GetFieldFilterPredicate() => this._mapOfFuncs[this._logicSign][this._operatorSign];
+
+    }
+
+
+
 }
