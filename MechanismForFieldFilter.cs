@@ -296,7 +296,25 @@ namespace WpfToyDataForms
         {
             IDictionary<OperatorSign, Func<bool?, string, bool>> mapOfFuncsForOperatorSignForConjunction = new Dictionary<OperatorSign, Func<bool?, string, bool>>
             {
-                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? (elem.Equals(comparedValue) ? true : false) : (prevResult == true && elem.Equals(comparedValue)) ? true : false,
+
+                /*[OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? (elem.Equals(comparedValue) ? true : false) : (prevResult == true && elem.Equals(comparedValue)) ? true : false,*/
+
+                [OperatorSign.EQ] = (prevResult, elem) =>  
+                     {
+                       if( elem == null || comparedValue == null) 
+                           {
+                             return false;
+                           }
+                       if( prevResult == null)
+                         {
+                             return elem.Equals(comparedValue);
+                         }
+                       if( prevResult != null && prevResult == true)
+                         {
+                             return elem.Equals(comparedValue);
+                         }
+                       return false;
+                     },
                 [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? (!elem.Equals(comparedValue) ? true : false) : (prevResult == true && !elem.Equals(comparedValue)) ? true : false
                 
 /*              ,
