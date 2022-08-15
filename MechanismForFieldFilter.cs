@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace WpfToyDataForms
 {
 
-    
+
 
     public enum SortingDirection
     {
@@ -22,7 +22,7 @@ namespace WpfToyDataForms
 
     public enum LogicSign
     {
-        _AS_IS_,_AND_, _OR_
+        _AS_IS_, _AND_, _OR_
     }
 
 
@@ -111,9 +111,9 @@ namespace WpfToyDataForms
     }
 
 
-    public  static  class StringsIntoEnumTransformator
+    public static class StringsIntoEnumTransformator
     {
-        readonly private  static Dictionary<String, OperatorSign> _dict_Strings2OperatorSign = new Dictionary<string, OperatorSign> { ["=="]= OperatorSign.EQ, [">"] = OperatorSign.GT, [">="] = OperatorSign.GE, ["<"] = OperatorSign.LT, ["<="] = OperatorSign.LE, ["!="] = OperatorSign.NE };
+        readonly private static Dictionary<String, OperatorSign> _dict_Strings2OperatorSign = new Dictionary<string, OperatorSign> { ["=="] = OperatorSign.EQ, [">"] = OperatorSign.GT, [">="] = OperatorSign.GE, ["<"] = OperatorSign.LT, ["<="] = OperatorSign.LE, ["!="] = OperatorSign.NE };
 
         readonly private static Dictionary<String, LogicSign> _dict_Strings2LogicSign = new Dictionary<string, LogicSign> { ["as is"] = LogicSign._AS_IS_, ["and"] = LogicSign._AND_, ["or"] = LogicSign._OR_ };
 
@@ -195,10 +195,10 @@ namespace WpfToyDataForms
 
         public void InitializePredicates(int comparedValue)
         {
-            IDictionary < OperatorSign, Func<bool?, int, bool> > mapOfFuncsForOperatorSignForConjunction = new Dictionary<OperatorSign, Func<bool?, int, bool>>
+            IDictionary<OperatorSign, Func<bool?, int, bool>> mapOfFuncsForOperatorSignForConjunction = new Dictionary<OperatorSign, Func<bool?, int, bool>>
             {
-                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == comparedValue) ? true : false ): (prevResult == true && elem == comparedValue)?  true : false,
-                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != comparedValue) ? true : false ): (prevResult == true && elem != comparedValue) ? true : false,
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == comparedValue) ? true : false) : (prevResult == true && elem == comparedValue) ? true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != comparedValue) ? true : false) : (prevResult == true && elem != comparedValue) ? true : false,
                 [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (prevResult == true && elem > comparedValue) ? true : false,
                 [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (prevResult == true && elem < comparedValue) ? true : false,
                 [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (prevResult == true && elem >= comparedValue) ? true : false,
@@ -217,12 +217,12 @@ namespace WpfToyDataForms
 
             IDictionary<OperatorSign, Func<bool?, int, bool>> mapOfFuncsForOperatorSignForAsIs = new Dictionary<OperatorSign, Func<bool?, int, bool>>
             {
-                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == comparedValue) ? true : false) : ( elem == comparedValue) ? true : false,
-                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != comparedValue) ? true : false) : ( elem != comparedValue) ? true : false,
-                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : ( elem > comparedValue) ? true : false,
-                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : ( elem < comparedValue) ? true : false,
-                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : ( elem >= comparedValue) ? true : false,
-                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : ( elem <= comparedValue) ? true : false
+                [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? ((elem == comparedValue) ? true : false) : (elem == comparedValue) ? true : false,
+                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? ((elem != comparedValue) ? true : false) : (elem != comparedValue) ? true : false,
+                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (elem > comparedValue) ? true : false,
+                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (elem < comparedValue) ? true : false,
+                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (elem >= comparedValue) ? true : false,
+                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (elem <= comparedValue) ? true : false
             };
 
             this._mapOfFuncs = new Dictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, int, bool>>>
@@ -231,7 +231,7 @@ namespace WpfToyDataForms
                 [LogicSign._AND_] = mapOfFuncsForOperatorSignForConjunction,
                 [LogicSign._OR_] = mapOfFuncsForOperatorSignForDisjunction
             };
-    }
+        }
 
         private LogicSign _logicSign;
         private OperatorSign _operatorSign;
@@ -280,10 +280,10 @@ namespace WpfToyDataForms
         public ColumnValueForFieldFilter<int> ColumnValueForFieldFilterProperty
         {
             get => this._columnValueForFieldFilter;
-            set  { this._columnValueForFieldFilter = value; this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty); }
+            set { this._columnValueForFieldFilter = value; this.InitializePredicates(this._columnValueForFieldFilter.ValueProperty); }
         }
 
-        public Func<bool? ,int, bool> GetFieldFilterPredicate() => this._mapOfFuncs[this._logicSign][this._operatorSign];
+        public Func<bool?, int, bool> GetFieldFilterPredicate() => this._mapOfFuncs[this._logicSign][this._operatorSign];
 
     }
 
@@ -299,59 +299,75 @@ namespace WpfToyDataForms
 
                 /*[OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? (elem.Equals(comparedValue) ? true : false) : (prevResult == true && elem.Equals(comparedValue)) ? true : false,*/
 
-                [OperatorSign.EQ] = (prevResult, elem) =>  
+                [OperatorSign.EQ] = (prevResult, elem) =>
                      {
-                       if( elem == null || comparedValue == null) 
-                           {
+                         if (elem == null || comparedValue == null)
+                         {
                              return false;
-                           }
-                       if( prevResult == null)
+                         }
+                         if (prevResult == null)
                          {
                              return elem.Equals(comparedValue);
                          }
-                       if( prevResult != null && prevResult == true)
+                         if (prevResult != null && prevResult == true)
                          {
                              return elem.Equals(comparedValue);
                          }
-                       return false;
+                         return false;
                      },
-                [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? (!elem.Equals(comparedValue) ? true : false) : (prevResult == true && !elem.Equals(comparedValue)) ? true : false
-                
-/*              ,
+                [OperatorSign.NE] = (prevResult, elem) =>
+                    {
+                        if (elem == null || comparedValue == null)
+                        {
+                            return false;
+                        }
+                        if (prevResult == null)
+                        {
+                            return !elem.Equals(comparedValue);
+                        }
+                        if (prevResult != null && prevResult == true)
+                        {
+                            return !elem.Equals(comparedValue);
+                        }
+                        return false;
+                    }
+                    //[OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? (!elem.Equals(comparedValue) ? true : false) : (prevResult == true && !elem.Equals(comparedValue)) ? true : false
 
-                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (prevResult == true && elem > comparedValue) ? true : false
-                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (prevResult == true && elem < comparedValue) ? true : false,
-                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (prevResult == true && elem >= comparedValue) ? true : false,
-                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (prevResult == true && elem <= comparedValue) ? true : false
-*/
+                    /*              ,
+
+                                    [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (prevResult == true && elem > comparedValue) ? true : false
+                                    [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (prevResult == true && elem < comparedValue) ? true : false,
+                                    [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (prevResult == true && elem >= comparedValue) ? true : false,
+                                    [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (prevResult == true && elem <= comparedValue) ? true : false
+                    */
             };
 
             IDictionary<OperatorSign, Func<bool?, string, bool>> mapOfFuncsForOperatorSignForDisjunction = new Dictionary<OperatorSign, Func<bool?, string, bool>>
             {
                 [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? (elem.Equals(comparedValue) ? true : false) : (prevResult == true || elem.Equals(comparedValue)) ? true : false,
                 [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? (!elem.Equals(comparedValue) ? true : false) : (prevResult == true || !elem.Equals(comparedValue)) ? true : false
-                
-/*                ,
 
-                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (prevResult == true || elem > comparedValue) ? true : false,
-                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (prevResult == true || elem < comparedValue) ? true : false,
-                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (prevResult == true || elem >= comparedValue) ? true : false,
-                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (prevResult == true || elem <= comparedValue) ? true : false
-*/
+                /*                ,
+
+                                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (prevResult == true || elem > comparedValue) ? true : false,
+                                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (prevResult == true || elem < comparedValue) ? true : false,
+                                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (prevResult == true || elem >= comparedValue) ? true : false,
+                                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (prevResult == true || elem <= comparedValue) ? true : false
+                */
             };
 
             IDictionary<OperatorSign, Func<bool?, string, bool>> mapOfFuncsForOperatorSignForAsIs = new Dictionary<OperatorSign, Func<bool?, string, bool>>
             {
                 [OperatorSign.EQ] = (prevResult, elem) => (prevResult == null) ? (elem.Equals(comparedValue) ? true : false) : (elem.Equals(comparedValue)) ? true : false,
                 [OperatorSign.NE] = (prevResult, elem) => (prevResult == null) ? (!elem.Equals(comparedValue) ? true : false) : (!elem.Equals(comparedValue)) ? true : false
-                
-/*                ,
 
-                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (elem > comparedValue) ? true : false,
-                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (elem < comparedValue) ? true : false,
-                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (elem >= comparedValue) ? true : false,
-                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (elem <= comparedValue) ? true : false
-*/
+                /*                ,
+
+                                [OperatorSign.GT] = (prevResult, elem) => (prevResult == null) ? ((elem > comparedValue) ? true : false) : (elem > comparedValue) ? true : false,
+                                [OperatorSign.LT] = (prevResult, elem) => (prevResult == null) ? ((elem < comparedValue) ? true : false) : (elem < comparedValue) ? true : false,
+                                [OperatorSign.GE] = (prevResult, elem) => (prevResult == null) ? ((elem >= comparedValue) ? true : false) : (elem >= comparedValue) ? true : false,
+                                [OperatorSign.LE] = (prevResult, elem) => (prevResult == null) ? ((elem <= comparedValue) ? true : false) : (elem <= comparedValue) ? true : false
+                */
             };
 
             this._mapOfFuncs = new Dictionary<LogicSign, IDictionary<OperatorSign, Func<bool?, string, bool>>>
