@@ -82,7 +82,6 @@ namespace WpfToyDataForms
 
         public int Load_PO_TEL_VID_CONNECT()
         {
-
             DbAppContext.pO_TEL_VID_CONNECTs.Load();
 
             this.CollectionOf_TEL_VID_CONNECTs = DbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
@@ -92,13 +91,22 @@ namespace WpfToyDataForms
 
         public int Load_PO_TEL_OPERATOR()
         {
-
             DbAppContext.pO_TEL_OPERATORs.Load();
 
             this.CollectionOf_TEL_OPERATORs = DbAppContext.pO_TEL_OPERATORs.ToList<PO_TEL_OPERATOR>();
 
             return this.CollectionOf_TEL_OPERATORs.Count;
         }
+
+        public int Load_PO_TEL_MOB_SPR()
+        {
+            DbAppContext.pO_TEL_MOB_SPRs.Load();
+
+            this.CollectionOf_TEL_MOB_SPRs = DbAppContext.pO_TEL_MOB_SPRs.ToList<PO_TEL_MOB_SPR>();
+
+            return this.CollectionOf_TEL_MOB_SPRs.Count;
+        }
+
 
 
         private void btnLoadAll_Click(object sender, RoutedEventArgs e)
