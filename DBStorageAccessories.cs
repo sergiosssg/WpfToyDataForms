@@ -24,6 +24,8 @@ namespace WpfToyDataForms
 
         public DbSet<PO_TEL_OPERATOR>? pO_TEL_OPERATORs { get; set; } = null;
 
+        public DbSet<PO_TEL_MOB_SPR>? pO_TEL_MOB_SPRs { get; set; } = null;
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
