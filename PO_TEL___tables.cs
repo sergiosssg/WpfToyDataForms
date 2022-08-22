@@ -125,7 +125,7 @@ namespace WpfToyDataForms
         }
     }
 
-    [Table("TEL_MOB_SPR")]
+    [Table("TEL_MOB_SPR___OLD")]
     public class PO_TEL_MOB_SPR
     {
         [Required]
