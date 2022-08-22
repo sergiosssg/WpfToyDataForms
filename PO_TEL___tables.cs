@@ -188,7 +188,7 @@ namespace WpfToyDataForms
             get;
             set;
         }
-        [Column("ID__PODR")]
+        [Column("ID_PODR")]
         public int IDDepartment
         {   //  ID__PODR  integer
             get;
