@@ -44,6 +44,13 @@ namespace WpfToyDataForms
         }
 
 
+        public ICollection<PO_TEL_MOB_SPR> CollectionOf_TEL_MOB_SPRs
+        {
+            set;
+            get;
+        }
+
+
 
         public DbContextOptions<DbAppContext> OptionsOFContext
         {
