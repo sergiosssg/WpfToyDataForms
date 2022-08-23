@@ -299,12 +299,16 @@ namespace WpfToyDataForms
             get;
             set;
         }
+
+/*
         [Column("PERNR")]
         public int? Pernr
         {   //  PERNR  integer
             get;
             set;
         }
+*/
+
         [Column("DATE_PEREM")]
         public DateTime? Perem
         {   //  DATE_PEREM  date
