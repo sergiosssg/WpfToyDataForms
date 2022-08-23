@@ -139,7 +139,8 @@ namespace WpfToyDataForms
         [Column("NOM_TEL")]
         [MaxLength(12)]
         public string? Phone
-        {  //   NOM_TEL  char(12)
+        {   //   NOM_TEL  char(12)
+            //  Номер телефона
             get;
             set;
         }
@@ -147,6 +148,7 @@ namespace WpfToyDataForms
         [MaxLength(100)]
         public string? Fio
         {   //   FIO  varchar(100)
+            //   ФИО
             get;
             set;
         }
@@ -154,12 +156,14 @@ namespace WpfToyDataForms
         [MaxLength(50)]
         public string? Tarif
         {   //  TARIF  varchar(50)
+            //  Тариф
             get;
             set;
         }
         [Column("LIMIT")]
         public float? Limit
         {   //  LIMIT  double precision
+            //  Лимит
             get;
             set;
         }
@@ -167,30 +171,35 @@ namespace WpfToyDataForms
         [MaxLength(1)]
         public string? RoumingSet
         {   //  PR_ROUMING  char(1)
+            //  Признак роуминга  0 - есть, 1 - нет
             get;
             set;
         }
         [Column("DATE_BEGIN")]
         public DateTime? BeginOf
         {   //  DATE_BEGIN  timestamp
+            //  Дата блокировки телефона
             get;
             set;
         }
         [Column("DATE_END")]
         public DateTime? EndOf
         {   //  DATE_END   timestamp
+            //  Дата увольнения абонента
             get;
             set;
         }
         [Column("ID_OPERATOR")]
         public int? IDOperator
-        {  //  ID_OPERATOR  integer
+        {   //  ID_OPERATOR  integer
+            //  Ид оператора связи
             get;
             set;
         }
         [Column("ID_PODR")]
         public int? IDDepartment
         {   //  ID__PODR  integer
+            //  Ид подразделения
             get;
             set;
         }
@@ -198,30 +207,35 @@ namespace WpfToyDataForms
         [MaxLength(1)]
         public string? PhoneType
         {   //  VID_TEL  char(1)
+            //  Вид телефона 0 - моб., 1- беспров.
             get;
             set;
         }
         [Column("DATE_INS")]
         public DateTime? WhenInserted
         {   //  DATE_INS  timestamp
+            //  Дата и время добавления
             get;
             set;
         }
         [Column("DATE_IZM")]
         public DateTime? WhenEdited
         {   //  DATE_IZM  timestamp
+            //  Дата изменения
             get;
             set;
         }
         [Column("ID_USER_INS")]
         public int? IDWhoInserted
         {   //  ID_USER_INS  integer
+            //  Кто добавил
             get;
             set;
         }
         [Column("ID_USER_IZM")]
         public int? IDWhoEdited
         {   //  ID_USER_IZM  integer
+            //  Кто изменил
             get;
             set;
         }
@@ -229,6 +243,7 @@ namespace WpfToyDataForms
         [MaxLength(200)]
         public string? JobTitle
         {   //  DOLGNOST  varchar(200)
+            //  Должность
             get;
             set;
         }
@@ -236,6 +251,7 @@ namespace WpfToyDataForms
         [MaxLength(150)]
         public string? NoteComment
         {   //  PRIMECH  varchar(150)
+            //  Примечание
             get;
             set;
         }
@@ -243,6 +259,7 @@ namespace WpfToyDataForms
         [MaxLength(1)]
         public string? PhoneTypeTogle
         {   //  NAIM  char(1)
+            //  Вид телефона : F - фиксированный, M - мобильный
             get;
             set;
         }
@@ -250,6 +267,7 @@ namespace WpfToyDataForms
         [MaxLength(1)]
         public string? Nds
         {   //  NDS  char(1)
+            //  Признак НДС : ( 0 - нет, 1 - есть )
             get;
             set;
         }
@@ -257,6 +275,7 @@ namespace WpfToyDataForms
         [MaxLength(1)]
         public string? Pf
         {   //  PF  char(1)
+            //  Признак Пенсионного фонда : ( 0 - нет, 1 - есть )
             get;
             set;
         }
@@ -264,6 +283,7 @@ namespace WpfToyDataForms
         [MaxLength(4)]
         public string? TabelNumber
         {   //  TAB_NOM  char(4)
+            //  Табельный номер
             get;
             set;
         }
@@ -271,6 +291,7 @@ namespace WpfToyDataForms
         [MaxLength(1)]
         public string? FiredSign
         {   //  PR_UVOL  char(1)
+            //  Признак увольнения
             get;
             set;
         }
@@ -278,6 +299,7 @@ namespace WpfToyDataForms
         [MaxLength(3)]
         public string? Mvz
         {   //  CEX_MVZ  char(3)
+            //  Цех МВЗ
             get;
             set;
         }
@@ -285,6 +307,7 @@ namespace WpfToyDataForms
         [MaxLength(1)]
         public string? Pr
         {   //  PR  char(1)
+            //  Признак договорники  ( 0 - да, 1 - нет )
             get;
             set;
         }
@@ -292,6 +315,7 @@ namespace WpfToyDataForms
         [MaxLength(8)]
         public string? CardNumber
         {   //  NOM_KART  varchar(8)
+            //  Номер личной карточки
             get;
             set;
         }
@@ -308,6 +332,7 @@ namespace WpfToyDataForms
         [Column("DATE_PEREM")]
         public DateTime? Perem
         {   //  DATE_PEREM  date
+            //  
             get;
             set;
         }
