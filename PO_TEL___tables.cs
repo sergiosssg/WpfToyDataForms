@@ -157,12 +157,16 @@ namespace WpfToyDataForms
             get;
             set;
         }
+
+/*
         [Column("LIMIT")]
         public float? Limit
         {   //  LIMIT  double precision
             get;
             set;
         }
+*/
+
         [Column("PR_ROUMING")]
         [MaxLength(1)]
         public string? RoumingSet
