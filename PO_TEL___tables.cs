@@ -125,7 +125,7 @@ namespace WpfToyDataForms
         }
     }
 
-    [Table("TEL_MOB_SPR___OLD")]
+    [Table("TEL_MOB_SPR")]
     public class PO_TEL_MOB_SPR
     {
         [Required]
@@ -138,171 +138,171 @@ namespace WpfToyDataForms
         }
         [Column("NOM_TEL")]
         [MaxLength(12)]
-        public string Phone
+        public string? Phone
         {  //   NOM_TEL  char(12)
             get;
             set;
         }
         [Column("FIO")]
         [MaxLength(100)]
-        public string Fio
+        public string? Fio
         {   //   FIO  varchar(100)
             get;
             set;
         }
         [Column("TARIF")]
         [MaxLength(50)]
-        public string Tarif
+        public string? Tarif
         {   //  TARIF  varchar(50)
             get;
             set;
         }
         [Column("LIMIT")]
-        public decimal Limit
+        public decimal? Limit
         {   //  LIMIT  double precision
             get;
             set;
         }
         [Column("PR_ROUMING")]
         [MaxLength(1)]
-        public string RoumingSet
+        public string? RoumingSet
         {   //  PR_ROUMING  char(1)
             get;
             set;
         }
         [Column("DATE_BEGIN")]
-        public DateTime BeginOf
+        public DateTime? BeginOf
         {   //  DATE_BEGIN  timestamp
             get;
             set;
         }
         [Column("DATE_END")]
-        public DateTime EndOf
+        public DateTime? EndOf
         {   //  DATE_END   timestamp
             get;
             set;
         }
         [Column("ID_OPERATOR")]
-        public int IDOperator
+        public int? IDOperator
         {  //  ID_OPERATOR  integer
             get;
             set;
         }
         [Column("ID_PODR")]
-        public int IDDepartment
+        public int? IDDepartment
         {   //  ID__PODR  integer
             get;
             set;
         }
         [Column("VID_TEL")]
         [MaxLength(1)]
-        public string PhoneType
+        public string? PhoneType
         {   //  VID_TEL  char(1)
             get;
             set;
         }
         [Column("DATE_INS")]
-        public DateTime WhenInserted
+        public DateTime? WhenInserted
         {   //  DATE_INS  timestamp
             get;
             set;
         }
         [Column("DATE_IZM")]
-        public DateTime WhenEdited
+        public DateTime? WhenEdited
         {   //  DATE_IZM  timestamp
             get;
             set;
         }
         [Column("ID_USER_INS")]
-        public int IDWhoInserted
+        public int? IDWhoInserted
         {   //  ID_USER_INS  integer
             get;
             set;
         }
         [Column("ID_USER_IZM")]
-        public int IDWhoEdited
+        public int? IDWhoEdited
         {   //  ID_USER_IZM  integer
             get;
             set;
         }
         [Column("DOLGNOST")]
         [MaxLength(200)]
-        public string JobTitle
+        public string? JobTitle
         {   //  DOLGNOST  varchar(200)
             get;
             set;
         }
         [Column("PRIMECH")]
         [MaxLength(150)]
-        public string NoteComment
+        public string? NoteComment
         {   //  PRIMECH  varchar(150)
             get;
             set;
         }
         [Column("NAIM")]
         [MaxLength(1)]
-        public string PhoneTypeTogle
+        public string? PhoneTypeTogle
         {   //  NAIM  char(1)
             get;
             set;
         }
         [Column("NDS")]
         [MaxLength(1)]
-        public string Nds
+        public string? Nds
         {   //  NDS  char(1)
             get;
             set;
         }
         [Column("PF")]
         [MaxLength(1)]
-        public string Pf
+        public string? Pf
         {   //  PF  char(1)
             get;
             set;
         }
         [Column("TAB_NOM")]
         [MaxLength(4)]
-        public string TabelNumber
+        public string? TabelNumber
         {   //  TAB_NOM  char(4)
             get;
             set;
         }
         [Column("PR_UVOL")]
         [MaxLength(1)]
-        public string FiredSign
+        public string? FiredSign
         {   //  PR_UVOL  char(1)
             get;
             set;
         }
         [Column("CEX_MVZ")]
         [MaxLength(3)]
-        public string Mvz
+        public string? Mvz
         {   //  CEX_MVZ  char(3)
             get;
             set;
         }
         [Column("PR")]
         [MaxLength(1)]
-        public string Pr
+        public string? Pr
         {   //  PR  char(1)
             get;
             set;
         }
         [Column("NOM_KART")]
         [MaxLength(8)]
-        public string CardNumber
+        public string? CardNumber
         {   //  NOM_KART  varchar(8)
             get;
             set;
         }
         [Column("PERNR")]
-        public int Pernr
+        public int? Pernr
         {   //  PERNR  integer
             get;
             set;
         }
         [Column("DATE_PEREM")]
-        public DateTime Perem
+        public DateTime? Perem
         {   //  DATE_PEREM  date
             get;
             set;
