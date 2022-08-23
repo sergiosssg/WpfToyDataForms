@@ -158,7 +158,7 @@ namespace WpfToyDataForms
             set;
         }
         [Column("LIMIT")]
-        public double? Limit
+        public float? Limit
         {   //  LIMIT  double precision
             get;
             set;
