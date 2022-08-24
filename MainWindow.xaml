@@ -194,6 +194,9 @@
 
                 </Grid>
             </TabItem>
+            <TabItem x:Name="tabItem004" Header="Справочник мобильных телефонов">
+
+            </TabItem>
         </TabControl>
 
     </Grid>
