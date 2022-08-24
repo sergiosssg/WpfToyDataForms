@@ -174,12 +174,9 @@
                         <ColumnDefinition Width="32*"/>
                     </Grid.ColumnDefinitions>
                     <local:FilterWithPopupControl>
-                        
                     </local:FilterWithPopupControl>
-
                     <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4" x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22" GotFocus="dataGridSpr003_GotFocus">
                         <DataGrid.Triggers>
-                            
                         </DataGrid.Triggers>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>
@@ -190,12 +187,27 @@
                     <StatusBar x:Name="statusBar003" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5">
                         <Label  x:Name="lbl4statusBar0301"/>
                     </StatusBar>
-
-
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabItem004" Header="Справочник мобильных телефонов">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36*"/>
+                        <RowDefinition Height="120*"/>
+                        <RowDefinition Height="120*"/>
+                        <RowDefinition Height="120*"/>
+                        <RowDefinition Height="120*"/>
+                        <RowDefinition Height="26*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32*"/>
+                        <ColumnDefinition Width="32*"/>
+                        <ColumnDefinition Width="32*"/>
+                        <ColumnDefinition Width="32*"/>
+                        <ColumnDefinition Width="32*"/>
+                    </Grid.ColumnDefinitions>
 
+                </Grid>
             </TabItem>
         </TabControl>
 
