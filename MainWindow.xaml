@@ -38,6 +38,9 @@
         <dgx:RegexContentFilterFactory x:Key="RegexContentFilterFactory"/>
         <dgx:SimpleContentFilterFactory x:Key="SimpleContentFilterFactory"/>
         <!-- Template for a simple integer dgx control. -->
+        
+      
+        
         <ControlTemplate x:Key="IntegerFilter">
 
         </ControlTemplate>
@@ -45,6 +48,9 @@
         <ControlTemplate x:Key="FilterWithPopup">
 
         </ControlTemplate>
+        
+      
+        
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
