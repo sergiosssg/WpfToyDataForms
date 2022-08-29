@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:WpfToyDataForms"
         mc:Ignorable="d"
         xmlns:col='clr-namespace:System.Collections;assembly=mscorlib'
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow">
+
     <Window.Resources>
 
         <col:Hashtable x:Key='debuggableHashForDataGrid'>
@@ -38,9 +39,9 @@
         <dgx:RegexContentFilterFactory x:Key="RegexContentFilterFactory"/>
         <dgx:SimpleContentFilterFactory x:Key="SimpleContentFilterFactory"/>
         <!-- Template for a simple integer dgx control. -->
-        
-      
-        
+
+
+
         <ControlTemplate x:Key="IntegerFilter">
 
         </ControlTemplate>
@@ -48,174 +49,188 @@
         <ControlTemplate x:Key="FilterWithPopup">
 
         </ControlTemplate>
-        
-      
-        
+
+
+
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="16*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
-        <Label x:Name="lblStatusBar" Grid.Column="1" Grid.Row="12" Content="Label" Grid.ColumnSpan="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1" FontSize="14" Background="#FFC9CDD6"/>
-        <ToolBar x:Name="mainToolBar" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="11"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="5,5,5,5">
+
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="22*"/>
-                    <ColumnDefinition Width="22*"/>
-                    <ColumnDefinition Width="22*"/>
-                    <ColumnDefinition Width="22*"/>
-                    <ColumnDefinition Width="22*"/>
-                    <ColumnDefinition Width="22*"/>
-                    <ColumnDefinition Width="22*"/>
-                    <ColumnDefinition Width="22*"/>
-                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
-            </Grid>
-            <Button x:Name="btnLoadAll" Content="Загрузить всё ..." HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Margin="1,1,1,1" Padding="2,2,2,2" Click="btnLoadAll_Click"/>
-            <Button x:Name="btnShowFilterForm" Content="Фильтр" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Margin="1,1,1,1" Padding="2,2,2,2" IsEnabled="False"/>
-            <Button x:Name="btnShowTweakForm" Content="Настройки" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="1,1,1,1" Padding="2,2,2,2"/>
-            <Button x:Name="btnSaveChanges" Content="Сохранить" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="1,1,1,1" Padding="2,2,2,2" IsEnabled="False"/>
-        </ToolBar>
-        <TabControl x:Name="mainTabCtrl" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="11" Grid.RowSpan="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
-            <TabControl.Resources>
-                <ObjectDataProvider x:Key="ResDbContext" ObjectType="{x:Type local:DbAppContext}"/>
-                <ObjectDataProvider x:Key="ResVidOfConnect" ObjectInstance="{StaticResource ResDbContext}"/>
-            </TabControl.Resources>
-            <TabControl.DataContext>
-                <local:DataBaseFacilities/>
-            </TabControl.DataContext>
-            <TabItem x:Name="tabItem001" Header="Справочник .. Виды связи">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <ToolBarPanel x:Name="toolBar4TabItem001" Height="32" IsEnabled="False" Visibility="Hidden">
-
-                    </ToolBarPanel>
-                    <Grid Background="#FFE5E5E5" HorizontalAlignment="Stretch">
-                        <DataGrid Background="#FFF1ECEC" RowBackground="#FFF5F6F7" AlternatingRowBackground="#FFE6E6E6"  x:Name="dataGridSpr001" d:ItemsSource="{Binding }" DataContext="{Binding CollectionOf_TEL_VID_CONNECTs, BindsDirectlyToSource=True, RelativeSource={RelativeSource FindAncestor, AncestorLevel=2, AncestorType={x:Type local:MainWindow}}}" IsSynchronizedWithCurrentItem="False" Visibility="Hidden" BeginningEdit="dataGridSpr001_BeginningEdit" MouseRightButtonUp="dataGridSpr001_MouseRightButtonUp" >
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Double/Custom" Binding="{Binding Probability}" dgx:DataGridFilterColumn.Template="{StaticResource FilterWithPopup}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="34*"/>
+                    <RowDefinition Height="16*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <ToolBar x:Name="mainToolBar" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="11"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="5,5,5,5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="22*"/>
+                        </Grid.ColumnDefinitions>
                     </Grid>
-                </StackPanel>
-            </TabItem>
-            <TabItem x:Name="tabItem002" Header=" &lt;&lt; Справочник виды связи &gt;&gt;">
-                <Grid Background="#FFE5E5E5">
-                    <!--
+                    <Button x:Name="btnLoadAll" Content="Загрузить всё ..." HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Margin="1,1,1,1" Padding="2,2,2,2" Click="btnLoadAll_Click"/>
+                    <Button x:Name="btnShowFilterForm" Content="Фильтр" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Margin="1,1,1,1" Padding="2,2,2,2" IsEnabled="False"/>
+                    <Button x:Name="btnShowTweakForm" Content="Настройки" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="1,1,1,1" Padding="2,2,2,2"/>
+                    <Button x:Name="btnSaveChanges" Content="Сохранить" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="1,1,1,1" Padding="2,2,2,2" IsEnabled="False"/>
+                </ToolBar>
+                <TabControl x:Name="mainTabCtrl" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="11" Grid.RowSpan="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
+                    <TabControl.Resources>
+                        <ObjectDataProvider x:Key="ResDbContext" ObjectType="{x:Type local:DbAppContext}"/>
+                        <ObjectDataProvider x:Key="ResVidOfConnect" ObjectInstance="{StaticResource ResDbContext}"/>
+                    </TabControl.Resources>
+                    <TabControl.DataContext>
+                        <local:DataBaseFacilities/>
+                    </TabControl.DataContext>
+                    <TabItem x:Name="tabItem001" Header="Справочник .. Виды связи">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <ToolBarPanel x:Name="toolBar4TabItem001" Height="32" IsEnabled="False" Visibility="Hidden">
+
+                            </ToolBarPanel>
+                            <Grid Background="#FFE5E5E5" HorizontalAlignment="Stretch">
+                                <DataGrid Background="#FFF1ECEC" RowBackground="#FFF5F6F7" AlternatingRowBackground="#FFE6E6E6"  x:Name="dataGridSpr001" d:ItemsSource="{Binding }" DataContext="{Binding CollectionOf_TEL_VID_CONNECTs, BindsDirectlyToSource=True, RelativeSource={RelativeSource FindAncestor, AncestorLevel=2, AncestorType={x:Type local:MainWindow}}}" IsSynchronizedWithCurrentItem="False" Visibility="Hidden" BeginningEdit="dataGridSpr001_BeginningEdit" MouseRightButtonUp="dataGridSpr001_MouseRightButtonUp" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Double/Custom" Binding="{Binding Probability}" dgx:DataGridFilterColumn.Template="{StaticResource FilterWithPopup}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem x:Name="tabItem002" Header=" &lt;&lt; Справочник виды связи &gt;&gt;">
+                        <Grid Background="#FFE5E5E5">
+                            <!--
                     
                     -->
-                    <DataGrid  x:Name="dataGridSpr002" ItemsSource="{Binding}" dgx:DataGridFilter.IsAutoFilterEnabled="True" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" MinRowHeight="22">
-                        <DataGrid.Resources>
-                            <ControlTemplate x:Key="{x:Static dgx:DataGridFilter.IconTemplateKey}">
-                                <Path Data="M0,0 L10,0 6,4 6,9 4,9 4,4 Z" Fill="Orange" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2,0"/>
-                            </ControlTemplate>
-                            <DataTemplate x:Key="CustomHeaderWithLeftAlignedSearch">
-                                <DockPanel>
-                                    <!-- The control to host the filter UI for this column -->
-                                    <dgx:DataGridFilterColumnControl DockPanel.Dock="Left"/>
-                                    <ContentPresenter x:Name="PART_Content" Content="{Binding}"
+                            <DataGrid  x:Name="dataGridSpr002" ItemsSource="{Binding}" dgx:DataGridFilter.IsAutoFilterEnabled="True" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" MinRowHeight="22">
+                                <DataGrid.Resources>
+                                    <ControlTemplate x:Key="{x:Static dgx:DataGridFilter.IconTemplateKey}">
+                                        <Path Data="M0,0 L10,0 6,4 6,9 4,9 4,4 Z" Fill="Orange" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2,0"/>
+                                    </ControlTemplate>
+                                    <DataTemplate x:Key="CustomHeaderWithLeftAlignedSearch">
+                                        <DockPanel>
+                                            <!-- The control to host the filter UI for this column -->
+                                            <dgx:DataGridFilterColumnControl DockPanel.Dock="Left"/>
+                                            <ContentPresenter x:Name="PART_Content" Content="{Binding}"
                                         SnapsToDevicePixels="{Binding SnapsToDevicePixels, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridColumnHeader}}"
                                         HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridColumnHeader}}"
                                         VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGridColumnHeader}}"/>
-                                </DockPanel>
-                            </DataTemplate>
-                        </DataGrid.Resources>
-                        <DataGrid.Columns>
-                            <!--
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGrid.Resources>
+                                <DataGrid.Columns>
+                                    <!--
                             
                             <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}" dgx:DataGridFilterColumn.Template="{StaticResource FilterWithPopup}"/>
                             <DataGridTextColumn Header="Код" Binding="{Binding KodOfConnect}" dgx:DataGridFilterColumn.Template="{StaticResource FilterWithPopup}"/>
                             <DataGridTextColumn Header="Название" Binding="{Binding NameOfConnect}" dgx:DataGridFilterColumn.Template="{StaticResource FilterWithPopup}"/>
                             
                             -->
-                            <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>
-                            <DataGridTextColumn Header="Код" Binding="{Binding KodOfConnect}"/>
-                            <DataGridTextColumn Header="Название" Binding="{Binding NameOfConnect}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="tabItem003" Header="Справочник телеф. операторы">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="36*"/>
-                        <RowDefinition Height="120*"/>
-                        <RowDefinition Height="120*"/>
-                        <RowDefinition Height="120*"/>
-                        <RowDefinition Height="120*"/>
-                        <RowDefinition Height="26*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32*"/>
-                        <ColumnDefinition Width="32*"/>
-                        <ColumnDefinition Width="32*"/>
-                        <ColumnDefinition Width="32*"/>
-                        <ColumnDefinition Width="32*"/>
-                    </Grid.ColumnDefinitions>
-                    <local:FilterWithPopupControl>
-                    </local:FilterWithPopupControl>
-                    <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4" x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22" GotFocus="dataGridSpr003_GotFocus">
-                        <DataGrid.Triggers>
-                        </DataGrid.Triggers>
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>
-                            <DataGridTextColumn Header="Код" Binding="{Binding KodOfConnect}"/>
-                            <DataGridTextColumn Header="Название" Binding="{Binding NameOfConnect}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StatusBar x:Name="statusBar003" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5">
-                        <Label  x:Name="lbl4statusBar0301"/>
-                    </StatusBar>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="tabItem004" Header="Справочник мобильных телефонов">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="36*"/>
-                        <RowDefinition Height="120*"/>
-                        <RowDefinition Height="120*"/>
-                        <RowDefinition Height="120*"/>
-                        <RowDefinition Height="120*"/>
-                        <RowDefinition Height="26*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32*"/>
-                        <ColumnDefinition Width="32*"/>
-                        <ColumnDefinition Width="32*"/>
-                        <ColumnDefinition Width="32*"/>
-                        <ColumnDefinition Width="32*"/>
-                    </Grid.ColumnDefinitions>
+                                    <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>
+                                    <DataGridTextColumn Header="Код" Binding="{Binding KodOfConnect}"/>
+                                    <DataGridTextColumn Header="Название" Binding="{Binding NameOfConnect}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="tabItem003" Header="Справочник телеф. операторы">
+                        <Grid Background="#FFE5E5E5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36*"/>
+                                <RowDefinition Height="120*"/>
+                                <RowDefinition Height="120*"/>
+                                <RowDefinition Height="120*"/>
+                                <RowDefinition Height="120*"/>
+                                <RowDefinition Height="26*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32*"/>
+                                <ColumnDefinition Width="32*"/>
+                                <ColumnDefinition Width="32*"/>
+                                <ColumnDefinition Width="32*"/>
+                                <ColumnDefinition Width="32*"/>
+                            </Grid.ColumnDefinitions>
+                            <local:FilterWithPopupControl>
+                            </local:FilterWithPopupControl>
+                            <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4" x:Name="dataGridSpr003" ItemsSource="{StaticResource debuggableListOfTelVidConnectForDataGrid}" AutoGenerateColumns="False" MinRowHeight="22" GotFocus="dataGridSpr003_GotFocus">
+                                <DataGrid.Triggers>
+                                </DataGrid.Triggers>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>
+                                    <DataGridTextColumn Header="Код" Binding="{Binding KodOfConnect}"/>
+                                    <DataGridTextColumn Header="Название" Binding="{Binding NameOfConnect}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StatusBar x:Name="statusBar003" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5">
+                                <Label  x:Name="lbl4statusBar0301"/>
+                            </StatusBar>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="tabItem004" Header="Справочник мобильных телефонов">
+                        <Grid Background="#FFE5E5E5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36*"/>
+                                <RowDefinition Height="120*"/>
+                                <RowDefinition Height="120*"/>
+                                <RowDefinition Height="120*"/>
+                                <RowDefinition Height="120*"/>
+                                <RowDefinition Height="26*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32*"/>
+                                <ColumnDefinition Width="32*"/>
+                                <ColumnDefinition Width="32*"/>
+                                <ColumnDefinition Width="32*"/>
+                                <ColumnDefinition Width="32*"/>
+                            </Grid.ColumnDefinitions>
 
-                </Grid>
-            </TabItem>
-        </TabControl>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
 
-    </Grid>
+
+            </Grid>
+
+        
+        </StackPanel>
+
+        <Label  DockPanel.Dock="Bottom"  x:Name="lblStatusBar" Content="Label"  HorizontalAlignment="Stretch"  Margin="1,1,1,1" FontSize="14" Background="#FFC9CDD6" MaxHeight="32"/>
+    </DockPanel>
+
+
+
+
 </Window>
