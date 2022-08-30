@@ -28,7 +28,6 @@ namespace WpfToyDataForms
 
         DataGrid _additionalDataGrid;
 
-        private bool _contextIsInitialized;
 
         public ICollection<PO_TEL_VID_CONNECT> CollectionOf_TEL_VID_CONNECTs
         {
@@ -52,33 +51,27 @@ namespace WpfToyDataForms
 
 
 
-        public DbContextOptions<DbAppContext> OptionsOFContext
-        {
-            get;
-        }
 
-        public DbAppContext DbAppContext
+
+
+
+        public static DbAppContext DbAppContext
         {
             private set;
             get;
         }
 
+
+        static MainWindow()
+        {
+            DbContextOptions<DbAppContext> OptionsOFContext = DataBaseFacilities.OptionsOfDbContext();
+            DbAppContext = new DbAppContext(OptionsOFContext);
+        }
+
         public MainWindow()
         {
-            this.OptionsOFContext = DataBaseFacilities.OptionsOfDbContext();
             InitializeComponent();
         }
-
-
-        private bool InitializeDbContexts()
-        {
-
-            //this._dataGridFilter = new 
-            this.DbAppContext = new DbAppContext(OptionsOFContext);
-
-            return (this._contextIsInitialized = true);
-        }
-
 
         public int Load_PO_TEL_VID_CONNECT()
         {
@@ -111,22 +104,15 @@ namespace WpfToyDataForms
 
         private void btnLoadAll_Click(object sender, RoutedEventArgs e)
         {
-            if (!this._contextIsInitialized)
+            var Is_Loaded_PO_TEL_VID_CONNECT = Load_PO_TEL_VID_CONNECT() > 0;
+            var Is_Loaded_PO_TEL_OPERATOR = Load_PO_TEL_OPERATOR() > 0;
+            var Is_Loaded_PO_TEL_MOB_SPR = Load_PO_TEL_MOB_SPR() > 0;
+            if (Is_Loaded_PO_TEL_VID_CONNECT || Is_Loaded_PO_TEL_OPERATOR)
             {
-                this.InitializeDbContexts();
-            }
-            if (this._contextIsInitialized)
-            {
-                var Is_Loaded_PO_TEL_VID_CONNECT = Load_PO_TEL_VID_CONNECT() > 0;
-                var Is_Loaded_PO_TEL_OPERATOR = Load_PO_TEL_OPERATOR() > 0;
-                var Is_Loaded_PO_TEL_MOB_SPR = Load_PO_TEL_MOB_SPR() > 0;
-                if (Is_Loaded_PO_TEL_VID_CONNECT || Is_Loaded_PO_TEL_OPERATOR)
-                {
-                    btnShowFilterForm.IsEnabled = true;
-                    visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
-                    visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(dataGridSpr002, CollectionOf_TEL_VID_CONNECTs);
-                    //btnSaveChanges.IsEnabled = true;
-                }
+                btnShowFilterForm.IsEnabled = true;
+                visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
+                visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(dataGridSpr002, CollectionOf_TEL_VID_CONNECTs);
+                //btnSaveChanges.IsEnabled = true;
             }
         }
 
@@ -179,7 +165,7 @@ namespace WpfToyDataForms
 
                 binding.Source = vid_connects;
 
-                dGrid.SetBinding( DataGrid.ItemsSourceProperty , binding);
+                dGrid.SetBinding(DataGrid.ItemsSourceProperty, binding);
 
 
             }
@@ -216,7 +202,7 @@ namespace WpfToyDataForms
                 var vvEventArg = e.GetPosition;
 
 
-                
+
 
             }
 
@@ -229,7 +215,7 @@ namespace WpfToyDataForms
         {
             DataGrid dG;
 
-            if(sender.GetType() == typeof(DataGrid))
+            if (sender.GetType() == typeof(DataGrid))
             {
                 dG = (DataGrid)sender;
 
