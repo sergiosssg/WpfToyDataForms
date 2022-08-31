@@ -20,9 +20,20 @@ namespace WpfToyDataForms
     /// </summary>
     public partial class PageDataGrid001 : Page
     {
+        public DataGrid MainDataGrid
+        {
+            private get;
+            set;
+        }
+
+
+
+
         public PageDataGrid001()
         {
+            MainDataGrid = _innerDataGrid;
             InitializeComponent();
         }
     }
 }
+

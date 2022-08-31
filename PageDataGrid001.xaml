@@ -9,8 +9,19 @@
       Title="PageDataGrid001">
 
     <DockPanel>
-        
-        
+        <ToolBar DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal">
+                <Button Padding="7,2,3,2">Показать</Button>
+                <Button Padding="3,2,3,2">Новая</Button>
+                <Button Padding="3,2,3,2">Изменить</Button>
+                <Button Padding="3,2,7,2">Удалить</Button>
+
+            </StackPanel>
+
+        </ToolBar>
+        <DataGrid x:Name="_innerDataGrid" DockPanel.Dock="Top">
+
+        </DataGrid>
     </DockPanel>
 
 </Page>
