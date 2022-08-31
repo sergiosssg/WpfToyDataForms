@@ -51,10 +51,31 @@ namespace WpfToyDataForms
             catch (NullReferenceException nre)
             {
                 TextWriter errorWriter = Console.Error;
+
+                if(MainWindow.DbAppContext == null)
+                {
+                    errorWriter.WriteLine(" DB Application Context is null");
+                }
+
                 errorWriter.WriteLine(nre.Message);
                 errorWriter.WriteLine(nre.StackTrace);
             }
         }
+
+
+        public int Load_PO_TEL_VID_CONNECT()
+        {
+            CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.Local;
+
+
+/*
+            this.CollectionOf_TEL_VID_CONNECTs = DbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
+
+*/
+
+            return this.CollectionOf_TEL_VID_CONNECTs.Count;
+        }
+
     }
 }
 
