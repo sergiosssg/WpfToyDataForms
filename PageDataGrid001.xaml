@@ -10,6 +10,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageDataGrid001">
 
+    <Page.Resources>
+        <dgx:RegexContentFilterFactory x:Key="RegexContentFilterFactory"/>
+        <dgx:SimpleContentFilterFactory x:Key="SimpleContentFilterFactory"/>
+
+        <ObjectDataProvider x:Key="ResDbContext" ObjectType="{x:Type local:DbAppContext}"/>
+        <ObjectDataProvider x:Key="ResVidOfConnect" ObjectInstance="{StaticResource ResDbContext}"/>
+
+    </Page.Resources>
 
     <DockPanel>
 
