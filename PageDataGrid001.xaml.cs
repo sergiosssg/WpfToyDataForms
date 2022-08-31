@@ -20,6 +20,9 @@ namespace WpfToyDataForms
     /// </summary>
     public partial class PageDataGrid001 : Page
     {
+        private DbAppContext _dbAppContext;
+
+
         public DataGrid MainDataGrid
         {
             private get;
@@ -27,12 +30,27 @@ namespace WpfToyDataForms
         }
 
 
+        public ICollection<PO_TEL_VID_CONNECT> CollectionOf_TEL_VID_CONNECTs
+        {
+            set;
+            get;
+        }
 
 
         public PageDataGrid001()
         {
-            MainDataGrid = _innerDataGrid;
-            InitializeComponent();
+            try
+            {
+
+                this._dbAppContext = MainWindow.DbAppContext;
+                MainDataGrid = _innerDataGrid;
+                InitializeComponent();
+
+            }
+            catch (NullReferenceException nre)
+            {
+                ;
+            }
         }
     }
 }
