@@ -19,7 +19,7 @@
             </StackPanel>
 
         </ToolBar>
-        <DataGrid x:Name="_innerDataGrid" DockPanel.Dock="Top">
+        <DataGrid x:Name="_innerDataGrid" Background="#FFF1ECEC" RowBackground="#FFF5F6F7" AlternatingRowBackground="#FFE6E6E6" DockPanel.Dock="Top">
 
         </DataGrid>
     </DockPanel>
