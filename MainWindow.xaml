@@ -84,7 +84,7 @@
                 <MenuItem Header="Стационарн. телеф."/>
                 <MenuItem Header="МВЗ"/>
                 <MenuItem Header="Операторы связи"/>
-                <MenuItem Header="Виды связи"/>
+                <MenuItem x:Name="MenuItem_FormFor001VIDCONNECT" Header="Виды связи"/>
                 <MenuItem Header="Услуги по стационарн. телеф."/>
                 <MenuItem Header="Кадры"/>
                 <MenuItem Header="Просмотр TEL_TMP"/>
