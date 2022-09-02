@@ -23,6 +23,8 @@ namespace WpfToyDataForms
     {
         private DbAppContext _dbAppContext;
 
+        private bool _shouldBeSaved;
+
 
         public DataGrid MainDataGrid
         {
@@ -40,6 +42,7 @@ namespace WpfToyDataForms
 
         public PageDataGrid001()
         {
+            this._shouldBeSaved = false;
             try
             {
 
@@ -108,7 +111,34 @@ namespace WpfToyDataForms
             }
         }
 
+        private  void saveAll()
+        {
+            if (this._shouldBeSaved)
+            {
+                _dbAppContext.SaveChanges();
 
+                this._shouldBeSaved = false;
+            }
+
+        }
+
+
+        private void _innerDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            if(sender != null)
+            {
+                DataGrid dg = sender as DataGrid;
+                if(dg != null)
+                {
+                    this._shouldBeSaved = true;
+                }
+            }
+        }
+
+        private void _innerDataGrid_LostFocus(object sender, RoutedEventArgs e)
+        {
+            this.saveAll();
+        }
     }
 }
 
