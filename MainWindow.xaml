@@ -210,6 +210,9 @@
                 </TabItem>
                 <TabItem x:Name="tabItem004" Header="Справочник мобильных телефонов">
                     <StackPanel Background="#FFE5E5E5">
+                        <Frame x:Name="frmForContentToInsert" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            
+                        </Frame>
                     </StackPanel>
                 </TabItem>
             </TabControl>
