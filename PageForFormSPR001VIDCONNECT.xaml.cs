@@ -115,7 +115,7 @@ namespace WpfToyDataForms
         {
             if (this._shouldBeSaved)
             {
-                _dbAppContext.SaveChanges();
+                _dbAppContext.SaveChanges(true);
 
                 this._shouldBeSaved = false;
             }
@@ -127,7 +127,7 @@ namespace WpfToyDataForms
         {
             if(sender != null)
             {
-                DataGrid dg = sender as DataGrid;
+                DataGrid? dg = sender as DataGrid;
                 if(dg != null)
                 {
                     this._shouldBeSaved = true;
@@ -135,7 +135,19 @@ namespace WpfToyDataForms
             }
         }
 
+
+
+/*
         private void _innerDataGrid_LostFocus(object sender, RoutedEventArgs e)
+        {
+            this.saveAll();
+        }
+*/
+
+
+
+
+        private void Page_LostFocus(object sender, RoutedEventArgs e)
         {
             this.saveAll();
         }
