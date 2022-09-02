@@ -52,7 +52,9 @@ namespace WpfToyDataForms
 
 
 
+        private bool? _PO_TEL_VID_CONNECTs_Is_changed;
 
+        private PO_TEL_VID_CONNECT? _selectedCurrentPO_TE_VID_CONNECT;
 
 
         public static DbAppContext DbAppContext
@@ -70,6 +72,8 @@ namespace WpfToyDataForms
 
         public MainWindow()
         {
+            this._selectedCurrentPO_TE_VID_CONNECT = null;
+            this._PO_TEL_VID_CONNECTs_Is_changed = null;
             InitializeComponent();
         }
 
@@ -241,6 +245,140 @@ namespace WpfToyDataForms
             ;
         }
 
+        private void dataGridSpr002_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            if (sender != null)
+            {
+                DataGrid datagrid = (DataGrid)sender;
+                PO_TEL_VID_CONNECT currentPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.CurrentItem;
+                if (currentPO_TE_VID_CONNECT != null)
+                {
+                    if (this._PO_TEL_VID_CONNECTs_Is_changed == null && this._selectedCurrentPO_TE_VID_CONNECT == null)
+                    {
+                        this._PO_TEL_VID_CONNECTs_Is_changed = false;
+                        this._selectedCurrentPO_TE_VID_CONNECT = currentPO_TE_VID_CONNECT;
+                    }
+                    else if (this._PO_TEL_VID_CONNECTs_Is_changed != null && this._PO_TEL_VID_CONNECTs_Is_changed == true && this._selectedCurrentPO_TE_VID_CONNECT != null && this._selectedCurrentPO_TE_VID_CONNECT.IDConnect != currentPO_TE_VID_CONNECT.IDConnect)
+                    {
+                        this._PO_TEL_VID_CONNECTs_Is_changed = null;
+                        this._selectedCurrentPO_TE_VID_CONNECT = currentPO_TE_VID_CONNECT;
+                    }
+                }
+            }
+        }
+
+        private void dataGridSpr002_PreparingCellForEdit(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            if (sender != null)
+            {
+                DataGrid datagrid = (DataGrid)sender;
+                PO_TEL_VID_CONNECT currentPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.CurrentItem;
+                if (currentPO_TE_VID_CONNECT != null)
+                {
+                    ; ; ;
+                }
+
+            }
+        }
+
+        private void dataGridSpr002_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            if (sender != null && e != null)
+            {
+                DataGridCellEditEndingEventArgs dgCellEditEndingEventArgs = (DataGridCellEditEndingEventArgs)e;
+
+                var tTt = dgCellEditEndingEventArgs.GetType().Name;
+
+                DataGrid datagrid = (DataGrid)sender;
+                PO_TEL_VID_CONNECT currentPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.CurrentItem;
+                PO_TEL_VID_CONNECT selectedPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.SelectedItem;
+                if (currentPO_TE_VID_CONNECT != null)
+                {
+                    ; ; ;
+                }
+            }
+        }
+
+        private void MenuItem_FormFor001VIDCONNECT_Click(object sender, RoutedEventArgs e)
+        {
+            ; 
+            ; 
+            ; 
+            ; 
+            ;
+        }
+
+
+
+
+
+
+
+        /*
+                private void dataGridSpr002_LostFocus(object sender, RoutedEventArgs e)
+                {
+                    DataGrid datagrid = (DataGrid)sender;
+                    PO_TEL_VID_CONNECT currentPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.CurrentItem;
+                    if (currentPO_TE_VID_CONNECT != null)
+                    {
+                        bool isEqualRecord = this._selectedCurrentPO_TE_VID_CONNECT.Equals(currentPO_TE_VID_CONNECT);
+                        if (this._PO_TEL_VID_CONNECTs_Is_changed != null && this._PO_TEL_VID_CONNECTs_Is_changed == false && !isEqualRecord)
+                        {
+
+                        }
+                        if (this._PO_TEL_VID_CONNECTs_Is_changed != null && this._PO_TEL_VID_CONNECTs_Is_changed == false && !isEqualRecord)
+                        {
+                            this._PO_TEL_VID_CONNECTs_Is_changed = true;
+                            this._selectedCurrentPO_TE_VID_CONNECT = null;
+                        }
+                    }
+                }
+        */
+
+        /*
+                private void dataGridSpr002_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+                {
+                    DataGrid datagrid = (DataGrid)sender;
+                    PO_TEL_VID_CONNECT currentPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.CurrentItem;
+                    if (currentPO_TE_VID_CONNECT != null)
+                    {
+                        bool isEqualRecord = this._selectedCurrentPO_TE_VID_CONNECT.Equals(currentPO_TE_VID_CONNECT);
+                        if (!this._PO_TEL_VID_CONNECTs_Is_changed && !isEqualRecord)
+                        {
+                            this._PO_TEL_VID_CONNECTs_Is_changed = true;
+                            this._selectedCurrentPO_TE_VID_CONNECT = null;
+                        }
+                    }
+                }
+        */
+
+        /*
+                private void dataGridSpr002_CurrentCellChanged(object sender, EventArgs e)
+                {
+                    DataGrid datagrid = (DataGrid)sender;
+                    PO_TEL_VID_CONNECT currentPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.CurrentItem;
+                    bool isEqualRecord = this._selectedCurrentPO_TE_VID_CONNECT.Equals(currentPO_TE_VID_CONNECT);
+                    if (!this._PO_TEL_VID_CONNECTs_Is_changed && !isEqualRecord)
+                    {
+                        this._PO_TEL_VID_CONNECTs_Is_changed = true;
+                        this._selectedCurrentPO_TE_VID_CONNECT = null;
+                    }
+                }
+        */
+
+        /*
+                private void dataGridSpr002_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+                {
+                    DataGrid datagrid = (DataGrid)sender;
+                    PO_TEL_VID_CONNECT currentPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.CurrentItem;
+                    bool isEqualRecord = this._selectedCurrentPO_TE_VID_CONNECT.Equals(currentPO_TE_VID_CONNECT);
+                    if (!this._PO_TEL_VID_CONNECTs_Is_changed && !isEqualRecord)
+                    {
+                        this._PO_TEL_VID_CONNECTs_Is_changed = true;
+                        this._selectedCurrentPO_TE_VID_CONNECT = null;
+                    }
+                }
+        */
 
 
 

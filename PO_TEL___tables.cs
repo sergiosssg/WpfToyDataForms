@@ -52,6 +52,15 @@ namespace WpfToyDataForms
             this.TelefonOperators = new ObservableCollection<PO_TEL_OPERATOR>();
         }
 
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
     [Table("TEL_OPERATOR")]
