@@ -177,6 +177,7 @@ namespace WpfToyDataForms
 
 
 
+
         private void dataGridSpr001_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
             var isControlChanged = false;
@@ -191,6 +192,8 @@ namespace WpfToyDataForms
             }
             ;
         }
+
+
 
         private void dataGridSpr001_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -245,6 +248,8 @@ namespace WpfToyDataForms
             ;
         }
 
+
+/*
         private void dataGridSpr002_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
             if (sender != null)
@@ -266,7 +271,9 @@ namespace WpfToyDataForms
                 }
             }
         }
+*/
 
+/*
         private void dataGridSpr002_PreparingCellForEdit(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             if (sender != null)
@@ -280,7 +287,11 @@ namespace WpfToyDataForms
 
             }
         }
+*/
 
+
+
+/*
         private void dataGridSpr002_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             if (sender != null && e != null)
@@ -298,10 +309,17 @@ namespace WpfToyDataForms
                 }
             }
         }
+*/
+
 
         private void MenuItem_FormFor001VIDCONNECT_Click(object sender, RoutedEventArgs e)
         {
-            Page pageDataGrid001 = new PageDataGrid001();
+            PageDataGrid001 pageDataGrid001 = new PageDataGrid001();
+
+
+            pageDataGrid001.LoadRecordsTo();
+
+            int amount = pageDataGrid001.Load_PO_TEL_VID_CONNECT();
 
             frmForContentToInsert.Content = pageDataGrid001;
 

@@ -68,13 +68,46 @@ namespace WpfToyDataForms
             CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.Local;
 
 
-/*
-            this.CollectionOf_TEL_VID_CONNECTs = DbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
 
-*/
+            this.CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
+
+
 
             return this.CollectionOf_TEL_VID_CONNECTs.Count;
         }
+
+
+        public void LoadRecordsTo()
+        {
+
+            int amount = this.Load_PO_TEL_VID_CONNECT();
+
+            if (amount > 0)
+            {
+                visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(  _innerDataGrid, CollectionOf_TEL_VID_CONNECTs);
+                //visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension( MainDataGrid, CollectionOf_TEL_VID_CONNECTs);
+
+            }
+        }
+
+
+
+        private void visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(Control dataViewControl, ICollection<PO_TEL_VID_CONNECT> vid_connects)
+        {
+            if ((dataViewControl != null) && (dataViewControl.GetType() == typeof(DataGrid)))
+            {
+                DataGrid dGrid = (DataGrid)dataViewControl;
+
+                Binding binding = new Binding();
+
+                binding.Source = vid_connects;
+
+                dGrid.SetBinding(DataGrid.ItemsSourceProperty, binding);
+
+
+            }
+        }
+
 
     }
 }
