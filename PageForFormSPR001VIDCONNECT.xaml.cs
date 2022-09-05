@@ -28,6 +28,8 @@ namespace WpfToyDataForms
 
         private bool _shouldBeSaved;
 
+        private PO_TEL_VID_CONNECT? _pO_TEL_VID_CONNECT;
+
 
         #endregion
 
@@ -58,6 +60,7 @@ namespace WpfToyDataForms
 
         public PageDataGrid001()
         {
+            this._pO_TEL_VID_CONNECT = null;
             this._shouldBeSaved = false;
             try
             {
