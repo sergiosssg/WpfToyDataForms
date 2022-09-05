@@ -137,16 +137,20 @@ namespace WpfToyDataForms
 
 
 
-/*
-        private void Page_LostFocus(object sender, RoutedEventArgs e)
+        private bool checkIFCellChanged()
         {
-            this.saveAll();
+
+            throw new NotImplementedException();
         }
-*/
 
 
 
         private void _innerDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            ;
+        }
+
+        private void _innerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
             ;
         }
