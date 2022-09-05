@@ -21,9 +21,27 @@ namespace WpfToyDataForms
     /// </summary>
     public partial class PageDataGrid001 : Page
     {
+
+        #region private members
+
         private DbAppContext _dbAppContext;
 
         private bool _shouldBeSaved;
+
+
+        #endregion
+
+
+
+
+
+        #region public Properties
+
+        public ICollection<PO_TEL_VID_CONNECT> CollectionOf_TEL_VID_CONNECTs
+        {
+            set;
+            get;
+        }
 
 
         public DataGrid MainDataGrid
@@ -32,12 +50,10 @@ namespace WpfToyDataForms
             set;
         }
 
+        #endregion
 
-        public ICollection<PO_TEL_VID_CONNECT> CollectionOf_TEL_VID_CONNECTs
-        {
-            set;
-            get;
-        }
+
+        #region public constructors
 
 
         public PageDataGrid001()
@@ -64,17 +80,17 @@ namespace WpfToyDataForms
                 errorWriter.WriteLine(nre.StackTrace);
             }
         }
+        #endregion
 
+
+        #region methods for loading records into DataGrid
 
         public int Load_PO_TEL_VID_CONNECT()
         {
             CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.Local;
 
 
-
             this.CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
-
-
 
             return this.CollectionOf_TEL_VID_CONNECTs.Count;
         }
@@ -82,19 +98,19 @@ namespace WpfToyDataForms
 
         public void LoadRecordsTo()
         {
-
             int amount = this.Load_PO_TEL_VID_CONNECT();
 
             if (amount > 0)
             {
                 visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(_innerDataGrid, CollectionOf_TEL_VID_CONNECTs);
                 //visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension( MainDataGrid, CollectionOf_TEL_VID_CONNECTs);
-
             }
         }
 
+        #endregion
 
 
+        #region Event Handlers
 
         private void _innerDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
@@ -121,6 +137,8 @@ namespace WpfToyDataForms
         {
             ;
         }
+
+        #endregion
 
         #region Private methods, should be spesific for each Form class
 
