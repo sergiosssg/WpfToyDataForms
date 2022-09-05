@@ -147,15 +147,6 @@ namespace WpfToyDataForms
                 dGrid.IsSynchronizedWithCurrentItem = true;
 
 
-                var columns = dGrid.Columns;
-
-
-
-                foreach (var ccol in columns)
-                {
-                    var s = ccol.Header.ToString; ; ;
-                }
-
                 dataViewControl.Visibility = Visibility.Visible;
 
             }

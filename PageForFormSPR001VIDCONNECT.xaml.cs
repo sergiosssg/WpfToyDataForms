@@ -138,7 +138,7 @@ namespace WpfToyDataForms
 
 
 /*
-        private void _innerDataGrid_LostFocus(object sender, RoutedEventArgs e)
+        private void Page_LostFocus(object sender, RoutedEventArgs e)
         {
             this.saveAll();
         }
@@ -146,10 +146,9 @@ namespace WpfToyDataForms
 
 
 
-
-        private void Page_LostFocus(object sender, RoutedEventArgs e)
+        private void _innerDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
-            this.saveAll();
+            ;
         }
     }
 }
