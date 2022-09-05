@@ -55,7 +55,7 @@ namespace WpfToyDataForms
             {
                 TextWriter errorWriter = Console.Error;
 
-                if(MainWindow.DbAppContext == null)
+                if (MainWindow.DbAppContext == null)
                 {
                     errorWriter.WriteLine(" DB Application Context is null");
                 }
@@ -87,12 +87,42 @@ namespace WpfToyDataForms
 
             if (amount > 0)
             {
-                visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(  _innerDataGrid, CollectionOf_TEL_VID_CONNECTs);
+                visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(_innerDataGrid, CollectionOf_TEL_VID_CONNECTs);
                 //visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension( MainDataGrid, CollectionOf_TEL_VID_CONNECTs);
 
             }
         }
 
+
+
+
+        private void _innerDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            if (sender != null)
+            {
+                DataGrid? dg = sender as DataGrid;
+                if (dg != null)
+                {
+                    this._shouldBeSaved = true;
+                }
+            }
+        }
+
+
+
+
+
+        private void _innerDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            ;
+        }
+
+        private void _innerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            ;
+        }
+
+        #region Private methods, should be spesific for each Form class
 
 
         private void visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(Control dataViewControl, ICollection<PO_TEL_VID_CONNECT> vid_connects)
@@ -106,12 +136,12 @@ namespace WpfToyDataForms
                 binding.Source = vid_connects;
 
                 dGrid.SetBinding(DataGrid.ItemsSourceProperty, binding);
-
-
             }
         }
 
-        private  void saveAll()
+
+
+        private void saveAll()
         {
             if (this._shouldBeSaved)
             {
@@ -119,22 +149,7 @@ namespace WpfToyDataForms
 
                 this._shouldBeSaved = false;
             }
-
         }
-
-
-        private void _innerDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            if(sender != null)
-            {
-                DataGrid? dg = sender as DataGrid;
-                if(dg != null)
-                {
-                    this._shouldBeSaved = true;
-                }
-            }
-        }
-
 
 
         private bool checkIFCellChanged()
@@ -144,16 +159,36 @@ namespace WpfToyDataForms
         }
 
 
-
-        private void _innerDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        private PO_TEL_VID_CONNECT? getCurrentElementBeforeChangingFormDataGrid(object sender)
         {
-            ;
+            PO_TEL_VID_CONNECT? returnedRecord = null;
+
+            if (sender != null)
+            {
+                DataGrid? dg = sender as DataGrid;
+                if (dg != null)
+                {
+                    returnedRecord = dg.CurrentItem as PO_TEL_VID_CONNECT;
+                }
+            }
+            return returnedRecord;
         }
 
-        private void _innerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+
+
+        private string getCurrentFieldNameOfGreedReadyForChanging(EventArgs eventArgs)
         {
-            ;
+            DataGridCellEditEndingEventArgs? dataGridCellEditEndingEventArgs = eventArgs as DataGridCellEditEndingEventArgs;
+
+            if (dataGridCellEditEndingEventArgs != null)
+            {
+                return dataGridCellEditEndingEventArgs.EditingElement.Name;
+            }
+            return string.Empty;
         }
+
+        #endregion
+
     }
 }
 
