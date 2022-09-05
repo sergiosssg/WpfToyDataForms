@@ -106,24 +106,21 @@ namespace WpfToyDataForms
 
 
 
-        private void btnLoadAll_Click(object sender, RoutedEventArgs e)
+/*        
+ *      private void btnLoadAll_Click(object sender, RoutedEventArgs e)
         {
-
-
-            /*
-                        var Is_Loaded_PO_TEL_VID_CONNECT = Load_PO_TEL_VID_CONNECT() > 0;
-                        var Is_Loaded_PO_TEL_OPERATOR = Load_PO_TEL_OPERATOR() > 0;
-                        var Is_Loaded_PO_TEL_MOB_SPR = Load_PO_TEL_MOB_SPR() > 0;
-                        if (Is_Loaded_PO_TEL_VID_CONNECT || Is_Loaded_PO_TEL_OPERATOR)
-                        {
-                            btnShowFilterForm.IsEnabled = true;
-                            visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
-                            visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(dataGridSpr002, CollectionOf_TEL_VID_CONNECTs);
-                            //btnSaveChanges.IsEnabled = true;
-                        }
-            */
-
+            var Is_Loaded_PO_TEL_VID_CONNECT = Load_PO_TEL_VID_CONNECT() > 0;
+            var Is_Loaded_PO_TEL_OPERATOR = Load_PO_TEL_OPERATOR() > 0;
+            var Is_Loaded_PO_TEL_MOB_SPR = Load_PO_TEL_MOB_SPR() > 0;
+            if (Is_Loaded_PO_TEL_VID_CONNECT || Is_Loaded_PO_TEL_OPERATOR)
+            {
+                btnShowFilterForm.IsEnabled = true;
+                visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
+                visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(dataGridSpr002, CollectionOf_TEL_VID_CONNECTs);
+                //btnSaveChanges.IsEnabled = true;
+            }
         }
+*/
 
         private void visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(Control dataViewControl, ICollection<PO_TEL_VID_CONNECT> vid_connects)
         {
