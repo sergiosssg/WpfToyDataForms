@@ -27,8 +27,8 @@
                 <Button x:Name="btnShowAll" Padding="7,2,3,2" Content="Показать"/>
                 <Button x:Name="btnNewRecord" Padding="3,2,3,2" Content="Новая"/>
                 <Button x:Name="btnEditRecord" Padding="3,2,3,2" Content="Изменить"/>
+                <Button x:Name="btnSaveAll" Padding="7,2,3,2" Content="Сохранить"/>
                 <Button x:Name="btnDeleteRecords" Padding="3,2,7,2" Content="Удалить"/>
-
             </StackPanel>
 
         </ToolBar>
