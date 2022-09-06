@@ -123,24 +123,28 @@ namespace WpfToyDataForms
 
         private void _innerDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            int? id = getCurrentIdNumber( sender);
-            string? nameOfEditedField = null; 
+            int? id = getCurrentIdNumber(sender);
+            string? nameOfEditedField = null;
 
-            if(id != null && this._ID_of_selectedRecord != null &&  this._ID_of_selectedRecord == id)
+            if (id != null && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
             {
                 nameOfEditedField = getCurrentFieldNameOfGreedReadyForChanging(e);
                 ;
             }
 
 
-            if (sender != null)
-            {
-                DataGrid? dg = sender as DataGrid;
-                if (dg != null)
-                {
-                    this._shouldBeSaved = true;
-                }
-            }
+            /*
+                        if (sender != null)
+                        {
+                            DataGrid? dg = sender as DataGrid;
+                            if (dg != null)
+                            {
+                                this._shouldBeSaved = true;
+                            }
+                        }
+            */
+
+
         }
 
 
@@ -162,14 +166,14 @@ namespace WpfToyDataForms
         {
             int? id = getCurrentIdNumber(sender);
 
-            if ( id == null)
+            if (id == null)
             {
 
             }
-            else if(_ID_of_selectedRecord != id)
+            else if (_ID_of_selectedRecord != id)
             {
                 this.toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
-                this._pO_TEL_VID_CONNECT__selected = getCurrentElementBeforeChangingFormDataGrid( sender);
+                this._pO_TEL_VID_CONNECT__selected = getCurrentElementBeforeChangingFormDataGrid(sender);
             }
 
             this._ID_of_selectedRecord = id;
@@ -264,7 +268,7 @@ namespace WpfToyDataForms
             {
                 po_currrecord = dg.CurrentItem as PO_TEL_VID_CONNECT;
 
-                if(po_currrecord != null)
+                if (po_currrecord != null)
                 {
                     idCurrent = po_currrecord.IDConnect;
                 }
@@ -275,7 +279,7 @@ namespace WpfToyDataForms
 
         #endregion
 
-        
+
     }
 }
 
