@@ -247,6 +247,7 @@ namespace WpfToyDataForms
 
 
 
+/*
         private string getCurrentFieldNameOfGreedReadyForChanging(EventArgs eventArgs)
         {
             DataGridCellEditEndingEventArgs? dataGridCellEditEndingEventArgs = eventArgs as DataGridCellEditEndingEventArgs;
@@ -257,6 +258,7 @@ namespace WpfToyDataForms
             }
             return string.Empty;
         }
+*/
 
 
 
