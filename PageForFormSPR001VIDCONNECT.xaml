@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:dgx="clr-namespace:DataGridExtensions;assembly=DataGridExtensions"
       xmlns:local="clr-namespace:WpfToyDataForms"
-      x:Class="WpfToyDataForms.PageDataGrid001"
+      x:Class="WpfToyDataForms.PageForFormSPR001VIDCONNECT"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Справочник Виды связи">

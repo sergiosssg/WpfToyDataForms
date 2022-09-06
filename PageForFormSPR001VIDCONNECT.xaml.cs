@@ -17,9 +17,9 @@ using System.Windows.Shapes;
 namespace WpfToyDataForms
 {
     /// <summary>
-    /// Логика взаимодействия для PageDataGrid001.xaml
+    /// Логика взаимодействия для PageForFormSPR001VIDCONNECT.xaml
     /// </summary>
-    public partial class PageDataGrid001 : Page
+    public partial class PageForFormSPR001VIDCONNECT : Page
     {
 
         #region private members
@@ -60,10 +60,11 @@ namespace WpfToyDataForms
         #region public constructors
 
 
-        public PageDataGrid001()
+        public PageForFormSPR001VIDCONNECT()
         {
             this._pO_TEL_VID_CONNECT = null;
             this._shouldBeSaved = false;
+            this._isDirtyDataSource = false;
             try
             {
 

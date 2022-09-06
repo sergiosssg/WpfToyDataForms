@@ -309,7 +309,7 @@ namespace WpfToyDataForms
 
         private void MenuItem_FormFor001VIDCONNECT_Click(object sender, RoutedEventArgs e)
         {
-            PageDataGrid001 pageDataGrid001 = new PageDataGrid001();
+            PageForFormSPR001VIDCONNECT pageDataGrid001 = new PageForFormSPR001VIDCONNECT();
 
 
             pageDataGrid001.LoadRecordsTo();
