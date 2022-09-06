@@ -241,7 +241,7 @@ namespace WpfToyDataForms
             }
             else if (nameOfField.Equals("NameOfConnect"))
             {
-                str_OfValue = pO_TEL_VID_CONNECT.IDConnect.ToString();
+                str_OfValue = pO_TEL_VID_CONNECT.NameOfConnect.ToString();
             }
 
             if(str_OfValue != null && !str_OfValue.Equals(newValue))
