@@ -246,7 +246,7 @@ namespace WpfToyDataForms
                 str_OfValue = pO_TEL_VID_CONNECT.NameOfConnect.ToString();
             }
 
-            if(str_OfValue != null && !str_OfValue.Equals(newValue))
+            if(str_OfValue != null && !str_OfValue.Equals(sClearedNewValue))
             {
                 return true;
             }
