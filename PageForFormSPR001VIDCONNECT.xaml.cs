@@ -126,26 +126,25 @@ namespace WpfToyDataForms
             int? id = getCurrentIdNumber(sender);  // getCurrentFieldNameOfDataGreed(object dataGrid)
             string? nameOfEditedField = null;
 
+            bool isStringsAreDifferent = false;
+
             if (id != null && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
             {
                 nameOfEditedField = getCurrentFieldNameOfDataGreed(sender);
 
                 string newValue = getCurrentFieldValueOfDataGridForChanging(e);
+
+
+                var record = getCurrentElementBeforeChangingFormDataGrid(sender);
+
+                if(record != null && nameOfEditedField != null && !nameOfEditedField.Equals(string.Empty) && newValue != null && !newValue.Equals(string.Empty))
+                {
+                    isStringsAreDifferent = checkIFCellChanged(record, newValue, nameOfEditedField);
+                }
+
+
                 ;
             }
-
-
-            /*
-                        if (sender != null)
-                        {
-                            DataGrid? dg = sender as DataGrid;
-                            if (dg != null)
-                            {
-                                this._shouldBeSaved = true;
-                            }
-                        }
-            */
-
 
         }
 
