@@ -257,6 +257,21 @@ namespace WpfToyDataForms
         }
 
 
+
+        private string getCurrentFieldValueOfDataGridForChanging(EventArgs eventArgs)
+        {
+            DataGridCellEditEndingEventArgs? dataGridCellEditEndingEventArgs = eventArgs as DataGridCellEditEndingEventArgs;
+
+            if (dataGridCellEditEndingEventArgs != null)
+            {
+                var valueOfField = dataGridCellEditEndingEventArgs.Column;
+
+                //return dataGridCellEditEndingEventArgs;
+            }
+            return string.Empty;
+        }
+
+
         private string? getCurrentFieldNameOfDataGreed(object dataGrid)
         {
             DataGrid dg = dataGrid as DataGrid;
