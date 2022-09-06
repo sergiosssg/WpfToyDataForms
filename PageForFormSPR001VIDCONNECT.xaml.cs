@@ -231,6 +231,8 @@ namespace WpfToyDataForms
         {
             string? str_OfValue = null;
 
+            string sClearedNewValue = clearDirtyStringFromControlsSystemCharacters( newValue);
+
             if (nameOfField.Equals("IDConnect"))
             {
                 str_OfValue = pO_TEL_VID_CONNECT.IDConnect.ToString();
@@ -268,7 +270,29 @@ namespace WpfToyDataForms
         }
 
 
+        private string clearDirtyStringFromControlsSystemCharacters( string valueDirty)
+        {
+            //
 
+            string returnedCleanString;
+
+            if (valueDirty.Contains("System.Windows.Controls.TextBox:"))
+            {
+                int i = valueDirty.IndexOf("System.Windows.Controls.TextBox:");
+
+                string sS = valueDirty.Substring(i);
+
+                returnedCleanString = sS.Trim();
+            }
+            else
+            {
+                returnedCleanString = valueDirty;
+            }
+
+            return returnedCleanString;
+
+            throw new NotImplementedException();
+        }
 
 
         private string? getCurrentFieldValueOfDataGridForChanging(EventArgs eventArgs)
