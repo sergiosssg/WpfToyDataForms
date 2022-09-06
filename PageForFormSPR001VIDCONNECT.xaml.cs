@@ -176,6 +176,13 @@ namespace WpfToyDataForms
         }
 
 
+        private void btnSaveAll_Click(object sender, RoutedEventArgs e)
+        {
+            saveAll();
+        }
+
+
+
         #endregion
 
 
@@ -265,9 +272,10 @@ namespace WpfToyDataForms
             return idCurrent;
         }
 
+
         #endregion
 
-
+        
     }
 }
 
