@@ -140,6 +140,11 @@ namespace WpfToyDataForms
                 if(record != null && nameOfEditedField != null && !nameOfEditedField.Equals(string.Empty) && newValue != null && !newValue.Equals(string.Empty))
                 {
                     isStringsAreDifferent = checkIFCellChanged(record, newValue, nameOfEditedField);
+
+                    if (isStringsAreDifferent)
+                    {
+
+                    }
                 }
 
 
