@@ -123,6 +123,16 @@ namespace WpfToyDataForms
 
         private void _innerDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
+            int? id = getCurrentIdNumber( sender);
+            string? nameOfEditedField = null; 
+
+            if(id != null && this._ID_of_selectedRecord != null &&  this._ID_of_selectedRecord == id)
+            {
+                nameOfEditedField = getCurrentFieldNameOfGreedReadyForChanging(e);
+                ;
+            }
+
+
             if (sender != null)
             {
                 DataGrid? dg = sender as DataGrid;
