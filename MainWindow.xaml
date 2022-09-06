@@ -120,28 +120,7 @@
 
         <StackPanel DockPanel.Dock="Top">
 
-<!--
-            <ToolBar x:Name="mainToolBar"  HorizontalAlignment="Stretch"   Margin="5,5,5,5">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="22*"/>
-                        <ColumnDefinition Width="22*"/>
-                        <ColumnDefinition Width="22*"/>
-                        <ColumnDefinition Width="22*"/>
-                        <ColumnDefinition Width="22*"/>
-                        <ColumnDefinition Width="22*"/>
-                        <ColumnDefinition Width="22*"/>
-                        <ColumnDefinition Width="22*"/>
-                        <ColumnDefinition Width="22*"/>
-                    </Grid.ColumnDefinitions>
-                </Grid>
-                <Button x:Name="btnLoadAll" Content="Загрузить всё ..." HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Margin="1,1,1,1" Padding="2,2,2,2"/>
-                <Button x:Name="btnShowFilterForm" Content="Фильтр" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Margin="1,1,1,1" Padding="2,2,2,2" IsEnabled="False"/>
-                <Button x:Name="btnShowTweakForm" Content="Настройки" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="1,1,1,1" Padding="2,2,2,2"/>
-                <Button x:Name="btnSaveChanges" Content="Сохранить" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="1,1,1,1" Padding="2,2,2,2" IsEnabled="False"/>
-            </ToolBar>
--->
-            
+           
 
             
             <TabControl x:Name="mainTabCtrl" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="11" Grid.RowSpan="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
