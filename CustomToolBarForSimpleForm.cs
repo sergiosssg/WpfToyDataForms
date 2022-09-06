@@ -16,6 +16,12 @@ using System.Windows.Shapes;
 namespace WpfToyDataForms
 {
 
+    /**
+     *    For now I have to lay aside development of this class, because of lack of time
+     * 
+     */
+
+
     #region  Recomendation for making use this component in XAML description file
 
     /// <summary>
