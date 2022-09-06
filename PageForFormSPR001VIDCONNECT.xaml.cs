@@ -278,12 +278,12 @@ namespace WpfToyDataForms
 
             if (valueDirty.Contains("System.Windows.Controls.TextBox:"))
             {
-                var i = valueDirty.StartsWith("System.Windows.Controls.TextBox:");
+                int i = "System.Windows.Controls.TextBox:".Length;
 
-                var tTt = i.GetType().Name;
 
-                string sS = valueDirty;
-                //string sS = valueDirty.Substring(i);
+
+                //string sS = valueDirty;
+                string sS = valueDirty.Substring(i);
 
                 returnedCleanString = sS.Trim();
             }
