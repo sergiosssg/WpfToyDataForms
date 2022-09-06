@@ -28,7 +28,7 @@ namespace WpfToyDataForms
 
         private bool _shouldBeSaved;
 
-        private PO_TEL_VID_CONNECT? _pO_TEL_VID_CONNECT;
+        private PO_TEL_VID_CONNECT? _pO_TEL_VID_CONNECT__selected;
 
         private bool _isDirtyDataSource;
 
@@ -62,7 +62,7 @@ namespace WpfToyDataForms
 
         public PageForFormSPR001VIDCONNECT()
         {
-            this._pO_TEL_VID_CONNECT = null;
+            this._pO_TEL_VID_CONNECT__selected = null;
             this._shouldBeSaved = false;
             this._isDirtyDataSource = false;
             try
@@ -144,6 +144,14 @@ namespace WpfToyDataForms
             ;
         }
 
+
+
+        private void _innerDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
+        }
+
+
         #endregion
 
         #region Private methods, should be spesific for each Form class
@@ -172,6 +180,7 @@ namespace WpfToyDataForms
                 _dbAppContext.SaveChanges(true);
 
                 this._shouldBeSaved = false;
+                this._isDirtyDataSource = false;
             }
         }
 
@@ -211,7 +220,28 @@ namespace WpfToyDataForms
             return string.Empty;
         }
 
+
+        private int? getCurrentIdNumber(object objDataGrid)
+        {
+            DataGrid? dg = objDataGrid as DataGrid;
+            PO_TEL_VID_CONNECT? po_currrecord = null;
+
+            int? idCurrent = null;
+
+            if (dg != null)
+            {
+                po_currrecord = dg.CurrentItem as PO_TEL_VID_CONNECT;
+
+                if(po_currrecord != null)
+                {
+                    idCurrent = po_currrecord.IDConnect;
+                }
+            }
+            return idCurrent;
+        }
+
         #endregion
+
 
     }
 }
