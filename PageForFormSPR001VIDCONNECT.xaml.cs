@@ -129,6 +129,8 @@ namespace WpfToyDataForms
             if (id != null && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
             {
                 nameOfEditedField = getCurrentFieldNameOfDataGreed(sender);
+
+                string newValue = getCurrentFieldValueOfDataGridForChanging( e);
                 ;
             }
 
@@ -258,7 +260,7 @@ namespace WpfToyDataForms
 
 
 
-        private string getCurrentFieldValueOfDataGridForChanging(EventArgs eventArgs)
+        private string? getCurrentFieldValueOfDataGridForChanging(EventArgs eventArgs)
         {
             DataGridCellEditEndingEventArgs? dataGridCellEditEndingEventArgs = eventArgs as DataGridCellEditEndingEventArgs;
 
