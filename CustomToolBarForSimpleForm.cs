@@ -49,11 +49,28 @@ namespace WpfToyDataForms
     /// </summary>
     /// 
     #endregion
-    public class CustomToolBarForSimpleForm : Control
+    public partial class  CustomToolBarForSimpleForm : Control
     {
         static CustomToolBarForSimpleForm()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomToolBarForSimpleForm), new FrameworkPropertyMetadata(typeof(CustomToolBarForSimpleForm)));
         }
+
+        private IDictionary<string, Button> _bottons;
+
+        private ToolBar _toolBar;
+
+
+        public CustomToolBarForSimpleForm()
+        {
+            this._toolBar = new ToolBar();
+
+            this._toolBar.HorizontalAlignment = HorizontalAlignment.Stretch;
+            this._toolBar.VerticalAlignment = VerticalAlignment.Stretch;
+            
+
+            this._bottons = new Dictionary<string, Button>();
+        }
+
     }
 }
