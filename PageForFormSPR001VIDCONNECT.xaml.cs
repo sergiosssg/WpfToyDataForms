@@ -266,9 +266,7 @@ namespace WpfToyDataForms
 
             if (dataGridCellEditEndingEventArgs != null)
             {
-                var valueOfField = dataGridCellEditEndingEventArgs.Column;
-
-                //return dataGridCellEditEndingEventArgs;
+                return dataGridCellEditEndingEventArgs.EditingElement.ToString();
             }
             return string.Empty;
         }
