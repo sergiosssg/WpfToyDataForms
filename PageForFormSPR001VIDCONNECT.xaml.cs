@@ -148,19 +148,21 @@ namespace WpfToyDataForms
         }
 
 
-
         private void _innerDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(this._ID_of_selectedRecord == null)
+            int? id = getCurrentIdNumber(sender);
+
+            if ( id == null)
             {
 
             }
-            else
+            else if(_ID_of_selectedRecord != id)
             {
-                toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
+                this.toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
+                this._pO_TEL_VID_CONNECT__selected = getCurrentElementBeforeChangingFormDataGrid( sender);
             }
 
-            this._ID_of_selectedRecord = getCurrentIdNumber(sender);
+            this._ID_of_selectedRecord = id;
         }
 
 
