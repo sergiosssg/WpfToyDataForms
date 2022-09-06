@@ -30,6 +30,8 @@ namespace WpfToyDataForms
 
         private PO_TEL_VID_CONNECT? _pO_TEL_VID_CONNECT;
 
+        private bool _isDirtyDataSource;
+
 
         #endregion
 
