@@ -123,12 +123,12 @@ namespace WpfToyDataForms
 
         private void _innerDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            int? id = getCurrentIdNumber(sender);
+            int? id = getCurrentIdNumber(sender);  // getCurrentFieldNameOfDataGreed(object dataGrid)
             string? nameOfEditedField = null;
 
             if (id != null && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
             {
-                nameOfEditedField = getCurrentFieldNameOfGreedReadyForChanging(e);
+                nameOfEditedField = getCurrentFieldNameOfDataGreed(sender);
                 ;
             }
 
@@ -255,6 +255,19 @@ namespace WpfToyDataForms
             }
             return string.Empty;
         }
+
+
+        private string? getCurrentFieldNameOfDataGreed(object dataGrid)
+        {
+            DataGrid dg = dataGrid as DataGrid;
+
+            if (dg != null)
+            {
+                return dg.CurrentColumn.SortMemberPath;
+            }
+            return string.Empty;
+        }
+
 
 
         private int? getCurrentIdNumber(object objDataGrid)
