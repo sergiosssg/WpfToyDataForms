@@ -32,6 +32,8 @@ namespace WpfToyDataForms
 
         private bool _isDirtyDataSource;
 
+        private int? _ID_of_selectedRecord;
+
 
         #endregion
 
@@ -65,6 +67,7 @@ namespace WpfToyDataForms
             this._pO_TEL_VID_CONNECT__selected = null;
             this._shouldBeSaved = false;
             this._isDirtyDataSource = false;
+            this._ID_of_selectedRecord = null;
             try
             {
 
