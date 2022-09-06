@@ -130,7 +130,7 @@ namespace WpfToyDataForms
             {
                 nameOfEditedField = getCurrentFieldNameOfDataGreed(sender);
 
-                string newValue = getCurrentFieldValueOfDataGridForChanging( e);
+                string newValue = getCurrentFieldValueOfDataGridForChanging(e);
                 ;
             }
 
@@ -223,10 +223,28 @@ namespace WpfToyDataForms
         }
 
 
-        private bool checkIFCellChanged()
+        private bool checkIFCellChanged(PO_TEL_VID_CONNECT pO_TEL_VID_CONNECT, string newValue, string nameOfField)
         {
+            string? str_OfValue = null;
 
-            throw new NotImplementedException();
+            if (nameOfField.Equals("IDConnect"))
+            {
+                str_OfValue = pO_TEL_VID_CONNECT.IDConnect.ToString();
+            }
+            else if (nameOfField.Equals("KodOfConnect"))
+            {
+                str_OfValue = pO_TEL_VID_CONNECT.KodOfConnect.ToString();
+            }
+            else if (nameOfField.Equals("NameOfConnect"))
+            {
+                str_OfValue = pO_TEL_VID_CONNECT.IDConnect.ToString();
+            }
+
+            if(str_OfValue != null && !str_OfValue.Equals(newValue))
+            {
+                return true;
+            }
+            return false;
         }
 
 
@@ -246,19 +264,6 @@ namespace WpfToyDataForms
         }
 
 
-
-/*
-        private string getCurrentFieldNameOfGreedReadyForChanging(EventArgs eventArgs)
-        {
-            DataGridCellEditEndingEventArgs? dataGridCellEditEndingEventArgs = eventArgs as DataGridCellEditEndingEventArgs;
-
-            if (dataGridCellEditEndingEventArgs != null)
-            {
-                return dataGridCellEditEndingEventArgs.EditingElement.Name;
-            }
-            return string.Empty;
-        }
-*/
 
 
 
