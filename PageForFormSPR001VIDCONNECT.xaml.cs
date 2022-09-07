@@ -161,8 +161,14 @@ namespace WpfToyDataForms
 
         private void _innerDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
+            PO_TEL_VID_CONNECT po_TEL_VID_CONNECT = getCurrentElementBeforeChangingFormDataGrid( sender);
+            int? id = getCurrentIdNumber(  sender);
+            ;
+            ;
+            ;
             ;
         }
+
 
         private void _innerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
