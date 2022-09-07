@@ -171,14 +171,8 @@ namespace WpfToyDataForms
             {
                 this._pO_TEL_VID_CONNECT__selected = po_TEL_VID_CONNECT;
                 this._ID_of_selectedRecord = id;
-            }
-            else
-            {
 
             }
-            ;
-            ;
-            ;
         }
 
 
