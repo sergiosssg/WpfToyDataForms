@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WpfToyDataForms"
         mc:Ignorable="d"
         xmlns:col='clr-namespace:System.Collections;assembly=mscorlib'
-        Title="MainWindow">
+        Title="Телефоны">
 
     <Window.Resources>
 
@@ -54,9 +54,24 @@
 
     </Window.Resources>
 
-    <DockPanel>
 
-        <Menu DockPanel.Dock="Top">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="360*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="420*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <Menu DockPanel.Dock="Top" Grid.Column="1" Grid.Row="1">
             <MenuItem Header="Дополнительные функции">
                 <MenuItem Header="Удал. данных за месяц стац.тел.">
                     <MenuItem Header="Удал. всех данных по УкрТелеком"/>
@@ -118,12 +133,9 @@
             </MenuItem>
         </Menu>
 
-        <StackPanel DockPanel.Dock="Top">
+        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
-           
-
-            
-            <TabControl x:Name="mainTabCtrl" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="11" Grid.RowSpan="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
+            <TabControl x:Name="mainTabCtrl"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
 
                 <TabControl.Resources>
                     <ObjectDataProvider x:Key="ResDbContext" ObjectType="{x:Type local:DbAppContext}"/>
@@ -135,14 +147,15 @@
                 <TabItem x:Name="tabItem004" Header="Справочник мобильных телефонов" AllowDrop="True">
                     <StackPanel Background="#FFE5E5E5">
                         <Frame x:Name="frmForContentToInsert" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
-                            
+
                         </Frame>
                     </StackPanel>
                 </TabItem>
             </TabControl>
-
-
         </StackPanel>
-        <Label  DockPanel.Dock="Bottom"  x:Name="lblStatusBar" Content="Label"  HorizontalAlignment="Stretch"  Margin="1,1,1,1" FontSize="14" Background="#FFC9CDD6" MaxHeight="28"/>
-    </DockPanel>
+
+        <Label  Grid.Column="1" Grid.Row="3"  x:Name="lblStatusBar" Content="Label" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch"  Margin="1,1,1,1" FontSize="14" Background="#FFC9CDD6"/>
+        
+    </Grid>
+
 </Window>
