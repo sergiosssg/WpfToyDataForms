@@ -163,7 +163,19 @@ namespace WpfToyDataForms
         {
             PO_TEL_VID_CONNECT po_TEL_VID_CONNECT = getCurrentElementBeforeChangingFormDataGrid( sender);
             int? id = getCurrentIdNumber(  sender);
-            ;
+            if (po_TEL_VID_CONNECT.isIamEmpty())
+            {
+                ;
+            }
+            else if(this._ID_of_selectedRecord != null && this._ID_of_selectedRecord > 0 && this._pO_TEL_VID_CONNECT__selected != null && this._ID_of_selectedRecord != id)
+            {
+                this._pO_TEL_VID_CONNECT__selected = po_TEL_VID_CONNECT;
+                this._ID_of_selectedRecord = id;
+            }
+            else
+            {
+
+            }
             ;
             ;
             ;
