@@ -52,6 +52,17 @@ namespace WpfToyDataForms
             this.TelefonOperators = new ObservableCollection<PO_TEL_OPERATOR>();
         }
 
+        public bool isIamEmpty()
+        {
+            if (IDConnect == 0 && KodOfConnect.Equals(string.Empty) && NameOfConnect.Equals(string.Empty))
+            {
+                return true;
+            }
+
+            return false;
+            throw new NotImplementedException();
+        }
+
         public override bool Equals(object? obj)
         {
             return base.Equals(obj);
