@@ -131,9 +131,7 @@ namespace WpfToyDataForms
             if (id != null && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
             {
                 nameOfEditedField = getCurrentFieldNameOfDataGreed(sender);
-
                 string newValue = getCurrentFieldValueOfDataGridForChanging(e);
-
 
                 var record = getCurrentElementBeforeChangingFormDataGrid(sender);
 
@@ -148,11 +146,7 @@ namespace WpfToyDataForms
                         btnSaveAll.IsEnabled = true;
                     }
                 }
-
-
-                ;
             }
-
         }
 
 
