@@ -143,7 +143,9 @@ namespace WpfToyDataForms
 
                     if (isStringsAreDifferent)
                     {
-                        btnSaveAll.Visibility = Visibility.Visible;
+                        this._isDirtyDataSource = true;
+                        this._shouldBeSaved = true;
+                        btnSaveAll.IsEnabled = true;
                     }
                 }
 
@@ -189,7 +191,7 @@ namespace WpfToyDataForms
         private void btnSaveAll_Click(object sender, RoutedEventArgs e)
         {
             saveAll();
-            btnSaveAll.Visibility = Visibility.Hidden;
+            btnSaveAll.IsEnabled = false;
         }
 
 
