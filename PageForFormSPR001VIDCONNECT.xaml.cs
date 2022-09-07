@@ -218,7 +218,7 @@ namespace WpfToyDataForms
 
         private void saveAll()
         {
-            if (this._shouldBeSaved)
+            if (this._shouldBeSaved || this._isDirtyDataSource)
             {
                 _dbAppContext.SaveChanges(true);
 
