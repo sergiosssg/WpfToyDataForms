@@ -194,7 +194,7 @@ namespace WpfToyDataForms
 
             if (id == null)
             {
-
+                ;
             }
             else if (_ID_of_selectedRecord != id)
             {
