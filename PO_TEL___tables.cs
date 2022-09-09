@@ -11,7 +11,7 @@ namespace WpfToyDataForms
 {
 
 
-    [Table("[SM].[phone].[TEL_VID_CONNECT]")]
+    [Table("TEL_VID_CONNECT")]
     public class PO_TEL_VID_CONNECT
     {
         [Required]
@@ -74,7 +74,7 @@ namespace WpfToyDataForms
         }
     }
 
-    [Table("[SM].[phone].[TEL_OPERATOR]")]
+    [Table("TEL_OPERATOR")]
     public class PO_TEL_OPERATOR
     { //
         [Required]
@@ -145,7 +145,7 @@ namespace WpfToyDataForms
         }
     }
 
-    [Table("[SM].[phone].[TEL_MOB_SPR]")]
+    [Table("TEL_MOB_SPR")]
     public class PO_TEL_MOB_SPR
     {
         [Required]
