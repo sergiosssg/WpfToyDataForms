@@ -72,6 +72,7 @@ namespace WpfToyDataForms
 
         public MainWindow()
         {
+            ;
             this._selectedCurrentPO_TE_VID_CONNECT = null;
             this._PO_TEL_VID_CONNECTs_Is_changed = null;
             InitializeComponent();
@@ -105,22 +106,6 @@ namespace WpfToyDataForms
         }
 
 
-
-/*        
- *      private void btnLoadAll_Click(object sender, RoutedEventArgs e)
-        {
-            var Is_Loaded_PO_TEL_VID_CONNECT = Load_PO_TEL_VID_CONNECT() > 0;
-            var Is_Loaded_PO_TEL_OPERATOR = Load_PO_TEL_OPERATOR() > 0;
-            var Is_Loaded_PO_TEL_MOB_SPR = Load_PO_TEL_MOB_SPR() > 0;
-            if (Is_Loaded_PO_TEL_VID_CONNECT || Is_Loaded_PO_TEL_OPERATOR)
-            {
-                btnShowFilterForm.IsEnabled = true;
-                visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(dataGridSpr001, CollectionOf_TEL_VID_CONNECTs);
-                visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(dataGridSpr002, CollectionOf_TEL_VID_CONNECTs);
-                //btnSaveChanges.IsEnabled = true;
-            }
-        }
-*/
 
         private void visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(Control dataViewControl, ICollection<PO_TEL_VID_CONNECT> vid_connects)
         {
@@ -163,31 +148,12 @@ namespace WpfToyDataForms
                 binding.Source = vid_connects;
 
                 dGrid.SetBinding(DataGrid.ItemsSourceProperty, binding);
-
-
             }
         }
 
 
 
 
-        /*
-                private void dataGridSpr001_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
-                {
-                    var isControlChanged = false;
-
-                    var typeOfSender = sender.GetType().ToString();
-
-                    var typeOfEvetArgs = e.GetType().ToString();
-
-                    if (!isControlChanged)
-                    {
-                        ; ; ;
-                    }
-                    ;
-                }
-
-        */
 
 
         private void dataGridSpr001_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
@@ -202,14 +168,7 @@ namespace WpfToyDataForms
 
 
                 var vvEventArg = e.GetPosition;
-
-
-
-
             }
-
-
-
             ;
         }
 
@@ -244,67 +203,6 @@ namespace WpfToyDataForms
         }
 
 
-        /*
-                private void dataGridSpr002_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
-                {
-                    if (sender != null)
-                    {
-                        DataGrid datagrid = (DataGrid)sender;
-                        PO_TEL_VID_CONNECT currentPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.CurrentItem;
-                        if (currentPO_TE_VID_CONNECT != null)
-                        {
-                            if (this._PO_TEL_VID_CONNECTs_Is_changed == null && this._selectedCurrentPO_TE_VID_CONNECT == null)
-                            {
-                                this._PO_TEL_VID_CONNECTs_Is_changed = false;
-                                this._selectedCurrentPO_TE_VID_CONNECT = currentPO_TE_VID_CONNECT;
-                            }
-                            else if (this._PO_TEL_VID_CONNECTs_Is_changed != null && this._PO_TEL_VID_CONNECTs_Is_changed == true && this._selectedCurrentPO_TE_VID_CONNECT != null && this._selectedCurrentPO_TE_VID_CONNECT.IDConnect != currentPO_TE_VID_CONNECT.IDConnect)
-                            {
-                                this._PO_TEL_VID_CONNECTs_Is_changed = null;
-                                this._selectedCurrentPO_TE_VID_CONNECT = currentPO_TE_VID_CONNECT;
-                            }
-                        }
-                    }
-                }
-        */
-
-        /*
-                private void dataGridSpr002_PreparingCellForEdit(object sender, DataGridPreparingCellForEditEventArgs e)
-                {
-                    if (sender != null)
-                    {
-                        DataGrid datagrid = (DataGrid)sender;
-                        PO_TEL_VID_CONNECT currentPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.CurrentItem;
-                        if (currentPO_TE_VID_CONNECT != null)
-                        {
-                            ; ; ;
-                        }
-
-                    }
-                }
-        */
-
-
-
-        /*
-                private void dataGridSpr002_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-                {
-                    if (sender != null && e != null)
-                    {
-                        DataGridCellEditEndingEventArgs dgCellEditEndingEventArgs = (DataGridCellEditEndingEventArgs)e;
-
-                        var tTt = dgCellEditEndingEventArgs.GetType().Name;
-
-                        DataGrid datagrid = (DataGrid)sender;
-                        PO_TEL_VID_CONNECT currentPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.CurrentItem;
-                        PO_TEL_VID_CONNECT selectedPO_TE_VID_CONNECT = (PO_TEL_VID_CONNECT)datagrid.SelectedItem;
-                        if (currentPO_TE_VID_CONNECT != null)
-                        {
-                            ; ; ;
-                        }
-                    }
-                }
-        */
 
 
         private void MenuItem_FormFor001VIDCONNECT_Click(object sender, RoutedEventArgs e)
