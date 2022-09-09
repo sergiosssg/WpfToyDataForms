@@ -180,6 +180,9 @@ namespace WpfToyDataForms
         {
             int? id = getCurrentIdNumber(sender);
 
+            
+
+            //_toolBarForForm001VIDCONNECT
             if (id == null)
             {
                 ;
