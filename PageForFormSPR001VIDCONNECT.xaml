@@ -22,7 +22,7 @@
     <DockPanel>
 
 
-        <ToolBar x:Name="toolBarForForm001VIDCONNECT" DockPanel.Dock="Top" Visibility="Hidden">
+        <ToolBar x:Name="_toolBarForForm001VIDCONNECT" DockPanel.Dock="Top" Visibility="Hidden">
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="btnShowAll" Padding="7,2,3,2" Content="Показать"/>
                 <Button x:Name="btnNewRecord" Padding="3,2,3,2" Content="Новая"/>

@@ -186,7 +186,9 @@ namespace WpfToyDataForms
             }
             else if (_ID_of_selectedRecord != id)
             {
-                this.toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
+                //this.toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
+                //this.toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
+                
                 this._pO_TEL_VID_CONNECT__selected = getCurrentElementBeforeChangingFormDataGrid(sender);
             }
 
