@@ -99,7 +99,18 @@ namespace WpfToyDataForms
             CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.Local;
 
 
-            this.CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
+            this.CollectionOf_TEL_VID_CONNECTs = new List<PO_TEL_VID_CONNECT>();
+
+
+            foreach( var elPO in _dbAppContext.pO_TEL_VID_CONNECTs)
+            {
+                this.CollectionOf_TEL_VID_CONNECTs.Add(elPO);
+            }
+
+            
+
+
+            /*this.CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();*/
 
             return this.CollectionOf_TEL_VID_CONNECTs.Count;
         }
