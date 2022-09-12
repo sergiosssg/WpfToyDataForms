@@ -22,10 +22,10 @@ namespace WpfToyDataForms
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("pnone");
+            //modelBuilder.HasDefaultSchema("pnone");
             // modelBuilder.Entity<PO_TEL_OPERATOR>().HasOne(telefonOperator => telefonOperator.ParentIDConnect).WithMany(p => p.TelefonOperators).HasForeignKey(fk => fk.ParentIDConnect);
             //modelBuilder.Entity<PO_TEL_OPERATOR>().HasOne(telefonOperator => telefonOperator.ParentIDConnect).WithMany(p => p.TelefonOperators);
-            modelBuilder.Entity<PO_TEL_OPERATOR>().HasOne(p => p.ParentIDConnect).WithMany(p => p.TelefonOperators).HasForeignKey(p => p.IDConnect);
+            modelBuilder.HasDefaultSchema("pnone").Entity<PO_TEL_OPERATOR>().HasOne(p => p.ParentIDConnect).WithMany(p => p.TelefonOperators).HasForeignKey(p => p.IDConnect);
         }
 
 
