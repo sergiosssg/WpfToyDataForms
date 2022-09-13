@@ -102,15 +102,15 @@ namespace WpfToyDataForms
             this.CollectionOf_TEL_VID_CONNECTs = new List<PO_TEL_VID_CONNECT>();
 
 
-            foreach( var elPO in _dbAppContext.pO_TEL_VID_CONNECTs)
+            /*foreach( var elPO in _dbAppContext.pO_TEL_VID_CONNECTs)
             {
                 this.CollectionOf_TEL_VID_CONNECTs.Add(elPO);
-            }
-
-            
+            }*/
 
 
-            /*this.CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();*/
+
+
+            this.CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
 
             return this.CollectionOf_TEL_VID_CONNECTs.Count;
         }
@@ -134,14 +134,14 @@ namespace WpfToyDataForms
 
         private void _innerDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            int? id = getCurrentIdNumber(sender);  // getCurrentFieldNameOfDataGreed(object dataGrid)
+            int? id = getCurrentIdNumber(sender);  // getCurrentFieldNameOfDataGrid(object dataGrid)
             string? nameOfEditedField = null;
 
             bool isStringsAreDifferent = false;
 
             if (id != null && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
             {
-                nameOfEditedField = getCurrentFieldNameOfDataGreed(sender);
+                nameOfEditedField = getCurrentFieldNameOfDataGrid(sender);
                 string newValue = getCurrentFieldValueOfDataGridForChanging(e);
 
                 var record = getCurrentElementBeforeChangingFormDataGrid(sender);
@@ -335,7 +335,7 @@ namespace WpfToyDataForms
         }
 
 
-        private string? getCurrentFieldNameOfDataGreed(object dataGrid)
+        private string? getCurrentFieldNameOfDataGrid(object dataGrid)
         {
             DataGrid dg = dataGrid as DataGrid;
 
