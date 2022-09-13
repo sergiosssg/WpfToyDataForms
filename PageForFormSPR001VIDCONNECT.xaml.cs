@@ -198,7 +198,7 @@ namespace WpfToyDataForms
             {
                 ;
             }
-            else if (this._ID_of_selectedRecord != id)
+            else if (id != null && this._ID_of_selectedRecord != id)
             {
                 //this.toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
                 //this.toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
