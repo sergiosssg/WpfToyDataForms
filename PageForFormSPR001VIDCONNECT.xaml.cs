@@ -192,6 +192,8 @@ namespace WpfToyDataForms
             int? id = getCurrentIdNumber(sender);
 
 
+            PO_TEL_VID_CONNECT? pO_TEL_VID_CONNECT  = getRemovedItemsInDataGrid(e);
+
             if (id == null)
             {
                 ;
