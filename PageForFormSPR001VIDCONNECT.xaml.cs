@@ -146,7 +146,7 @@ namespace WpfToyDataForms
 
                 var record = getCurrentElementBeforeChangingFormDataGrid(sender);
 
-                if(record != null && nameOfEditedField != null && !nameOfEditedField.Equals(string.Empty) && newValue != null && !newValue.Equals(string.Empty))
+                if (record != null && nameOfEditedField != null && !nameOfEditedField.Equals(string.Empty) && newValue != null && !newValue.Equals(string.Empty))
                 {
                     isStringsAreDifferent = checkIFCellChanged(record, newValue, nameOfEditedField);
 
@@ -166,13 +166,13 @@ namespace WpfToyDataForms
 
         private void _innerDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
-            PO_TEL_VID_CONNECT po_TEL_VID_CONNECT = getCurrentElementBeforeChangingFormDataGrid( sender);
-            int? id = getCurrentIdNumber(  sender);
+            PO_TEL_VID_CONNECT po_TEL_VID_CONNECT = getCurrentElementBeforeChangingFormDataGrid(sender);
+            int? id = getCurrentIdNumber(sender);
             if (po_TEL_VID_CONNECT.isIamEmpty())
             {
                 ;
             }
-            else if(this._ID_of_selectedRecord != null && this._ID_of_selectedRecord > 0 && this._pO_TEL_VID_CONNECT__selected != null && this._ID_of_selectedRecord != id)
+            else if (this._ID_of_selectedRecord != null && this._ID_of_selectedRecord > 0 && this._pO_TEL_VID_CONNECT__selected != null && this._ID_of_selectedRecord != id)
             {
                 this._pO_TEL_VID_CONNECT__selected = po_TEL_VID_CONNECT;
                 this._ID_of_selectedRecord = id;
@@ -191,18 +191,16 @@ namespace WpfToyDataForms
         {
             int? id = getCurrentIdNumber(sender);
 
-            
 
-            //_toolBarForForm001VIDCONNECT
             if (id == null)
             {
                 ;
             }
-            else if (_ID_of_selectedRecord != id)
+            else if (this._ID_of_selectedRecord != id)
             {
                 //this.toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
                 //this.toolBarForForm001VIDCONNECT.Visibility = Visibility.Visible;
-                
+
                 this._pO_TEL_VID_CONNECT__selected = getCurrentElementBeforeChangingFormDataGrid(sender);
             }
 
@@ -256,7 +254,7 @@ namespace WpfToyDataForms
         {
             string? str_OfValue = null;
 
-            string sClearedNewValue = clearDirtyStringFromControlsSystemCharacters( newValue);
+            string sClearedNewValue = clearDirtyStringFromControlsSystemCharacters(newValue);
 
             if (nameOfField.Equals("IDConnect"))
             {
@@ -271,7 +269,7 @@ namespace WpfToyDataForms
                 str_OfValue = pO_TEL_VID_CONNECT.NameOfConnect.ToString();
             }
 
-            if(str_OfValue != null && !str_OfValue.Equals(sClearedNewValue))
+            if (str_OfValue != null && !str_OfValue.Equals(sClearedNewValue))
             {
                 return true;
             }
@@ -295,7 +293,7 @@ namespace WpfToyDataForms
         }
 
 
-        private string clearDirtyStringFromControlsSystemCharacters( string valueDirty)
+        private string clearDirtyStringFromControlsSystemCharacters(string valueDirty)
         {
             //
 
@@ -366,6 +364,28 @@ namespace WpfToyDataForms
             }
             return idCurrent;
         }
+
+
+        private PO_TEL_VID_CONNECT? getRemovedItemsInDataGrid(SelectionChangedEventArgs e)
+        {
+            PO_TEL_VID_CONNECT? returnedPO = null;
+            if (e.RemovedItems.Count == 1)
+            {
+                var elOf_PO = e.RemovedItems[0];
+                if (elOf_PO != null)
+                {
+                    returnedPO = e.RemovedItems[0] as PO_TEL_VID_CONNECT;
+                    if (returnedPO != null)
+                    {
+                        return returnedPO;
+                    }
+                }
+            }
+            returnedPO = new PO_TEL_VID_CONNECT();
+            return returnedPO;
+            throw new NotImplementedException();
+        }
+
 
 
         #endregion
