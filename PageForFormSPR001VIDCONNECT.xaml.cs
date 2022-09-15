@@ -186,7 +186,7 @@ namespace WpfToyDataForms
             int? id = getCurrentIdNumber(sender);
 
 
-            if (this._isDirtyDataSource)
+            if (!this._isDirtyDataSource)
             {
                 if (id == null)
                 {
@@ -199,7 +199,7 @@ namespace WpfToyDataForms
             }
             else
             {
-                ;
+                this._shouldBeSaved = true;
             }
 
             
