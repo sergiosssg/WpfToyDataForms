@@ -137,24 +137,32 @@ namespace WpfToyDataForms
             int? id = getCurrentIdNumber(sender);  // getCurrentFieldNameOfDataGrid(object dataGrid)
             string? nameOfEditedField = null;
 
+            var record = getCurrentElementBeforeChangingFormDataGrid(sender);
+
             bool isStringsAreDifferent = false;
-
-            if (id != null && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
+            if (id !=  null)
             {
-                nameOfEditedField = getCurrentFieldNameOfDataGrid(sender);
-                string newValue = getCurrentFieldValueOfDataGridForChanging(e);
-
-                var record = getCurrentElementBeforeChangingFormDataGrid(sender);
-
-                if (record != null && nameOfEditedField != null && !nameOfEditedField.Equals(string.Empty) && newValue != null && !newValue.Equals(string.Empty))
+                if (this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
                 {
-                    isStringsAreDifferent = checkIFCellChanged(record, newValue, nameOfEditedField);
+                    nameOfEditedField = getCurrentFieldNameOfDataGrid(sender);
+                    string newValue = getCurrentFieldValueOfDataGridForChanging(e);
 
-                    if (isStringsAreDifferent)
+                    if (record != null && nameOfEditedField != null && !nameOfEditedField.Equals(string.Empty) && newValue != null && !newValue.Equals(string.Empty))
                     {
-                        this._isDirtyDataSource = true;
-                        this._shouldBeSaved = true;
-                        btnSaveAll.IsEnabled = true;
+                        isStringsAreDifferent = checkIFCellChanged(record, newValue, nameOfEditedField);
+
+                        if (isStringsAreDifferent)
+                        {
+                            this._isDirtyDataSource = true;
+                            this._shouldBeSaved = true;
+                            btnSaveAll.IsEnabled = true;
+                        }
+                    }
+                } else if (this._ID_of_selectedRecord == null && id == 0)
+                {
+                    if (record != null && record.isIamEmpty())
+                    {
+                        e.Cancel = true;
                     }
                 }
             }
