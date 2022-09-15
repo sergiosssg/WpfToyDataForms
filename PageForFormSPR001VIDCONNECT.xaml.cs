@@ -183,7 +183,16 @@ namespace WpfToyDataForms
 
         private void _innerDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
-            ;
+            int? id = getCurrentIdNumber(sender);
+
+            if(id == null)
+            {
+                ;
+            }
+            else
+            {
+                ;
+            }
         }
 
 
