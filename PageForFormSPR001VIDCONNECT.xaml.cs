@@ -135,17 +135,18 @@ namespace WpfToyDataForms
         private void _innerDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             int? id = getCurrentIdNumber(sender);  // getCurrentFieldNameOfDataGrid(object dataGrid)
-            string? nameOfEditedField = null;
+            string? nameOfEditedField = getCurrentFieldNameOfDataGrid(sender);
 
             var record = getCurrentElementBeforeChangingFormDataGrid(sender);
+
+            string newValue = getCurrentFieldValueOfDataGridForChanging(e);
 
             bool isStringsAreDifferent = false;
             if (id !=  null)
             {
                 if (this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
                 {
-                    nameOfEditedField = getCurrentFieldNameOfDataGrid(sender);
-                    string newValue = getCurrentFieldValueOfDataGridForChanging(e);
+                    
 
                     if (record != null && nameOfEditedField != null && !nameOfEditedField.Equals(string.Empty) && newValue != null && !newValue.Equals(string.Empty))
                     {
