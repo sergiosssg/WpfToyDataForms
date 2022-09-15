@@ -185,14 +185,24 @@ namespace WpfToyDataForms
         {
             int? id = getCurrentIdNumber(sender);
 
-            if(id == null)
+
+            if (this._isDirtyDataSource)
             {
-                ;
+                if (id == null)
+                {
+                    ;
+                }
+                else
+                {
+                    ;
+                }
             }
             else
             {
                 ;
             }
+
+            
         }
 
 
