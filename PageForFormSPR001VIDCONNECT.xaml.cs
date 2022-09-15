@@ -164,7 +164,7 @@ namespace WpfToyDataForms
                 {
                     if (record != null && record.isIamEmpty())
                     {
-                        if (isNewRecordHasValidIDfield(record, newValue, nameOfEditedField))
+                        if (!isNewRecordHasValidIDfield(record, newValue, nameOfEditedField))
                         {
                             e.Cancel = true;
                         }
