@@ -142,11 +142,11 @@ namespace WpfToyDataForms
             string newValue = getCurrentFieldValueOfDataGridForChanging(e);
 
             bool isStringsAreDifferent = false;
-            if (id !=  null)
+            if (id != null)
             {
                 if (this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
                 {
-                    
+
 
                     if (record != null && nameOfEditedField != null && !nameOfEditedField.Equals(string.Empty) && newValue != null && !newValue.Equals(string.Empty))
                     {
@@ -159,11 +159,15 @@ namespace WpfToyDataForms
                             btnSaveAll.IsEnabled = true;
                         }
                     }
-                } else if (this._ID_of_selectedRecord == null && id == 0)
+                }
+                else if (this._ID_of_selectedRecord == null && id == 0)
                 {
                     if (record != null && record.isIamEmpty())
                     {
-                        e.Cancel = true;
+                        if (isNewRecordHasValidIDfield(record, newValue, nameOfEditedField))
+                        {
+                            e.Cancel = true;
+                        }
                     }
                 }
             }
@@ -211,7 +215,7 @@ namespace WpfToyDataForms
                 this._shouldBeSaved = true;
             }
 
-            
+
         }
 
 
@@ -220,7 +224,7 @@ namespace WpfToyDataForms
             int? id = getCurrentIdNumber(sender);
 
 
-            PO_TEL_VID_CONNECT? pO_TEL_VID_CONNECT  = getRemovedItemsInDataGrid(e);
+            PO_TEL_VID_CONNECT? pO_TEL_VID_CONNECT = getRemovedItemsInDataGrid(e);
 
             if (id == null)
             {
@@ -274,7 +278,7 @@ namespace WpfToyDataForms
                 _pO_TEL_VID_CONNECT__selected = null;
 
 
-                
+
 
             }
         }
@@ -387,6 +391,21 @@ namespace WpfToyDataForms
             return string.Empty;
         }
 
+
+        private bool isNewRecordHasValidIDfield(PO_TEL_VID_CONNECT pO_TEL_VID_CONNECT, string newValue, string nameOfField, string patternNameOfField = "IDConnect")
+        {
+            int iID;
+            bool isStringDigit = int.TryParse(newValue, out iID);
+            if (isStringDigit && iID > 0 && nameOfField != null && nameOfField.Equals(patternNameOfField))
+            {
+                return true;
+            }
+            else if (nameOfField != null && !nameOfField.Equals(patternNameOfField) && pO_TEL_VID_CONNECT != null && pO_TEL_VID_CONNECT.IDConnect > 0)
+            {
+                return true;
+            }
+            return false;
+        }
 
 
         private int? getCurrentIdNumber(object objDataGrid)
