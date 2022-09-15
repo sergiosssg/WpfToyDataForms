@@ -254,6 +254,19 @@ namespace WpfToyDataForms
                 binding.Source = vid_connects;
 
                 dGrid.SetBinding(DataGrid.ItemsSourceProperty, binding);
+
+                _shouldBeSaved = false;
+
+
+                _isDirtyDataSource = false;
+
+                _ID_of_selectedRecord = null;
+
+                _pO_TEL_VID_CONNECT__selected = null;
+
+
+                
+
             }
         }
 
