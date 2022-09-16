@@ -35,6 +35,9 @@ namespace WpfToyDataForms
         private int? _ID_of_selectedRecord;
 
 
+        private ICollection<int> _arrayOfIDs;
+
+
         #endregion
 
 
@@ -68,6 +71,9 @@ namespace WpfToyDataForms
             this._shouldBeSaved = false;
             this._isDirtyDataSource = false;
             this._ID_of_selectedRecord = null;
+
+            this._arrayOfIDs = new List<int>();
+
             try
             {
 
