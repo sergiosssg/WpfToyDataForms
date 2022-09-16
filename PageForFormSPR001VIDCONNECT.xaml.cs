@@ -174,6 +174,12 @@ namespace WpfToyDataForms
                         {
                             e.Cancel = true;
                         }
+                        else
+                        {
+                            this._isDirtyDataSource = true;
+                            this._shouldBeSaved = true;
+                            btnSaveAll.IsEnabled = true;
+                        }
                     }
                 }
             }
