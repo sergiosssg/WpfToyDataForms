@@ -76,6 +76,13 @@ namespace WpfToyDataForms
 
             this._setOfIDs = new SortedSet<int>();
 
+            this._isCanceledTextEnterringInFields = new Dictionary<string, bool>();
+            {
+                this._isCanceledTextEnterringInFields.Add("IDConnect", false);
+                this._isCanceledTextEnterringInFields.Add("KOD_CONNECT", false);
+                this._isCanceledTextEnterringInFields.Add("NameOfConnect", false);
+            }
+
             try
             {
 
