@@ -268,12 +268,22 @@ namespace WpfToyDataForms
             saveAll();
             this._setOfIDs = fillIDsFromDbSetOfEntities(this._dbAppContext);
             btnSaveAll.IsEnabled = false;
+
+            foreach (var onekey in this._isCanceledTextEnterringInFields.Keys)
+            {
+                this._isCanceledTextEnterringInFields[onekey] = false;
+            }
         }
 
 
         private void _innerDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             ;
+            foreach (var onekey in this._isCanceledTextEnterringInFields.Keys)
+            {
+                this._isCanceledTextEnterringInFields[onekey] = false;
+            }
+
             this._setOfIDs =  fillIDsFromDbSetOfEntities( this._dbAppContext);
         }
 
@@ -318,10 +328,6 @@ namespace WpfToyDataForms
         {
             if (this._shouldBeSaved || this._isDirtyDataSource)
             {
-                foreach(var onekey in this._isCanceledTextEnterringInFields.Keys)
-                {
-                    this._isCanceledTextEnterringInFields[onekey] = false;
-                }
                 this._dbAppContext.SaveChanges(true);
 
                 this._shouldBeSaved = false;
