@@ -34,6 +34,8 @@ namespace WpfToyDataForms
 
         private int? _ID_of_selectedRecord;
 
+        private IDictionary<string, bool> _isCanceledTextEnterringInFields;
+
 
         private ISet<int> _setOfIDs;
 
