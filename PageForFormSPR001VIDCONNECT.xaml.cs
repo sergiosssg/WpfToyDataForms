@@ -318,7 +318,11 @@ namespace WpfToyDataForms
         {
             if (this._shouldBeSaved || this._isDirtyDataSource)
             {
-                _dbAppContext.SaveChanges(true);
+                foreach(var onekey in this._isCanceledTextEnterringInFields.Keys)
+                {
+                    this._isCanceledTextEnterringInFields[onekey] = false;
+                }
+                this._dbAppContext.SaveChanges(true);
 
                 this._shouldBeSaved = false;
                 this._isDirtyDataSource = false;
