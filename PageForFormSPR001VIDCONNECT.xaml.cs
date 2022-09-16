@@ -394,11 +394,14 @@ namespace WpfToyDataForms
 
         private bool isNewRecordHasValidIDfield(PO_TEL_VID_CONNECT pO_TEL_VID_CONNECT, string newValue, string nameOfField, string patternNameOfField = "IDConnect")
         {
-            int iID;
-            bool isStringDigit = int.TryParse(newValue, out iID);
-            if (isStringDigit && iID > 0 && nameOfField != null && nameOfField.Equals(patternNameOfField))
+            if (nameOfField != null && nameOfField.Equals(patternNameOfField))
             {
-                return true;
+                int iID;
+                bool isStringDigit = int.TryParse(newValue, out iID);
+                if(isStringDigit && iID > 0)
+                {
+                    return true;
+                }
             }
             else if (nameOfField != null && !nameOfField.Equals(patternNameOfField) && pO_TEL_VID_CONNECT != null && pO_TEL_VID_CONNECT.IDConnect > 0)
             {
