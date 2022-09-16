@@ -145,7 +145,7 @@ namespace WpfToyDataForms
 
             var record = getCurrentElementBeforeChangingFormDataGrid(sender);
 
-            string newValue = getCurrentFieldValueOfDataGridForChanging(e);
+            string newValue = clearDirtyStringFromControlsSystemCharacters(getCurrentFieldValueOfDataGridForChanging(e)).Trim();
 
             bool isStringsAreDifferent = false;
             if (id != null)
@@ -357,7 +357,6 @@ namespace WpfToyDataForms
         private string clearDirtyStringFromControlsSystemCharacters(string valueDirty)
         {
             //
-
             string returnedCleanString;
 
             if (valueDirty.Contains("System.Windows.Controls.TextBox:"))
@@ -377,8 +376,6 @@ namespace WpfToyDataForms
             }
 
             return returnedCleanString;
-
-            throw new NotImplementedException();
         }
 
 
