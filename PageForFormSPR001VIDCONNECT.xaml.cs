@@ -412,7 +412,7 @@ namespace WpfToyDataForms
             {
                 int iID;
                 bool isStringDigit = int.TryParse(newValue, out iID);
-                if(isStringDigit && iID > 0)
+                if(isStringDigit && iID > 0 && !this._setOfIDs.Contains(iID))
                 {
                     return true;
                 }
