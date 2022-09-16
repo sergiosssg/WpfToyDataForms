@@ -251,7 +251,15 @@ namespace WpfToyDataForms
         private void btnSaveAll_Click(object sender, RoutedEventArgs e)
         {
             saveAll();
+            this._setOfIDs = fillIDsFromDbSetOfEntities(this._dbAppContext);
             btnSaveAll.IsEnabled = false;
+        }
+
+
+        private void _innerDataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            ;
+            this._setOfIDs =  fillIDsFromDbSetOfEntities( this._dbAppContext);
         }
 
 
@@ -455,6 +463,24 @@ namespace WpfToyDataForms
             returnedPO = new PO_TEL_VID_CONNECT();
             return returnedPO;
             throw new NotImplementedException();
+        }
+
+
+
+        private ISet<int> fillIDsFromDbSetOfEntities(DbAppContext dbAppContext)
+        {
+            var keysOfIDs = dbAppContext.pO_TEL_VID_CONNECTs.Select(o => o.IDConnect);
+
+            var tTt = keysOfIDs.GetType().Name;
+
+            ISet<int> returnedSet = keysOfIDs.ToHashSet(); /*= new SortedSet<int>();*/
+
+            /*foreach (var oneID in keysOfIDs)
+            {
+                returnedSet.Add(oneID);
+            }*/
+
+            return returnedSet;
         }
 
 
