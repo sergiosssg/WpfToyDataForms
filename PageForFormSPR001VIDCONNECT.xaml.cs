@@ -35,7 +35,7 @@ namespace WpfToyDataForms
         private int? _ID_of_selectedRecord;
 
 
-        private ICollection<int> _arrayOfIDs;
+        private ISet<int> _setOfIDs;
 
 
         #endregion
@@ -72,7 +72,7 @@ namespace WpfToyDataForms
             this._isDirtyDataSource = false;
             this._ID_of_selectedRecord = null;
 
-            this._arrayOfIDs = new List<int>();
+            this._setOfIDs = new SortedSet<int>();
 
             try
             {
