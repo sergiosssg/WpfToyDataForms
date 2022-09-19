@@ -329,6 +329,20 @@ namespace WpfToyDataForms
 
         private void _innerDataGrid_LostFocus(object sender, RoutedEventArgs e)
         {
+            bool isPreviousNotSuccessfullyEditingOfField = false;  // whether previous attempt to edit field was successfull
+            foreach (var onKey in this._isCanceledTextEnterringInFields.Keys)
+            {
+                if (this._isCanceledTextEnterringInFields[onKey])
+                {
+                    isPreviousNotSuccessfullyEditingOfField = true;
+                    break;
+                }
+            }
+
+            if (!isPreviousNotSuccessfullyEditingOfField)
+            {
+                ;
+            }
             ;
         }
 
