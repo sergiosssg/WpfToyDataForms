@@ -344,7 +344,10 @@ namespace WpfToyDataForms
                 DataGrid dg = e.Source as DataGrid;
                 if(dg != null)
                 {
-                    ;
+                    if (this._ID_of_selectedRecord != null)
+                    {
+
+                    }
                 }
             }
             ;
