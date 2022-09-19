@@ -181,6 +181,7 @@ namespace WpfToyDataForms
                             this._isDirtyDataSource = true;
                             this._shouldBeSaved = true;
                             btnSaveAll.IsEnabled = true;
+                            return;
                         }
                     }
                 }
@@ -188,30 +189,32 @@ namespace WpfToyDataForms
                 {
                     if (record != null && record.isIamEmpty())
                     {
-                        var isRecordHasValidIDfield = isNewRecordHasValidIDfield(record, newValue, nameOfEditedField);
-                        if (!isPreviousNotSuccessfullyEditingOfField  && !isRecordHasValidIDfield)  // previous attempt was successfull
+                        if (!isPreviousNotSuccessfullyEditingOfField)// previous attempt was successfull
                         {
-                            this._isCanceledTextEnterringInFields[nameOfEditedField] = true;
-
-                            //e.Cancel = true;
-                        }
-                        else if (isPreviousNotSuccessfullyEditingOfField && isRecordHasValidIDfield && this._isCanceledTextEnterringInFields["IDOperator"])
-                        {
-                            e.Cancel = false;
-                            this._isDirtyDataSource = true;
-                            this._shouldBeSaved = true;
-                            btnSaveAll.IsEnabled = true;
-
-                            foreach (var onKey in this._isCanceledTextEnterringInFields.Keys)
+                            var isRecordHasValidIDfield = isNewRecordHasValidIDfield(record, newValue, nameOfEditedField);
+                            if (!isRecordHasValidIDfield)
                             {
-                                this._isCanceledTextEnterringInFields[onKey] = false;
+                                this._isCanceledTextEnterringInFields[nameOfEditedField] = true;
+                                //e.Cancel = true;
+                                return;
                             }
                         }
-                        else
+                        else if(isPreviousNotSuccessfullyEditingOfField && this._isCanceledTextEnterringInFields["IDOperator"])
                         {
-                            this._isDirtyDataSource = true;
-                            this._shouldBeSaved = true;
-                            btnSaveAll.IsEnabled = true;
+                            var isRecordHasValidIDfield = isNewRecordHasValidIDfield(record, newValue, nameOfEditedField);
+                            if (isRecordHasValidIDfield)
+                            {
+                                e.Cancel = false;
+                                this._isDirtyDataSource = true;
+                                this._shouldBeSaved = true;
+                                btnSaveAll.IsEnabled = true;
+
+                                foreach (var onKey in this._isCanceledTextEnterringInFields.Keys)
+                                {
+                                    this._isCanceledTextEnterringInFields[onKey] = false;
+                                }
+                                return;
+                            }
                         }
                     }
                 }
