@@ -158,23 +158,20 @@ namespace WpfToyDataForms
 
             bool isStringsAreDifferent = false;
 
-            bool isPreviousSuccessfullyEditingOfField = false;  // whether previous attempt to edit field was successfull
+            bool isPreviousNotSuccessfullyEditingOfField = false;  // whether previous attempt to edit field was successfull
             foreach (var onKey in this._isCanceledTextEnterringInFields.Keys)
             {
                 if (this._isCanceledTextEnterringInFields[onKey])
                 {
-                    isPreviousSuccessfullyEditingOfField = true;
+                    isPreviousNotSuccessfullyEditingOfField = true;
                     break;
                 }
-
             }
 
             if (id != null)
             {
-                if (!isPreviousSuccessfullyEditingOfField && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)  // if all right in entering and previous attempt to entering new value in field was successful
+                if (!isPreviousNotSuccessfullyEditingOfField && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)  // if all right in entering and previous attempt to entering new value in field was successful
                 {
-
-
                     if (record != null && nameOfEditedField != null && !nameOfEditedField.Equals(string.Empty) && newValue != null && !newValue.Equals(string.Empty))
                     {
                         isStringsAreDifferent = checkIFCellChanged(record, newValue, nameOfEditedField);
@@ -192,15 +189,23 @@ namespace WpfToyDataForms
                     if (record != null && record.isIamEmpty())
                     {
                         var isRecordHasValidIDfield = isNewRecordHasValidIDfield(record, newValue, nameOfEditedField);
-                        if (!isPreviousSuccessfullyEditingOfField  && !isRecordHasValidIDfield)  // previous attempt was successfull
+                        if (!isPreviousNotSuccessfullyEditingOfField  && !isRecordHasValidIDfield)  // previous attempt was successfull
                         {
                             this._isCanceledTextEnterringInFields[nameOfEditedField] = true;
 
                             //e.Cancel = true;
                         }
-                        else if (isPreviousSuccessfullyEditingOfField && isRecordHasValidIDfield && !this._isCanceledTextEnterringInFields["IDOperator"])
+                        else if (isPreviousNotSuccessfullyEditingOfField && isRecordHasValidIDfield && this._isCanceledTextEnterringInFields["IDOperator"])
                         {
+                            e.Cancel = false;
+                            this._isDirtyDataSource = true;
+                            this._shouldBeSaved = true;
+                            btnSaveAll.IsEnabled = true;
 
+                            foreach (var onKey in this._isCanceledTextEnterringInFields.Keys)
+                            {
+                                this._isCanceledTextEnterringInFields[onKey] = false;
+                            }
                         }
                         else
                         {
