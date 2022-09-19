@@ -199,7 +199,7 @@ namespace WpfToyDataForms
                                 return;
                             }
                         }
-                        else if(isPreviousNotSuccessfullyEditingOfField && this._isCanceledTextEnterringInFields["IDOperator"])
+                        else if(isPreviousNotSuccessfullyEditingOfField && this._isCanceledTextEnterringInFields["IDConnect"])
                         {
                             var isRecordHasValidIDfield = isNewRecordHasValidIDfield(record, newValue, nameOfEditedField);
                             if (isRecordHasValidIDfield)
