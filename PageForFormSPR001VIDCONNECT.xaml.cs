@@ -341,7 +341,11 @@ namespace WpfToyDataForms
 
             if (!isPreviousNotSuccessfullyEditingOfField)
             {
-                ;
+                DataGrid dg = e.Source as DataGrid;
+                if(dg != null)
+                {
+                    ;
+                }
             }
             ;
         }
