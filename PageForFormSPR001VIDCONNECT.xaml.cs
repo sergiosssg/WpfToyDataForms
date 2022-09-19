@@ -157,9 +157,21 @@ namespace WpfToyDataForms
             string newValue = clearDirtyStringFromControlsSystemCharacters(getCurrentFieldValueOfDataGridForChanging(e)).Trim();
 
             bool isStringsAreDifferent = false;
+
+            bool isPreviousSuccessfullyEditingOfField = false;  // whether previous attempt to edit field was successfull
+            foreach (var onKey in this._isCanceledTextEnterringInFields.Keys)
+            {
+                if (this._isCanceledTextEnterringInFields[onKey])
+                {
+                    isPreviousSuccessfullyEditingOfField = true;
+                    break;
+                }
+
+            }
+
             if (id != null)
             {
-                if (this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)
+                if (!isPreviousSuccessfullyEditingOfField && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord == id)  // if all right in entering and previous attempt to entering new value in field was successful
                 {
 
 
@@ -175,13 +187,20 @@ namespace WpfToyDataForms
                         }
                     }
                 }
-                else if (this._ID_of_selectedRecord == null && id == 0)
+                else if ( id == 0)
                 {
                     if (record != null && record.isIamEmpty())
                     {
-                        if (!isNewRecordHasValidIDfield(record, newValue, nameOfEditedField))
+                        var isRecordHasValidIDfield = isNewRecordHasValidIDfield(record, newValue, nameOfEditedField);
+                        if (!isPreviousSuccessfullyEditingOfField  && !isRecordHasValidIDfield)  // previous attempt was successfull
                         {
-                            e.Cancel = true;
+                            this._isCanceledTextEnterringInFields[nameOfEditedField] = true;
+
+                            //e.Cancel = true;
+                        }
+                        else if (isPreviousSuccessfullyEditingOfField && isRecordHasValidIDfield && !this._isCanceledTextEnterringInFields["IDOperator"])
+                        {
+
                         }
                         else
                         {
@@ -219,8 +238,29 @@ namespace WpfToyDataForms
         {
             int? id = getCurrentIdNumber(sender);
 
+            bool isPreviousSuccessfullyEditingOfField = false;  // whether previous attempt to edit field was successfull
+            foreach (var onKey in this._isCanceledTextEnterringInFields.Keys)
+            {
+                if (this._isCanceledTextEnterringInFields[onKey])
+                {
+                    isPreviousSuccessfullyEditingOfField = true;
+                    break;
+                }
 
-            if (!this._isDirtyDataSource)
+            }
+
+            if (isPreviousSuccessfullyEditingOfField)
+            {
+
+
+                e.Cancel = true;
+            }
+
+
+            
+
+
+/*            if (!this._isDirtyDataSource)
             {
                 if (id == null)
                 {
@@ -234,7 +274,7 @@ namespace WpfToyDataForms
             else
             {
                 this._shouldBeSaved = true;
-            }
+            }*/
 
 
         }
@@ -249,7 +289,7 @@ namespace WpfToyDataForms
 
             if (id == null)
             {
-                ;
+                return;
             }
             else if (id != null && this._ID_of_selectedRecord != id)
             {
@@ -434,7 +474,7 @@ namespace WpfToyDataForms
             {
                 int iID;
                 bool isStringDigit = int.TryParse(newValue, out iID);
-                if(isStringDigit && iID > 0 && !this._setOfIDs.Contains(iID))
+                if(isStringDigit && iID > 0 && !this._setOfIDs.Contains(iID))  //  check  that  new ID value have to be unique
                 {
                     return true;
                 }
