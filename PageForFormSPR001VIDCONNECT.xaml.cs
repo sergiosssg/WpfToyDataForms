@@ -274,27 +274,6 @@ namespace WpfToyDataForms
                 e.Cancel = true;
             }
 
-
-            
-
-
-/*            if (!this._isDirtyDataSource)
-            {
-                if (id == null)
-                {
-                    ;
-                }
-                else
-                {
-                    ;
-                }
-            }
-            else
-            {
-                this._shouldBeSaved = true;
-            }*/
-
-
         }
 
 
@@ -343,6 +322,14 @@ namespace WpfToyDataForms
             }
 
             this._setOfIDs =  fillIDsFromDbSetOfEntities( this._dbAppContext);
+        }
+
+
+
+
+        private void _innerDataGrid_LostFocus(object sender, RoutedEventArgs e)
+        {
+            ;
         }
 
 
@@ -562,6 +549,7 @@ namespace WpfToyDataForms
 
             return returnedSet;
         }
+
 
 
 
