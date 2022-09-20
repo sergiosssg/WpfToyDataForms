@@ -354,6 +354,10 @@ namespace WpfToyDataForms
         }
 
 
+        private void btnShowAll_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         #endregion
 
@@ -570,6 +574,7 @@ namespace WpfToyDataForms
 
             return returnedSet;
         }
+
 
 
 
