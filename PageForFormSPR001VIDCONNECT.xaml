@@ -28,7 +28,8 @@
                 <Button x:Name="btnNewRecord" Padding="3,2,3,2" Content="Новая"/>
                 <Button x:Name="btnEditRecord" Padding="3,2,3,2" Content="Изменить" IsEnabled="False"/>
                 <Button x:Name="btnSaveAll" Padding="7,2,3,2" Content="Сохранить" Click="btnSaveAll_Click" IsEnabled="False"/>
-                <Button x:Name="btnDeleteRecords" Padding="3,2,7,2" Content="Удалить" IsEnabled="False"/>
+                <Button x:Name="btnDeleteRecords" Padding="3,2,3,2" Content="Удалить" IsEnabled="False"/>
+                <Button x:Name="btnRemoveLastTab" Padding="3,2,7,2" Content=" X " Click="btnRemoveLastTab_Click"/>
             </StackPanel>
 
         </ToolBar>

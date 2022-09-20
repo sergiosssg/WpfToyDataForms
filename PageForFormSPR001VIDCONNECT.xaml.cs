@@ -359,6 +359,13 @@ namespace WpfToyDataForms
 
         }
 
+
+        private void btnRemoveLastTab_Click(object sender, RoutedEventArgs e)
+        {
+            ;
+        }
+
+
         #endregion
 
 
@@ -574,6 +581,8 @@ namespace WpfToyDataForms
 
             return returnedSet;
         }
+
+
 
 
 
