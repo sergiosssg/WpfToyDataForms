@@ -223,6 +223,14 @@ namespace WpfToyDataForms
             ;
         }
 
+        private void btnCloseTabItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (!mainTabCtrl.Items.IsEmpty && mainTabCtrl.Items.Count > 0)
+            {
+                var currItem = mainTabCtrl.Items.CurrentItem;
 
+
+            }
+        }
     }
 }

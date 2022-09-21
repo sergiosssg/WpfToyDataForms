@@ -98,7 +98,9 @@
         </Menu>
 
         <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            
+            <ToolBar x:Name="toolBarForMainWindow">
+                <Button x:Name="btnCloseTabItem" FontWeight="Bold" FontFamily="Calibri" ToolTip="Закрыть вкладку" Click="btnCloseTabItem_Click"> X </Button>
+            </ToolBar>
             <TabControl x:Name="mainTabCtrl"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
 
                 <TabControl.Resources>
