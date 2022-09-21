@@ -98,7 +98,7 @@
         </Menu>
 
         <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-
+            
             <TabControl x:Name="mainTabCtrl"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
 
                 <TabControl.Resources>
@@ -108,6 +108,8 @@
                 <TabControl.DataContext>
                     <local:DataBaseFacilities/>
                 </TabControl.DataContext>
+                
+                
                 <TabItem x:Name="tabItem004" Header="Справочник мобильных телефонов" AllowDrop="True">
                     <StackPanel Background="#FFE5E5E5">
                         <Frame x:Name="frmForContentToInsert" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
