@@ -326,7 +326,11 @@ namespace WpfToyDataForms
 
 
 
-
+        /**
+         * 
+         *   Later I need to complete this event handler
+         * 
+         */
         private void _innerDataGrid_LostFocus(object sender, RoutedEventArgs e)
         {
             bool isPreviousNotSuccessfullyEditingOfField = false;  // whether previous attempt to edit field was successfull
