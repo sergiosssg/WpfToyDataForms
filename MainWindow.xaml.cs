@@ -26,12 +26,23 @@ namespace WpfToyDataForms
 
         //DataGridExtensions.DataGridFilter _dataGridFilter;
 
-        DataGrid _additionalDataGrid;
+        //DataGrid _additionalDataGrid;
+
+
+        #region private members
 
 
         private IDictionary<string, TabItem> _allTabItems;
 
+        private bool? _PO_TEL_VID_CONNECTs_Is_changed;
 
+        private PO_TEL_VID_CONNECT? _selectedCurrentPO_TE_VID_CONNECT;
+
+
+        #endregion
+
+
+        #region public Properties
 
         public ICollection<PO_TEL_VID_CONNECT> CollectionOf_TEL_VID_CONNECTs
         {
@@ -39,13 +50,11 @@ namespace WpfToyDataForms
             get;
         }
 
-
         public ICollection<PO_TEL_OPERATOR> CollectionOf_TEL_OPERATORs
         {
             set;
             get;
         }
-
 
         public ICollection<PO_TEL_MOB_SPR> CollectionOf_TEL_MOB_SPRs
         {
@@ -53,20 +62,17 @@ namespace WpfToyDataForms
             get;
         }
 
-
-
-
-        private bool? _PO_TEL_VID_CONNECTs_Is_changed;
-
-        private PO_TEL_VID_CONNECT? _selectedCurrentPO_TE_VID_CONNECT;
-
-
         public static DbAppContext DbAppContext
         {
             private set;
             get;
         }
 
+        #endregion
+
+
+
+        #region public constructors
 
         static MainWindow()
         {
@@ -83,6 +89,13 @@ namespace WpfToyDataForms
             this._PO_TEL_VID_CONNECTs_Is_changed = null;
             InitializeComponent();
         }
+
+
+        #endregion
+
+
+
+        #region Private methods, should be spesific for each Form class
 
         public int Load_PO_TEL_VID_CONNECT()
         {
@@ -159,6 +172,10 @@ namespace WpfToyDataForms
 
 
 
+        #endregion
+
+
+        #region  Event Handlers
 
 
 
@@ -177,6 +194,8 @@ namespace WpfToyDataForms
             }
             ;
         }
+
+
 
         private void dataGridSpr003_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -202,12 +221,9 @@ namespace WpfToyDataForms
 
                 var tSortMemberPath = sortMemberPath.GetType().Name;
             }
-
-            ;
             ;
             ;
         }
-
 
 
 
@@ -232,6 +248,7 @@ namespace WpfToyDataForms
             ;
         }
 
+
         private void btnCloseTabItem_Click(object sender, RoutedEventArgs e)
         {
             if (!mainTabCtrl.Items.IsEmpty && mainTabCtrl.Items.Count > 0)
@@ -241,5 +258,13 @@ namespace WpfToyDataForms
 
             }
         }
+
+
+        #endregion
+
+
+
+
+
     }
 }
