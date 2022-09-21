@@ -29,6 +29,10 @@ namespace WpfToyDataForms
         DataGrid _additionalDataGrid;
 
 
+        private IDictionary<string, TabItem> _allTabItems;
+
+
+
         public ICollection<PO_TEL_VID_CONNECT> CollectionOf_TEL_VID_CONNECTs
         {
             set;
@@ -72,6 +76,8 @@ namespace WpfToyDataForms
 
         public MainWindow()
         {
+
+            this._allTabItems = new Dictionary<string, TabItem>();
             ;
             this._selectedCurrentPO_TE_VID_CONNECT = null;
             this._PO_TEL_VID_CONNECTs_Is_changed = null;
@@ -214,7 +220,10 @@ namespace WpfToyDataForms
 
             int amount = pageDataGrid001.Load_PO_TEL_VID_CONNECT();
 
-            frmForContentToInsert.Content = pageDataGrid001;
+
+
+
+            //frmForContentToInsert.Content = pageDataGrid001;
 
             //frmForContentToInsert; 
             ;

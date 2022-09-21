@@ -99,14 +99,18 @@
 
         <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <ToolBar x:Name="toolBarForMainWindow">
-                <Button x:Name="btnCloseTabItem" FontWeight="Bold" FontFamily="Calibri" ToolTip="Закрыть вкладку" Click="btnCloseTabItem_Click"> X </Button>
+                <Button x:Name="btnCloseTabItem" FontWeight="Bold" FontFamily="Calibri" ToolTip="Закрыть вкладку" Click="btnCloseTabItem_Click">X</Button>
             </ToolBar>
+
             <TabControl x:Name="mainTabCtrl"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1">
 
                 <TabControl.Resources>
                     <ObjectDataProvider x:Key="ResDbContext" ObjectType="{x:Type local:DbAppContext}"/>
                     <ObjectDataProvider x:Key="ResVidOfConnect" ObjectInstance="{StaticResource ResDbContext}"/>
                 </TabControl.Resources>
+
+
+                <!--
                 <TabControl.DataContext>
                     <local:DataBaseFacilities/>
                 </TabControl.DataContext>
@@ -119,11 +123,13 @@
                         </Frame>
                     </StackPanel>
                 </TabItem>
+                -->
+
             </TabControl>
         </StackPanel>
 
         <Label  Grid.Column="1" Grid.Row="3"  x:Name="lblStatusBar" Content="Label" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch"  Margin="1,1,1,1" FontSize="14" Background="#FFC9CDD6"/>
-        
+
     </Grid>
 
 </Window>
