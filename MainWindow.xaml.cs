@@ -156,6 +156,7 @@ namespace WpfToyDataForms
             }
         }
 
+
         private void visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(Control dataViewControl, ICollection<PO_TEL_VID_CONNECT> vid_connects)
         {
             if ((dataViewControl != null) && (dataViewControl.GetType() == typeof(DataGrid)))
@@ -170,6 +171,17 @@ namespace WpfToyDataForms
             }
         }
 
+
+        private TabItem createNewTabItem(string sHeader, string sToolTip = "", string sNameOfTabItem = "")
+        {
+            TabItem ti = new TabItem();
+
+
+            ti.Header = sHeader;
+            ti.ToolTip = sToolTip;
+
+            return ti;
+        }
 
 
         #endregion
@@ -263,7 +275,7 @@ namespace WpfToyDataForms
         #endregion
 
 
-
+        
 
 
     }
