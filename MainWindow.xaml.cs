@@ -249,21 +249,16 @@ namespace WpfToyDataForms
 
             try
             {
-                pageDataGrid001.LoadRecordsTo();
-                int amount = pageDataGrid001.Load_PO_TEL_VID_CONNECT();
 
                 stackPnl.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE5E5E5"));
+                
 
-                frmForContentToInsert.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-                frmForContentToInsert.VerticalContentAlignment = VerticalAlignment.Stretch;
-
-                frmForContentToInsert.Content = pageDataGrid001;
-                //frmForContentToInsert.Content = pageDataGrid001;
-
-                stackPnl.DataContext = frmForContentToInsert;
+                stackPnl.Children.Add( frmForContentToInsert);
 
                 if (!this._allTabItems.ContainsKey("Тип связи"))
                 {
+
+
                     tbItem = createNewTabItem("Тип связи", "Справочник типов связи");
                     tbItem.Content = stackPnl;
                     this._allTabItems.Add("Тип связи", tbItem);
@@ -288,8 +283,20 @@ namespace WpfToyDataForms
 
                     if (!haveItemTabInCollectionAllready && tbItem != null)
                     {
+                        int amount = pageDataGrid001.Load_PO_TEL_VID_CONNECT();
+
+                        pageDataGrid001.LoadRecordsTo();
+
+
+                        frmForContentToInsert.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+                        frmForContentToInsert.VerticalContentAlignment = VerticalAlignment.Stretch;
+
+                        frmForContentToInsert.Content = pageDataGrid001;
+                        //frmForContentToInsert.Content = pageDataGrid001;
+
 
                         mainTabCtrl.Items.Add(tbItem);
+                        
                         mainTabCtrl.Items.MoveCurrentToLast();
                     }
                     else
