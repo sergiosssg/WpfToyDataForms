@@ -258,6 +258,8 @@ namespace WpfToyDataForms
                 frmForContentToInsert.VerticalContentAlignment = VerticalAlignment.Stretch;
 
                 frmForContentToInsert.Content = pageDataGrid001;
+                //frmForContentToInsert.Content = pageDataGrid001;
+
                 stackPnl.DataContext = frmForContentToInsert;
 
                 if (!this._allTabItems.ContainsKey("Тип связи"))
@@ -284,10 +286,11 @@ namespace WpfToyDataForms
                         }
                     }
 
-                    if (!haveItemTabInCollectionAllready)
+                    if (!haveItemTabInCollectionAllready && tbItem != null)
                     {
 
                         mainTabCtrl.Items.Add(tbItem);
+                        mainTabCtrl.Items.MoveCurrentToLast();
                     }
                     else
                     {
