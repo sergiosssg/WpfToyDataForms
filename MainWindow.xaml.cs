@@ -260,7 +260,7 @@ namespace WpfToyDataForms
                 frmForContentToInsert.Content = pageDataGrid001;
                 stackPnl.DataContext = frmForContentToInsert;
 
-                if (this._allTabItems.ContainsKey("Тип связи"))
+                if (!this._allTabItems.ContainsKey("Тип связи"))
                 {
                     tbItem = createNewTabItem("Тип связи", "Справочник типов связи");
                     tbItem.DataContext = stackPnl;
@@ -286,12 +286,17 @@ namespace WpfToyDataForms
 
                     if (!haveItemTabInCollectionAllready)
                     {
-                        ;
+                        mainTabCtrl.Items.Add(tbItem);
                     }
                     else
                     {
-                        ;
+                        mainTabCtrl.SelectedIndex = indxOfCurrentTabItem;
                     }
+                }
+
+                if(mainTabCtrl.Items.Count > 0)
+                {
+                    btnCloseTabItem.IsEnabled = true;
                 }
 
 
