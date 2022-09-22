@@ -263,7 +263,7 @@ namespace WpfToyDataForms
                 if (!this._allTabItems.ContainsKey("Тип связи"))
                 {
                     tbItem = createNewTabItem("Тип связи", "Справочник типов связи");
-                    tbItem.DataContext = stackPnl;
+                    tbItem.Content = stackPnl;
                     this._allTabItems.Add("Тип связи", tbItem);
 
                     bool haveItemTabInCollectionAllready = false;
@@ -286,6 +286,7 @@ namespace WpfToyDataForms
 
                     if (!haveItemTabInCollectionAllready)
                     {
+
                         mainTabCtrl.Items.Add(tbItem);
                     }
                     else
