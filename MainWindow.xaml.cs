@@ -241,12 +241,74 @@ namespace WpfToyDataForms
 
         private void MenuItem_FormFor001VIDCONNECT_Click(object sender, RoutedEventArgs e)
         {
+
+            StackPanel stackPnl = new StackPanel();
+            Frame frmForContentToInsert = new Frame();
             PageForFormSPR001VIDCONNECT pageDataGrid001 = new PageForFormSPR001VIDCONNECT();
+            TabItem tbItem;
+
+            try
+            {
+                pageDataGrid001.LoadRecordsTo();
+                int amount = pageDataGrid001.Load_PO_TEL_VID_CONNECT();
+
+                stackPnl.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE5E5E5"));
+
+                frmForContentToInsert.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+                frmForContentToInsert.VerticalContentAlignment = VerticalAlignment.Stretch;
+
+                frmForContentToInsert.Content = pageDataGrid001;
+                stackPnl.DataContext = frmForContentToInsert;
+
+                if (this._allTabItems.ContainsKey("Тип связи"))
+                {
+                    tbItem = createNewTabItem("Тип связи", "Справочник типов связи");
+                    tbItem.DataContext = stackPnl;
+                    this._allTabItems.Add("Тип связи", tbItem);
+
+                    bool haveItemTabInCollectionAllready = false;
+
+                    int indxOfCurrentTabItem = 0;
+
+                    foreach(var elItemTab in this.mainTabCtrl.Items.SourceCollection)
+                    {
+                        TabItem tbi = elItemTab as TabItem;
+                        if(tbi != null)
+                        {
+                            if (tbi.Header.Equals("Тип связи"))
+                            {
+                                haveItemTabInCollectionAllready = true;
+                                indxOfCurrentTabItem = tbi.TabIndex;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!haveItemTabInCollectionAllready)
+                    {
+                        ;
+                    }
+                    else
+                    {
+                        ;
+                    }
+                }
 
 
-            pageDataGrid001.LoadRecordsTo();
+            }
+            catch (Exception es)
+            {
+                ;
+            }
 
-            int amount = pageDataGrid001.Load_PO_TEL_VID_CONNECT();
+
+            
+
+
+            
+
+            
+
 
 
 
