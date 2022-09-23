@@ -295,9 +295,30 @@ namespace WpfToyDataForms
                         //frmForContentToInsert.Content = pageDataGrid001;
 
 
-                        mainTabCtrl.Items.Add(tbItem);
-                        
                         mainTabCtrl.Items.MoveCurrentToLast();
+
+                        mainTabCtrl.Items.Add(tbItem);
+
+                        mainTabCtrl.Items.MoveCurrentToLast();
+
+
+
+                        int indxOfCurrTabItem = 0;
+
+                        foreach (var elItemTab in this.mainTabCtrl.Items.SourceCollection)
+                        {
+                            TabItem tbi = elItemTab as TabItem;
+                            if (tbi != null)
+                            {
+                                if (tbi.Header.Equals("Тип связи"))
+                                {
+                                    indxOfCurrTabItem = tbi.TabIndex;
+                                    break;
+                                }
+                            }
+                        }
+                        tbItem.Focus();
+
                     }
                     else
                     {
