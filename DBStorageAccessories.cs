@@ -24,8 +24,8 @@ namespace WpfToyDataForms
         {
             DbConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-            builder["Data Source"] = @"xplandev\DEVMAIN";         //  Office setting string for development  MS SQL DB in interprise server
-            //builder["Data Source"] = "localhost";               //  Office setting string for local MS SQL DB
+            //builder["Data Source"] = @"xplandev\DEVMAIN";         //  Office setting string for development  MS SQL DB in interprise server
+            builder["Data Source"] = "localhost";               //  Office setting string for local MS SQL DB
             //builder["Data Source"] = @"localhost\SQLExpress";   //  Home setting string for local MS SQL DB
 
 
