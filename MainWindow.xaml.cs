@@ -302,7 +302,7 @@ namespace WpfToyDataForms
                         mainTabCtrl.Items.MoveCurrentToLast();
 
 
-
+/*
                         int indxOfCurrTabItem = 0;
 
                         foreach (var elItemTab in this.mainTabCtrl.Items.SourceCollection)
@@ -317,6 +317,9 @@ namespace WpfToyDataForms
                                 }
                             }
                         }
+
+*/
+
                         tbItem.Focus();
 
                     }
