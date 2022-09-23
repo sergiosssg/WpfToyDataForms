@@ -282,7 +282,7 @@ namespace WpfToyDataForms
                     }
 
                     if (!haveItemTabInCollectionAllready && tbItem != null)
-                    {
+                    { //
                         int amount = pageDataGrid001.Load_PO_TEL_VID_CONNECT();
 
                         pageDataGrid001.LoadRecordsTo();
