@@ -104,18 +104,24 @@ namespace WpfToyDataForms
         {
             if(mainTabCtrl.Items.Count > 0)
             {
-                var selectedTabItem = mainTabCtrl.SelectedItem;
+                TabItem selectedTabItem = this.mainTabCtrl.SelectedItem as TabItem;
 
 
+                if(selectedTabItem != null)
+                {
+                    string sNameOfTabItem = selectedTabItem.Header.ToString();
 
-                //this._allTabItems
+                    if (sNameOfTabItem != null && sNameOfTabItem.Length > 0 && !sNameOfTabItem.Equals(string.Empty) && this._allTabItems.ContainsKey(sNameOfTabItem))
+                    {
+                        this._allTabItems.Remove(sNameOfTabItem);
 
+                        this.mainTabCtrl.Items.Remove(selectedTabItem);
+
+                        return true;
+                    }
+                }
             }
-
-
-
-
-            throw new NotImplementedException();
+            return false;
         }
 
 
@@ -280,9 +286,14 @@ namespace WpfToyDataForms
         {
             if (!mainTabCtrl.Items.IsEmpty && mainTabCtrl.Items.Count > 0)
             {
-                var currItem = mainTabCtrl.Items.CurrentItem;
+                //var currItem = mainTabCtrl.Items.CurrentItem;
 
+                CloseSelectedTabItem();
 
+                if( this._allTabItems.Count < 1)
+                {
+                    this.btnCloseTabItem.IsEnabled = false;
+                }
             }
         }
 
