@@ -95,7 +95,18 @@ namespace WpfToyDataForms
 
 
 
-        #region Private methods, should be spesific for each Form class
+
+        #region Public methods, should be spesific for each Form class
+
+
+
+        public bool CloseSelectedTabItem()
+        {
+
+            throw new NotImplementedException();
+        }
+
+
 
         public int Load_PO_TEL_VID_CONNECT()
         {
@@ -106,6 +117,8 @@ namespace WpfToyDataForms
             return this.CollectionOf_TEL_VID_CONNECTs.Count;
         }
 
+
+
         public int Load_PO_TEL_OPERATOR()
         {
             DbAppContext.pO_TEL_OPERATORs.Load();
@@ -114,6 +127,9 @@ namespace WpfToyDataForms
 
             return this.CollectionOf_TEL_OPERATORs.Count;
         }
+
+
+
 
         public int Load_PO_TEL_MOB_SPR()
         {
@@ -124,6 +140,16 @@ namespace WpfToyDataForms
             return this.CollectionOf_TEL_MOB_SPRs.Count;
         }
 
+
+
+
+        #endregion
+
+
+
+
+
+        #region Private methods, should be spesific for each Form class
 
 
         private void visualize_PO_TEL_VID_CONNECT__for_ordinary_DbGrid(Control dataViewControl, ICollection<PO_TEL_VID_CONNECT> vid_connects)
