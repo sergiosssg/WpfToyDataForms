@@ -40,6 +40,10 @@ namespace WpfToyDataForms
         private ISet<int> _setOfIDs;
 
 
+
+        private MainWindow _parrentMainWindow;
+
+
         #endregion
 
 
@@ -57,8 +61,19 @@ namespace WpfToyDataForms
 
         public DataGrid MainDataGrid
         {
-            private get;
-            set;
+            get;
+        }
+
+        public Window ParrentMainWindow
+        {
+            get=>this._parrentMainWindow;
+            set
+            {
+                MainWindow mw = value as MainWindow;
+                if( mw != null){
+                    this._parrentMainWindow = mw;
+                }
+            }
         }
 
         #endregion
