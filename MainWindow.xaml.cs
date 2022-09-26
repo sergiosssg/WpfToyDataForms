@@ -190,7 +190,6 @@ namespace WpfToyDataForms
         #region  Event Handlers
 
 
-
         private void dataGridSpr001_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             DataGrid vvDataGrid;
@@ -239,25 +238,45 @@ namespace WpfToyDataForms
 
 
 
+        private void btnCloseTabItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (!mainTabCtrl.Items.IsEmpty && mainTabCtrl.Items.Count > 0)
+            {
+                var currItem = mainTabCtrl.Items.CurrentItem;
+
+
+            }
+        }
+
+
+        #endregion
+
+
+
+        #region Menu Handlers
+
+
+
         private void MenuItem_FormFor001VIDCONNECT_Click(object sender, RoutedEventArgs e)
         {
 
             StackPanel stackPnl = new StackPanel();
             Frame frmForContentToInsert = new Frame();
             PageForFormSPR001VIDCONNECT pageDataGrid001 = new PageForFormSPR001VIDCONNECT();
+
+            pageDataGrid001.ParrentMainWindow = this;
+
             TabItem tbItem;
 
             try
             {
-
                 stackPnl.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE5E5E5"));
-                
 
-                stackPnl.Children.Add( frmForContentToInsert);
+
+                stackPnl.Children.Add(frmForContentToInsert);
 
                 if (!this._allTabItems.ContainsKey("Тип связи"))
                 {
-
 
                     tbItem = createNewTabItem("Тип связи", "Справочник типов связи");
                     tbItem.Content = stackPnl;
@@ -267,10 +286,10 @@ namespace WpfToyDataForms
 
                     int indxOfCurrentTabItem = 0;
 
-                    foreach(var elItemTab in this.mainTabCtrl.Items.SourceCollection)
+                    foreach (var elItemTab in this.mainTabCtrl.Items.SourceCollection)
                     {
                         TabItem tbi = elItemTab as TabItem;
-                        if(tbi != null)
+                        if (tbi != null)
                         {
                             if (tbi.Header.Equals("Тип связи"))
                             {
@@ -296,9 +315,7 @@ namespace WpfToyDataForms
 
 
                         mainTabCtrl.Items.MoveCurrentToLast();
-
                         mainTabCtrl.Items.Add(tbItem);
-
                         mainTabCtrl.Items.MoveCurrentToLast();
 
 
@@ -312,56 +329,21 @@ namespace WpfToyDataForms
                     }
                 }
 
-                if(mainTabCtrl.Items.Count > 0)
+                if (mainTabCtrl.Items.Count > 0)
                 {
                     btnCloseTabItem.IsEnabled = true;
                 }
-
-
             }
             catch (Exception es)
             {
                 ;
             }
-
-
-            
-
-
-            
-
-            
-
-
-
-
-
-            //frmForContentToInsert.Content = pageDataGrid001;
-
-            //frmForContentToInsert; 
-            ;
-            ;
-            ;
             ;
         }
 
-
-        private void btnCloseTabItem_Click(object sender, RoutedEventArgs e)
-        {
-            if (!mainTabCtrl.Items.IsEmpty && mainTabCtrl.Items.Count > 0)
-            {
-                var currItem = mainTabCtrl.Items.CurrentItem;
-
-
-            }
-        }
 
 
         #endregion
-
-
-        
-
 
     }
 }
