@@ -102,6 +102,18 @@ namespace WpfToyDataForms
 
         public bool CloseSelectedTabItem()
         {
+            if(mainTabCtrl.Items.Count > 0)
+            {
+                var selectedTabItem = mainTabCtrl.SelectedItem;
+
+
+
+                //this._allTabItems
+
+            }
+
+
+
 
             throw new NotImplementedException();
         }
