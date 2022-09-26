@@ -48,8 +48,6 @@ namespace WpfToyDataForms
 
 
 
-
-
         #region public Properties
 
         public ICollection<PO_TEL_VID_CONNECT> CollectionOf_TEL_VID_CONNECTs
