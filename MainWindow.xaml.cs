@@ -68,6 +68,12 @@ namespace WpfToyDataForms
             get;
         }
 
+        public IDictionary<string, TabItem> TabItemsDictionary
+        {
+            get => this._allTabItems;
+        }
+
+
         #endregion
 
 
