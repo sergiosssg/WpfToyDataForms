@@ -369,10 +369,15 @@ namespace WpfToyDataForms
                         //frmForContentToInsert.Content = pageDataGrid001;
 
 
-                        mainTabCtrl.Items.MoveCurrentToLast();
-                        mainTabCtrl.Items.Add(tbItem);
-                        mainTabCtrl.Items.MoveCurrentToLast();
+                        this.mainTabCtrl.Items.MoveCurrentToLast();
+                        this.mainTabCtrl.Items.Add(tbItem);
+                        this.mainTabCtrl.Items.MoveCurrentToLast();
 
+
+                        if (mainTabCtrl.Items.Count > 0)
+                        {
+                            this.btnCloseTabItem.IsEnabled = true;
+                        }
 
 
                         tbItem.Focus();
@@ -380,13 +385,18 @@ namespace WpfToyDataForms
                     }
                     else
                     {
+                        if (mainTabCtrl.Items.Count > 0)
+                        {
+                            this.btnCloseTabItem.IsEnabled = true;
+                        }
+
                         mainTabCtrl.SelectedIndex = indxOfCurrentTabItem;
                     }
                 }
 
                 if (mainTabCtrl.Items.Count > 0)
                 {
-                    btnCloseTabItem.IsEnabled = true;
+                    this.btnCloseTabItem.IsEnabled = true;
                 }
             }
             catch (Exception es)
