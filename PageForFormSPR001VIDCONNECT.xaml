@@ -50,7 +50,7 @@
                 </DataTemplate>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding IDConnect}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Код" Binding="{Binding KodOfConnect}"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding NameOfConnect}"/>
 

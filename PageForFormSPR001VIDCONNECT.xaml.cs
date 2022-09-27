@@ -324,6 +324,14 @@ namespace WpfToyDataForms
             }
 
             this._ID_of_selectedRecord = id;
+            if (this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.AllRecordsSaved)
+            {
+                this.btnDeleteRecords.IsEnabled = true;
+            }
+            else
+            {
+                this.btnDeleteRecords.IsEnabled = false;
+            }
         }
 
 
@@ -387,6 +395,7 @@ namespace WpfToyDataForms
 
         private void btnNewRecord_Click(object sender, RoutedEventArgs e)
         {
+            this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.NewRowAddingStart;
             this.popupRecordOperation.Visibility = Visibility.Visible;
             this.popupRecordOperation.IsEnabled = true;
             this.popupRecordOperation.IsOpen = true;
@@ -404,7 +413,10 @@ namespace WpfToyDataForms
 
         private void btnRemoveLastTab_Click(object sender, RoutedEventArgs e)
         {
-            ;
+            this._parrentMainWindow.Activate();
+            this._parrentMainWindow.CloseSelectedTabItem();
+
+            this._parrentMainWindow.toolBarForMainWindow.IsEnabled = false;//
         }
 
 
