@@ -44,6 +44,10 @@ namespace WpfToyDataForms
         private MainWindow _parrentMainWindow;
 
 
+        private EntityOperatorResultStateEnum  _entityOperatorResultStateEnum;
+
+
+
         #endregion
 
 
@@ -98,7 +102,7 @@ namespace WpfToyDataForms
 
             try
             {
-
+                this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.Undefinite;
                 this._dbAppContext = MainWindow.DbAppContext;
                 MainDataGrid = _innerDataGrid;
                 InitializeComponent();
