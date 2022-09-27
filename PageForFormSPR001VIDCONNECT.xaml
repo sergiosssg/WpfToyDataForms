@@ -88,7 +88,7 @@
                     <TextBox x:Name="txtBox__KodOfConnect" Grid.Row="2" Grid.Column="2" Margin="2,2,2,2" Padding="2,2,2,2"/>
                     <TextBox x:Name="txtBox__NameOfConnect" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Margin="2,2,5,2" Padding="2,1,2,2"/>
 
-                    <Button x:Name="btn_Ok_from_popupRecord" Grid.Column="9" Grid.Row="1" Grid.RowSpan="2" FontSize="14" Padding="2,2,2,2">Ok Сохранить</Button>
+                    <Button x:Name="btn_Ok_from_popupRecord" Grid.Column="9" Grid.Row="1" Grid.RowSpan="2" FontSize="14" Padding="2,2,2,2" Click="btn_Ok_from_popupRecord_Click">Ok Сохранить</Button>
                     <Button x:Name="btn_Cancel_from_popupRecord" Grid.Column="10" Grid.Row="1" Grid.RowSpan="2" Click="btn_Cancel_from_popupRecord_Click" Padding="2,2,2,2">Cancel Отменить</Button>
                 </Grid>
             </WrapPanel>

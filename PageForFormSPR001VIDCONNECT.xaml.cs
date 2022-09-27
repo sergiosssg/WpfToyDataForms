@@ -345,6 +345,9 @@ namespace WpfToyDataForms
             {
                 this._isCanceledTextEnterringInFields[onekey] = false;
             }
+
+            this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.AllRecordsSaved;
+
         }
 
 
@@ -423,12 +426,62 @@ namespace WpfToyDataForms
         }
 
 
+
+
+        private void btn_Ok_from_popupRecord_Click(object sender, RoutedEventArgs e)
+        {
+            if(this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.NewRowAddingStart)
+            {
+                ///
+                /// Hear need be check for correct values in fields
+                /// 
+
+                PO_TEL_VID_CONNECT newPO_TEL_VID_CONNECT = new PO_TEL_VID_CONNECT();
+
+                int ID = 0;
+
+                bool tryParseID = int.TryParse(this.txtBox__IDConnect.Text, out ID);
+
+                if (tryParseID)
+                {
+                    newPO_TEL_VID_CONNECT.IDConnect = ID;
+                    newPO_TEL_VID_CONNECT.KodOfConnect = this.txtBox__KodOfConnect.Text;
+                    newPO_TEL_VID_CONNECT.NameOfConnect = this.txtBox__NameOfConnect.Text;
+
+
+                    this._dbAppContext.pO_TEL_VID_CONNECTs.Add(newPO_TEL_VID_CONNECT);
+
+
+                    saveAll();
+                    this._setOfIDs = fillIDsFromDbSetOfEntities(this._dbAppContext);
+                    btnSaveAll.IsEnabled = false;
+
+                    foreach (var onekey in this._isCanceledTextEnterringInFields.Keys)
+                    {
+                        this._isCanceledTextEnterringInFields[onekey] = false;
+                    }
+                    this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.AllRecordsSaved;
+
+                    this.popupRecordOperation.IsOpen = false;
+                    this.popupRecordOperation.IsEnabled = false;
+                    this.popupRecordOperation.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
+
+
+
         private void btn_Cancel_from_popupRecord_Click(object sender, RoutedEventArgs e)
         {
+            this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.Undefinite;
+
             this.popupRecordOperation.IsOpen = false;
             this.popupRecordOperation.IsEnabled = false;
             this.popupRecordOperation.Visibility = Visibility.Hidden;
         }
+
+
 
 
 
@@ -654,11 +707,8 @@ namespace WpfToyDataForms
 
 
 
-
-
-
         #endregion
-
+        
     }
 }
 
