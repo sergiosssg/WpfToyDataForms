@@ -371,6 +371,17 @@ namespace WpfToyDataForms
         }
 
 
+        private void btnNewRecord_Click(object sender, RoutedEventArgs e)
+        {
+            this.popupRecordOperation.Visibility = Visibility.Visible;
+            this.popupRecordOperation.IsEnabled = false;
+            this.popupRecordOperation.IsOpen = false;
+        }
+
+
+
+
+
         private void btnShowAll_Click(object sender, RoutedEventArgs e)
         {
 
@@ -616,8 +627,8 @@ namespace WpfToyDataForms
 
 
 
-        #endregion
 
+        #endregion
 
     }
 }

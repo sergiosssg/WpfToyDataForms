@@ -25,7 +25,7 @@
         <ToolBar  x:Uid="tlBar" DockPanel.Dock="Top">
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="btnShowAll" Padding="7,2,3,2" Content="Показать" Click="btnShowAll_Click"/>
-                <Button x:Name="btnNewRecord" Padding="3,2,3,2" Content="Новая"/>
+                <Button x:Name="btnNewRecord" Padding="3,2,3,2" Content="Новая" Click="btnNewRecord_Click"/>
                 <Button x:Name="btnEditRecord" Padding="3,2,3,2" Content="Изменить" IsEnabled="False"/>
                 <Button x:Name="btnSaveAll" Padding="7,2,3,2" Content="Сохранить" Click="btnSaveAll_Click" IsEnabled="False"/>
                 <Button x:Name="btnDeleteRecords" Padding="3,2,3,2" Content="Удалить" IsEnabled="False"/>
