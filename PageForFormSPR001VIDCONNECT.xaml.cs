@@ -130,20 +130,19 @@ namespace WpfToyDataForms
         {
             CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.Local;
 
-
             this.CollectionOf_TEL_VID_CONNECTs = new List<PO_TEL_VID_CONNECT>();
-
 
             /*foreach( var elPO in _dbAppContext.pO_TEL_VID_CONNECTs)
             {
                 this.CollectionOf_TEL_VID_CONNECTs.Add(elPO);
             }*/
 
-
-
-
             this.CollectionOf_TEL_VID_CONNECTs = _dbAppContext.pO_TEL_VID_CONNECTs.ToList<PO_TEL_VID_CONNECT>();
 
+            if (this.CollectionOf_TEL_VID_CONNECTs.Count > 0)
+            {
+                this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.AllRecordsSaved;
+            }
             return this.CollectionOf_TEL_VID_CONNECTs.Count;
         }
 
@@ -156,6 +155,7 @@ namespace WpfToyDataForms
             {
                 visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension(_innerDataGrid, CollectionOf_TEL_VID_CONNECTs);
                 //visualize_PO_TEL_VID_CONNECT__for_ordinary_DataGridExtension( MainDataGrid, CollectionOf_TEL_VID_CONNECTs);
+                this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.AllRecordsSaved;
             }
         }
 
