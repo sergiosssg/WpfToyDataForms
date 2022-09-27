@@ -56,6 +56,46 @@
 
             </DataGrid.Columns>
         </DataGrid>
+        <Popup x:Name="popupRecordOperation" IsOpen="False" DockPanel.Dock="Bottom" IsEnabled="False" Visibility="Hidden" MaxHeight="42" OpacityMask="#FFF1ECEC">
+            <WrapPanel Orientation="Horizontal">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="16*"/>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="1" Grid.Column="1" Content="ID"/>
+                    <Label Grid.Row="1" Grid.Column="2" Content="Код"/>
+                    <Label Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Content="Название"/>
+
+                    <TextBox x:Name="txtBox__IDConnect" Grid.Row="2" Grid.Column="1"/>
+                    <TextBox x:Name="txtBox__KodOfConnect" Grid.Row="2" Grid.Column="2"/>
+                    <TextBox x:Name="txtBox__NameOfConnect" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3"/>
+
+                    <Button x:Name="btn_Ok_from_popupRecord" Grid.Column="9" Grid.Row="1" Grid.RowSpan="2"/>
+                    <Button x:Name="btn_Cancel_from_popupRecord" Grid.Column="10" Grid.Row="1" Grid.RowSpan="2"/>
+                </Grid>
+            </WrapPanel>
+        </Popup>
+
+
+
     </DockPanel>
 
 </Page>
