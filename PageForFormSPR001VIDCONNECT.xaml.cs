@@ -374,8 +374,8 @@ namespace WpfToyDataForms
         private void btnNewRecord_Click(object sender, RoutedEventArgs e)
         {
             this.popupRecordOperation.Visibility = Visibility.Visible;
-            this.popupRecordOperation.IsEnabled = false;
-            this.popupRecordOperation.IsOpen = false;
+            this.popupRecordOperation.IsEnabled = true;
+            this.popupRecordOperation.IsOpen = true;
         }
 
 
