@@ -260,6 +260,10 @@ namespace WpfToyDataForms
             {
                 return;
             }
+            else if (this._ID_of_selectedRecord == null && id != null)
+            {
+                this._ID_of_selectedRecord = id;
+            }
             else if (!isPreviousNotSuccessfullyEditingOfField && this._ID_of_selectedRecord != null && this._ID_of_selectedRecord > 0 && this._pO_TEL_VID_CONNECT__selected != null && this._ID_of_selectedRecord != id)
             {
                 this._pO_TEL_VID_CONNECT__selected = po_TEL_VID_CONNECT;
