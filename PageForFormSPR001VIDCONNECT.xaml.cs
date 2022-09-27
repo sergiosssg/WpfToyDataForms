@@ -266,6 +266,12 @@ namespace WpfToyDataForms
                 this._ID_of_selectedRecord = id;
 
             }
+
+            if(this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowEditingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.NewRowAddingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowDeletingStart)
+            {
+                this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.RowEditingStart;
+            }
+
         }
 
 
