@@ -383,6 +383,16 @@ namespace WpfToyDataForms
         }
 
 
+        private void btn_Cancel_from_popupRecord_Click(object sender, RoutedEventArgs e)
+        {
+            this.popupRecordOperation.IsOpen = false;
+            this.popupRecordOperation.IsEnabled = false;
+            this.popupRecordOperation.Visibility = Visibility.Hidden;
+        }
+
+
+
+
         #endregion
 
 
@@ -598,6 +608,7 @@ namespace WpfToyDataForms
 
             return returnedSet;
         }
+
 
 
 

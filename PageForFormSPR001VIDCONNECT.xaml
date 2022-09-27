@@ -89,7 +89,7 @@
                     <TextBox x:Name="txtBox__NameOfConnect" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3"/>
 
                     <Button x:Name="btn_Ok_from_popupRecord" Grid.Column="9" Grid.Row="1" Grid.RowSpan="2"/>
-                    <Button x:Name="btn_Cancel_from_popupRecord" Grid.Column="10" Grid.Row="1" Grid.RowSpan="2"/>
+                    <Button x:Name="btn_Cancel_from_popupRecord" Grid.Column="10" Grid.Row="1" Grid.RowSpan="2" Click="btn_Cancel_from_popupRecord_Click"/>
                 </Grid>
             </WrapPanel>
         </Popup>
