@@ -338,14 +338,43 @@ namespace WpfToyDataForms
 
         private void _innerDataGrid_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.AllRecordsSaved)
+            bool isPreviousNotSuccessfullyEditingOfField = false;  // whether previous attempt to edit field was successfull
+            foreach (var onKey in this._isCanceledTextEnterringInFields.Keys)
             {
+                if (this._isCanceledTextEnterringInFields[onKey])
+                {
+                    isPreviousNotSuccessfullyEditingOfField = true;
+                    break;
+                }
+            }
+
+
+
+            if ( !isPreviousNotSuccessfullyEditingOfField && this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.AllRecordsSaved)
+            {
+
+
+
                 this.btnDeleteRecords.IsEnabled = true;
             }
             else
             {
                 this.btnDeleteRecords.IsEnabled = false;
             }
+
+            DataGrid dg = sender as DataGrid;
+            if (dg != null)
+            {
+
+                string fldName = dg.CurrentColumn.SortMemberPath;
+
+                var currItem = dg.CurrentItem;
+
+
+
+                //this._ID_of_selectedRecord;
+            }
+
         }
 
 
