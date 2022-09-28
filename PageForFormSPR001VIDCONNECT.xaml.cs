@@ -423,10 +423,13 @@ namespace WpfToyDataForms
             this._parrentMainWindow.Activate();
             this._parrentMainWindow.CloseSelectedTabItem();
 
-            if(this._parrentMainWindow.mainTabCtrl.Items.Count == 0)
+
+
+            /*if(this._parrentMainWindow.mainTabCtrl.Items.Count == 0)
             {
                 this._parrentMainWindow.toolBarForMainWindow.IsEnabled = false;//
-            }
+            }*/
+
         }
 
 
