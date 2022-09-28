@@ -688,7 +688,11 @@ namespace WpfToyDataForms
         }
 
 
-
+        /// <summary>
+        ///     gets  all already used keys (IDs)  from  Entities Collections
+        /// </summary>
+        /// <param name="dbAppContext"></param>
+        /// <returns></returns>
         private ISet<int> fillIDsFromDbSetOfEntities(DbAppContext dbAppContext)
         {
             var keysOfIDs = dbAppContext.pO_TEL_VID_CONNECTs.Select(o => o.IDConnect);
