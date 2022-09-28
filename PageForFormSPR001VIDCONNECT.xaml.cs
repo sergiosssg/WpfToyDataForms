@@ -335,6 +335,22 @@ namespace WpfToyDataForms
         }
 
 
+
+        private void _innerDataGrid_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.AllRecordsSaved)
+            {
+                this.btnDeleteRecords.IsEnabled = true;
+            }
+            else
+            {
+                this.btnDeleteRecords.IsEnabled = false;
+            }
+        }
+
+
+
+
         private void btnSaveAll_Click(object sender, RoutedEventArgs e)
         {
             saveAll();
@@ -712,24 +728,32 @@ namespace WpfToyDataForms
         }
 
 
-        private PO_TEL_VID_CONNECT? getRemovedItemsInDataGrid(SelectionChangedEventArgs e)
+        private PO_TEL_VID_CONNECT? getRemovedItemsInDataGrid(EventArgs e)
         {
             PO_TEL_VID_CONNECT? returnedPO = null;
-            if (e.RemovedItems.Count == 1)
-            {
-                var elOf_PO = e.RemovedItems[0];
-                if (elOf_PO != null)
+
+            if( e.GetType() == typeof(SelectionChangedEventArgs)){
+                SelectionChangedEventArgs sce = e as SelectionChangedEventArgs;
+                if (sce != null)
                 {
-                    returnedPO = e.RemovedItems[0] as PO_TEL_VID_CONNECT;
-                    if (returnedPO != null)
+                    if (sce.RemovedItems.Count == 1)
                     {
-                        return returnedPO;
+                        var elOf_PO = sce.RemovedItems[0];
+                        if (elOf_PO != null)
+                        {
+                            returnedPO = sce.RemovedItems[0] as PO_TEL_VID_CONNECT;
+                            if (returnedPO != null)
+                            {
+                                return returnedPO;
+                            }
+                        }
                     }
+                    returnedPO = new PO_TEL_VID_CONNECT();
+                    return returnedPO;
                 }
             }
-            returnedPO = new PO_TEL_VID_CONNECT();
-            return returnedPO;
-            throw new NotImplementedException();
+
+            return null;
         }
 
 
@@ -753,6 +777,7 @@ namespace WpfToyDataForms
 
             return returnedSet;
         }
+
 
 
 
