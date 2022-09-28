@@ -406,6 +406,42 @@ namespace WpfToyDataForms
 
 
 
+        private void btnDeleteRecords_Click(object sender, RoutedEventArgs e)
+        {
+            bool isPreviousNotSuccessfullyEditingOfField = false;  // whether previous attempt to edit field was successfull
+            foreach (var onKey in this._isCanceledTextEnterringInFields.Keys)
+            {
+                if (this._isCanceledTextEnterringInFields[onKey])
+                {
+                    isPreviousNotSuccessfullyEditingOfField = true;
+                    break;
+                }
+            }
+
+            if (this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.AllRecordsSaved && !isPreviousNotSuccessfullyEditingOfField)
+            {
+                if (this._ID_of_selectedRecord > 0 && this._pO_TEL_VID_CONNECT__selected != null && !this._pO_TEL_VID_CONNECT__selected.isIamEmpty())
+                {
+                    this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.RowDeletingStart;
+
+
+                    if ( this._ID_of_selectedRecord == this._pO_TEL_VID_CONNECT__selected.IDConnect)
+                    {
+
+                        var sss = _dbAppContext.pO_TEL_VID_CONNECTs.Where(sR => sR.IDConnect == this._ID_of_selectedRecord);
+
+
+                        var tSssT = sss.GetType().Name.ToString();
+
+                    }
+                    
+                }
+            }
+        }
+
+
+
+
 
 
         private void btnShowAll_Click(object sender, RoutedEventArgs e)
@@ -724,6 +760,7 @@ namespace WpfToyDataForms
 
 
         #endregion
+
         
     }
 }
