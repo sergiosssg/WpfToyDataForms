@@ -410,7 +410,11 @@ namespace WpfToyDataForms
 
         private void btnShowAll_Click(object sender, RoutedEventArgs e)
         {
-
+            if(this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.NewRowAddingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowDeletingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowEditingStart)
+            {
+                this.LoadRecordsTo();
+                this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.AllRecordsSaved;
+            }
         }
 
 
@@ -465,6 +469,9 @@ namespace WpfToyDataForms
                     }
                     this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.AllRecordsSaved;
 
+
+                    this.LoadRecordsTo();
+
                     this.popupRecordOperation.IsOpen = false;
                     this.popupRecordOperation.IsEnabled = false;
                     this.popupRecordOperation.Visibility = Visibility.Hidden;
@@ -477,7 +484,10 @@ namespace WpfToyDataForms
 
         private void btn_Cancel_from_popupRecord_Click(object sender, RoutedEventArgs e)
         {
-            this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.Undefinite;
+            if(this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.AllRecordsSaved)
+            {
+                this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.Undefinite;
+            }
 
             this.popupRecordOperation.IsOpen = false;
             this.popupRecordOperation.IsEnabled = false;
@@ -515,10 +525,6 @@ namespace WpfToyDataForms
                 _ID_of_selectedRecord = null;
 
                 _pO_TEL_VID_CONNECT__selected = null;
-
-
-
-
             }
         }
 
