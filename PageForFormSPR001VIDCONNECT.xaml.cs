@@ -452,6 +452,9 @@ namespace WpfToyDataForms
                     this._dbAppContext.pO_TEL_VID_CONNECTs.Add(newPO_TEL_VID_CONNECT);
 
 
+                    this._shouldBeSaved = true;
+                    this._isDirtyDataSource = true;
+
                     saveAll();
                     this._setOfIDs = fillIDsFromDbSetOfEntities(this._dbAppContext);
                     btnSaveAll.IsEnabled = false;
