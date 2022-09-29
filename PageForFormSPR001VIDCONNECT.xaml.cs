@@ -519,7 +519,11 @@ namespace WpfToyDataForms
 
                         if (result == MessageBoxResult.Yes)
                         {
+                            this._shouldBeSaved = true;
+
                             this._dbAppContext.pO_TEL_VID_CONNECTs.Remove(this._pO_TEL_VID_CONNECT__selected);
+
+                            this._isDirtyDataSource = true;
 
                             saveAll();
 
