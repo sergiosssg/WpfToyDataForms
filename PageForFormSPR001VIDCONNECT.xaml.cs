@@ -361,15 +361,18 @@ namespace WpfToyDataForms
                     {
                         string s1stCol = dg.Columns.First().SortMemberPath;
 
-                        if (fldName.Equals(s1stCol))
+                        if (this._ID_of_selectedRecord == null || fldName.Equals(s1stCol))
                         {
-                            if(this._ID_of_selectedRecord != currItem.IDConnect)
+                            if(this._ID_of_selectedRecord == null || this._ID_of_selectedRecord != currItem.IDConnect)
                             {
                                 this._ID_of_selectedRecord = currItem.IDConnect;
                                 this._pO_TEL_VID_CONNECT__selected = currItem;
                             }
                         }
-                        this.btnDeleteRecords.IsEnabled = true; ;
+                        if(this._pO_TEL_VID_CONNECT__selected != null && !this._pO_TEL_VID_CONNECT__selected.isIamEmpty())
+                        {
+                            this.btnDeleteRecords.IsEnabled = true;
+                        }
                     }
                 }
             }
