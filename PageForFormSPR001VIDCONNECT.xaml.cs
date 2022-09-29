@@ -378,9 +378,17 @@ namespace WpfToyDataForms
             }
             else
             {
-                this.btnDeleteRecords.IsEnabled = false;
-            }
+                if(
+                    isPreviousNotSuccessfullyEditingOfField || 
+                    this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.AllRecordsSaved ||
+                    this._pO_TEL_VID_CONNECT__selected == null ||
+                    this._shouldBeSaved ||
+                    this._isDirtyDataSource)
+                {
 
+                    this.btnDeleteRecords.IsEnabled = false;
+                }
+            }
         }
 
 
