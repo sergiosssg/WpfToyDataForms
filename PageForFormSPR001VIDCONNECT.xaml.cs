@@ -493,8 +493,10 @@ namespace WpfToyDataForms
                         var tSssT = sss.GetType().Name.ToString();
 
 
-                        MessageBoxResult result = MessageBox.Show(" Удаление записи :");
+                        MessageBoxResult result = MessageBox.Show(" Удаление :", "Удаление записи \"Вид Связи\"");
 
+                        ;
+                        
                         //this._dbAppContext.pO_TEL_VID_CONNECTs.Remove();
 
                     }
