@@ -496,7 +496,7 @@ namespace WpfToyDataForms
                         var iAttempts = 3;
                         do
                         {
-                            result = MessageBox.Show(" Удаление :\nID : \t\t " + this._pO_TEL_VID_CONNECT__selected.IDConnect + "\nКод : \t\t " + this._pO_TEL_VID_CONNECT__selected.KodOfConnect + "\nНазвание : \t\t " + this._pO_TEL_VID_CONNECT__selected.NameOfConnect, "Удаление записи \"Вид Связи\"", MessageBoxButton.YesNoCancel);
+                            result = MessageBox.Show(" Удаление записи:\n\n\nID : \t\t " + this._pO_TEL_VID_CONNECT__selected.IDConnect + "\nКод : \t\t " + this._pO_TEL_VID_CONNECT__selected.KodOfConnect + "\nНазвание : \t\t " + this._pO_TEL_VID_CONNECT__selected.NameOfConnect, "Удаление записи \"Вид Связи\"", MessageBoxButton.YesNoCancel);
 
                             if(result != MessageBoxResult.Cancel)
                             {
@@ -515,13 +515,34 @@ namespace WpfToyDataForms
                         } while (iAttempts > 0);
 
 
-                        
 
-                        ;
-                        ;
-                        
-                        //this._dbAppContext.pO_TEL_VID_CONNECTs.Remove();
 
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            this._dbAppContext.pO_TEL_VID_CONNECTs.Remove(this._pO_TEL_VID_CONNECT__selected);
+
+                            saveAll();
+
+                            foreach (var onekey in this._isCanceledTextEnterringInFields.Keys)
+                            {
+                                this._isCanceledTextEnterringInFields[onekey] = false;
+                            }
+                            this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.AllRecordsSaved;
+
+                            this.LoadRecordsTo();
+
+                            this._setOfIDs = fillIDsFromDbSetOfEntities(this._dbAppContext);
+                            btnSaveAll.IsEnabled = false;
+
+                            this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.AllRecordsSaved;
+
+                        }
+                        else if (result == MessageBoxResult.No)
+                        {
+                            this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.Undefinite;
+                            this.btnDeleteRecords.IsEnabled = false;
+                        }
+                        ;
                     }
                     
                 }
@@ -588,7 +609,7 @@ namespace WpfToyDataForms
                     this._isDirtyDataSource = true;
 
                     saveAll();
-                    this._setOfIDs = fillIDsFromDbSetOfEntities(this._dbAppContext);
+                    
                     btnSaveAll.IsEnabled = false;
 
                     foreach (var onekey in this._isCanceledTextEnterringInFields.Keys)
@@ -599,6 +620,8 @@ namespace WpfToyDataForms
 
 
                     this.LoadRecordsTo();
+
+                    this._setOfIDs = fillIDsFromDbSetOfEntities(this._dbAppContext);
 
                     this.popupRecordOperation.IsOpen = false;
                     this.popupRecordOperation.IsEnabled = false;
