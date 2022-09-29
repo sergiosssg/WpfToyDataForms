@@ -487,10 +487,15 @@ namespace WpfToyDataForms
                     if ( this._ID_of_selectedRecord == this._pO_TEL_VID_CONNECT__selected.IDConnect)
                     {
 
-                        var sss = _dbAppContext.pO_TEL_VID_CONNECTs.Where(sR => sR.IDConnect == this._ID_of_selectedRecord);
+                        var sss = this._dbAppContext.pO_TEL_VID_CONNECTs.Where(sR => sR.IDConnect == this._ID_of_selectedRecord);
 
 
                         var tSssT = sss.GetType().Name.ToString();
+
+
+                        MessageBoxResult result = MessageBox.Show(" Удаление записи :");
+
+                        //this._dbAppContext.pO_TEL_VID_CONNECTs.Remove();
 
                     }
                     
