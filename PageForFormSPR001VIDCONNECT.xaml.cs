@@ -492,8 +492,30 @@ namespace WpfToyDataForms
 
                         var tSssT = sss.GetType().Name.ToString();
 
+                        MessageBoxResult result;
+                        var iAttempts = 3;
+                        do
+                        {
+                            result = MessageBox.Show(" Удаление :\nID : \t\t " + this._pO_TEL_VID_CONNECT__selected.IDConnect + "\nКод : \t\t " + this._pO_TEL_VID_CONNECT__selected.KodOfConnect + "\nНазвание : \t\t " + this._pO_TEL_VID_CONNECT__selected.NameOfConnect, "Удаление записи \"Вид Связи\"", MessageBoxButton.YesNoCancel);
 
-                        MessageBoxResult result = MessageBox.Show(" Удаление :\nID : "+ this._pO_TEL_VID_CONNECT__selected.IDConnect+"\nКод : " + this._pO_TEL_VID_CONNECT__selected.KodOfConnect + "\nНазвание : " + this._pO_TEL_VID_CONNECT__selected.NameOfConnect, "Удаление записи \"Вид Связи\"", MessageBoxButton.YesNoCancel);
+                            if(result != MessageBoxResult.Cancel)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                iAttempts--;
+                            }
+
+                            var iTmp = 100000;
+                            do
+                            {
+                                iTmp--;
+                            } while (iTmp > 0);
+                        } while (iAttempts > 0);
+
+
+                        
 
                         ;
                         ;
