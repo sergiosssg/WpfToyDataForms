@@ -383,7 +383,7 @@ namespace WpfToyDataForms
                     this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.AllRecordsSaved ||
                     this._pO_TEL_VID_CONNECT__selected == null ||
                     this._shouldBeSaved ||
-                    this._isDirtyDataSource)
+                    this._isDirtyDataSource) /// too many condition checks!!!
                 {
 
                     this.btnDeleteRecords.IsEnabled = false;
