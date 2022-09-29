@@ -338,6 +338,8 @@ namespace WpfToyDataForms
 
         private void _innerDataGrid_CurrentCellChanged(object sender, EventArgs e)
         {
+            int? id = null;
+
             bool isPreviousNotSuccessfullyEditingOfField = false;  // whether previous attempt to edit field was successfull
             foreach (var onKey in this._isCanceledTextEnterringInFields.Keys)
             {
@@ -348,31 +350,32 @@ namespace WpfToyDataForms
                 }
             }
 
-
-
             if ( !isPreviousNotSuccessfullyEditingOfField && this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.AllRecordsSaved)
             {
+                DataGrid dg = sender as DataGrid;
+                if (dg != null)
+                {
+                    string fldName = dg.CurrentColumn.SortMemberPath;
+                    PO_TEL_VID_CONNECT? currItem = dg.CurrentItem as PO_TEL_VID_CONNECT;
+                    if(currItem != null)
+                    {
+                        string s1stCol = dg.Columns.First().SortMemberPath;
 
-
-
-                this.btnDeleteRecords.IsEnabled = true;
+                        if (fldName.Equals(s1stCol))
+                        {
+                            if(this._ID_of_selectedRecord != currItem.IDConnect)
+                            {
+                                this._ID_of_selectedRecord = currItem.IDConnect;
+                                this._pO_TEL_VID_CONNECT__selected = currItem;
+                            }
+                        }
+                        this.btnDeleteRecords.IsEnabled = true; ;
+                    }
+                }
             }
             else
             {
                 this.btnDeleteRecords.IsEnabled = false;
-            }
-
-            DataGrid dg = sender as DataGrid;
-            if (dg != null)
-            {
-
-                string fldName = dg.CurrentColumn.SortMemberPath;
-
-                var currItem = dg.CurrentItem;
-
-
-
-                //this._ID_of_selectedRecord;
             }
 
         }
