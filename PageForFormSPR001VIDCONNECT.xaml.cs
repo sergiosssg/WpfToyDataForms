@@ -493,8 +493,9 @@ namespace WpfToyDataForms
                         var tSssT = sss.GetType().Name.ToString();
 
 
-                        MessageBoxResult result = MessageBox.Show(" Удаление :", "Удаление записи \"Вид Связи\"", MessageBoxButton.YesNoCancel);
+                        MessageBoxResult result = MessageBox.Show(" Удаление :\nID : "+ this._pO_TEL_VID_CONNECT__selected.IDConnect+"\nКод : " + this._pO_TEL_VID_CONNECT__selected.KodOfConnect + "\nНазвание : " + this._pO_TEL_VID_CONNECT__selected.NameOfConnect, "Удаление записи \"Вид Связи\"", MessageBoxButton.YesNoCancel);
 
+                        ;
                         ;
                         
                         //this._dbAppContext.pO_TEL_VID_CONNECTs.Remove();
