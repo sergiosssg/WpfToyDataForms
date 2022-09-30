@@ -466,6 +466,7 @@ namespace WpfToyDataForms
 
 
             this._innerDataGrid.Focusable = false;
+            this._innerDataGrid.IsEnabled = false;
 
 
         }
@@ -634,15 +635,20 @@ namespace WpfToyDataForms
 
                     this._setOfIDs = fillIDsFromDbSetOfEntities(this._dbAppContext);
 
+
+                    if (this._innerDataGrid.Focusable == false || this._innerDataGrid.IsEnabled == false)
+                    {
+                        this._innerDataGrid.IsEnabled = true;
+                        this._innerDataGrid.Focusable = true;
+                    }
+
+
                     this.popupRecordOperation.IsOpen = false;
                     this.popupRecordOperation.IsEnabled = false;
                     this.popupRecordOperation.Visibility = Visibility.Hidden;
                 }
 
-                if (this._innerDataGrid.Focusable == false)
-                {
-                    this._innerDataGrid.Focusable = true;
-                }
+
 
             }
         }
@@ -657,8 +663,9 @@ namespace WpfToyDataForms
                 this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.Undefinite;
             }
 
-            if (this._innerDataGrid.Focusable == false)
+            if (this._innerDataGrid.Focusable == false || this._innerDataGrid.IsEnabled == false)
             {
+                this._innerDataGrid.IsEnabled = true;
                 this._innerDataGrid.Focusable = true;
             }
 
