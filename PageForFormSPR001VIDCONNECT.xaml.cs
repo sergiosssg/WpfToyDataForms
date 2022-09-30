@@ -496,7 +496,7 @@ namespace WpfToyDataForms
                         var iAttempts = 3;
                         do
                         {
-                            result = MessageBox.Show(" Удаление записи:\n\n\nID : \t\t " + this._pO_TEL_VID_CONNECT__selected.IDConnect + "\nКод : \t\t " + this._pO_TEL_VID_CONNECT__selected.KodOfConnect + "\nНазвание : \t\t " + this._pO_TEL_VID_CONNECT__selected.NameOfConnect, "Удаление записи \"Вид Связи\"", MessageBoxButton.YesNoCancel);
+                            result = MessageBox.Show(" Удаление записи:\n\n  \t ----->\nID : \t\t " + this._pO_TEL_VID_CONNECT__selected.IDConnect + "\nКод : \t\t " + this._pO_TEL_VID_CONNECT__selected.KodOfConnect + "\nНазвание : \t\t " + this._pO_TEL_VID_CONNECT__selected.NameOfConnect, "Удаление записи \"Вид Связи\"", MessageBoxButton.YesNoCancel);
 
                             if(result != MessageBoxResult.Cancel)
                             {
