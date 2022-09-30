@@ -461,6 +461,13 @@ namespace WpfToyDataForms
             this.popupRecordOperation.Visibility = Visibility.Visible;
             this.popupRecordOperation.IsEnabled = true;
             this.popupRecordOperation.IsOpen = true;
+
+            DataGrid dg = sender as DataGrid;
+            if (dg != null)
+            {
+                dg.Focusable = false;
+            }
+
         }
 
 
@@ -631,6 +638,15 @@ namespace WpfToyDataForms
                     this.popupRecordOperation.IsEnabled = false;
                     this.popupRecordOperation.Visibility = Visibility.Hidden;
                 }
+
+                DataGrid dg = sender as DataGrid;
+                if (dg != null)
+                {
+                    if (dg.Focusable == false)
+                    {
+                        dg.Focusable = true;
+                    }
+                }
             }
         }
 
@@ -644,14 +660,22 @@ namespace WpfToyDataForms
                 this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.Undefinite;
             }
 
+            DataGrid dg = sender as DataGrid;
+            if (dg != null)
+            {
+                if (dg.Focusable == false)
+                {
+                    dg.Focusable = true;
+                }
+            }
+
             this.popupRecordOperation.IsOpen = false;
             this.popupRecordOperation.IsEnabled = false;
             this.popupRecordOperation.Visibility = Visibility.Hidden;
+
+
+
         }
-
-
-
-
 
 
         #endregion
