@@ -44,7 +44,7 @@ namespace WpfToyDataForms
         private MainWindow _parrentMainWindow;
 
 
-        private EntityOperatorResultStateEnum  _entityOperatorResultStateEnum;
+        private EntityOperatorResultStateEnum _entityOperatorResultStateEnum;
 
 
 
@@ -68,11 +68,12 @@ namespace WpfToyDataForms
 
         public Window ParrentMainWindow
         {
-            get=>this._parrentMainWindow;
+            get => this._parrentMainWindow;
             set
             {
                 MainWindow mw = value as MainWindow;
-                if( mw != null){
+                if (mw != null)
+                {
                     this._parrentMainWindow = mw;
                 }
             }
@@ -202,7 +203,7 @@ namespace WpfToyDataForms
                         }
                     }
                 }
-                else if ( id == 0)
+                else if (id == 0)
                 {
                     if (record != null && record.isIamEmpty())
                     {
@@ -216,7 +217,7 @@ namespace WpfToyDataForms
                                 return;
                             }
                         }
-                        else if(isPreviousNotSuccessfullyEditingOfField && this._isCanceledTextEnterringInFields["IDConnect"])
+                        else if (isPreviousNotSuccessfullyEditingOfField && this._isCanceledTextEnterringInFields["IDConnect"])
                         {
                             var isRecordHasValidIDfield = isNewRecordHasValidIDfield(record, newValue, nameOfEditedField);
                             if (isRecordHasValidIDfield)
@@ -271,7 +272,7 @@ namespace WpfToyDataForms
 
             }
 
-            if(this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowEditingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.NewRowAddingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowDeletingStart)
+            if (this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowEditingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.NewRowAddingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowDeletingStart)
             {
                 this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.RowEditingStart;
             }
@@ -350,26 +351,26 @@ namespace WpfToyDataForms
                 }
             }
 
-            if ( !isPreviousNotSuccessfullyEditingOfField && this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.AllRecordsSaved)
+            if (!isPreviousNotSuccessfullyEditingOfField && this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.AllRecordsSaved)
             {
                 DataGrid dg = sender as DataGrid;
                 if (dg != null)
                 {
                     string fldName = dg.CurrentColumn.SortMemberPath;
                     PO_TEL_VID_CONNECT? currItem = dg.CurrentItem as PO_TEL_VID_CONNECT;
-                    if(currItem != null)
+                    if (currItem != null)
                     {
                         string s1stCol = dg.Columns.First().SortMemberPath;
 
                         if (this._ID_of_selectedRecord == null || fldName.Equals(s1stCol))
                         {
-                            if(this._ID_of_selectedRecord == null || this._ID_of_selectedRecord != currItem.IDConnect)
+                            if (this._ID_of_selectedRecord == null || this._ID_of_selectedRecord != currItem.IDConnect)
                             {
                                 this._ID_of_selectedRecord = currItem.IDConnect;
                                 this._pO_TEL_VID_CONNECT__selected = currItem;
                             }
                         }
-                        if(this._pO_TEL_VID_CONNECT__selected != null && !this._pO_TEL_VID_CONNECT__selected.isIamEmpty())
+                        if (this._pO_TEL_VID_CONNECT__selected != null && !this._pO_TEL_VID_CONNECT__selected.isIamEmpty())
                         {
                             this.btnDeleteRecords.IsEnabled = true;
                         }
@@ -378,8 +379,8 @@ namespace WpfToyDataForms
             }
             else
             {
-                if(
-                    isPreviousNotSuccessfullyEditingOfField || 
+                if (
+                    isPreviousNotSuccessfullyEditingOfField ||
                     this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.AllRecordsSaved ||
                     this._pO_TEL_VID_CONNECT__selected == null ||
                     this._shouldBeSaved ||
@@ -418,7 +419,7 @@ namespace WpfToyDataForms
                 this._isCanceledTextEnterringInFields[onekey] = false;
             }
 
-            this._setOfIDs =  fillIDsFromDbSetOfEntities( this._dbAppContext);
+            this._setOfIDs = fillIDsFromDbSetOfEntities(this._dbAppContext);
         }
 
 
@@ -443,7 +444,7 @@ namespace WpfToyDataForms
             if (!isPreviousNotSuccessfullyEditingOfField)
             {
                 DataGrid dg = e.Source as DataGrid;
-                if(dg != null)
+                if (dg != null)
                 {
                     if (this._ID_of_selectedRecord != null)
                     {
@@ -462,11 +463,10 @@ namespace WpfToyDataForms
             this.popupRecordOperation.IsEnabled = true;
             this.popupRecordOperation.IsOpen = true;
 
-            DataGrid dg = sender as DataGrid;
-            if (dg != null)
-            {
-                dg.Focusable = false;
-            }
+
+
+            this._innerDataGrid.Focusable = false;
+
 
         }
 
@@ -491,7 +491,7 @@ namespace WpfToyDataForms
                     this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.RowDeletingStart;
 
 
-                    if ( this._ID_of_selectedRecord == this._pO_TEL_VID_CONNECT__selected.IDConnect)
+                    if (this._ID_of_selectedRecord == this._pO_TEL_VID_CONNECT__selected.IDConnect)
                     {
 
                         var sss = this._dbAppContext.pO_TEL_VID_CONNECTs.Where(sR => sR.IDConnect == this._ID_of_selectedRecord);
@@ -505,7 +505,7 @@ namespace WpfToyDataForms
                         {
                             result = MessageBox.Show(" Удаление записи:\n\n  \t ----->\nID : \t\t " + this._pO_TEL_VID_CONNECT__selected.IDConnect + "\nКод : \t\t " + this._pO_TEL_VID_CONNECT__selected.KodOfConnect + "\nНазвание : \t\t " + this._pO_TEL_VID_CONNECT__selected.NameOfConnect, "Удаление записи \"Вид Связи\"", MessageBoxButton.YesNoCancel);
 
-                            if(result != MessageBoxResult.Cancel)
+                            if (result != MessageBoxResult.Cancel)
                             {
                                 break;
                             }
@@ -555,7 +555,7 @@ namespace WpfToyDataForms
                         }
                         ;
                     }
-                    
+
                 }
             }
         }
@@ -567,7 +567,7 @@ namespace WpfToyDataForms
 
         private void btnShowAll_Click(object sender, RoutedEventArgs e)
         {
-            if(this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.NewRowAddingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowDeletingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowEditingStart)
+            if (this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.NewRowAddingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowDeletingStart && this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.RowEditingStart)
             {
                 this.LoadRecordsTo();
                 this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.AllRecordsSaved;
@@ -594,7 +594,7 @@ namespace WpfToyDataForms
 
         private void btn_Ok_from_popupRecord_Click(object sender, RoutedEventArgs e)
         {
-            if(this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.NewRowAddingStart)
+            if (this._entityOperatorResultStateEnum == EntityOperatorResultStateEnum.NewRowAddingStart)
             {
                 ///
                 /// Hear need be check for correct values in fields
@@ -620,7 +620,7 @@ namespace WpfToyDataForms
                     this._isDirtyDataSource = true;
 
                     saveAll();
-                    
+
                     btnSaveAll.IsEnabled = false;
 
                     foreach (var onekey in this._isCanceledTextEnterringInFields.Keys)
@@ -639,14 +639,11 @@ namespace WpfToyDataForms
                     this.popupRecordOperation.Visibility = Visibility.Hidden;
                 }
 
-                DataGrid dg = sender as DataGrid;
-                if (dg != null)
+                if (this._innerDataGrid.Focusable == false)
                 {
-                    if (dg.Focusable == false)
-                    {
-                        dg.Focusable = true;
-                    }
+                    this._innerDataGrid.Focusable = true;
                 }
+
             }
         }
 
@@ -655,26 +652,19 @@ namespace WpfToyDataForms
 
         private void btn_Cancel_from_popupRecord_Click(object sender, RoutedEventArgs e)
         {
-            if(this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.AllRecordsSaved)
+            if (this._entityOperatorResultStateEnum != EntityOperatorResultStateEnum.AllRecordsSaved)
             {
                 this._entityOperatorResultStateEnum = EntityOperatorResultStateEnum.Undefinite;
             }
 
-            DataGrid dg = sender as DataGrid;
-            if (dg != null)
+            if (this._innerDataGrid.Focusable == false)
             {
-                if (dg.Focusable == false)
-                {
-                    dg.Focusable = true;
-                }
+                this._innerDataGrid.Focusable = true;
             }
 
             this.popupRecordOperation.IsOpen = false;
             this.popupRecordOperation.IsEnabled = false;
             this.popupRecordOperation.Visibility = Visibility.Hidden;
-
-
-
         }
 
 
@@ -819,7 +809,7 @@ namespace WpfToyDataForms
             {
                 int iID;
                 bool isStringDigit = int.TryParse(newValue, out iID);
-                if(isStringDigit && iID > 0 && !this._setOfIDs.Contains(iID))  //  check  that  new ID value have to be unique
+                if (isStringDigit && iID > 0 && !this._setOfIDs.Contains(iID))  //  check  that  new ID value have to be unique
                 {
                     return true;
                 }
@@ -856,7 +846,8 @@ namespace WpfToyDataForms
         {
             PO_TEL_VID_CONNECT? returnedPO = null;
 
-            if( e.GetType() == typeof(SelectionChangedEventArgs)){
+            if (e.GetType() == typeof(SelectionChangedEventArgs))
+            {
                 SelectionChangedEventArgs sce = e as SelectionChangedEventArgs;
                 if (sce != null)
                 {
@@ -910,7 +901,7 @@ namespace WpfToyDataForms
 
         #endregion
 
-        
+
     }
 }
 
