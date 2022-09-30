@@ -463,7 +463,11 @@ namespace WpfToyDataForms
             this.popupRecordOperation.IsEnabled = true;
             this.popupRecordOperation.IsOpen = true;
 
-
+            this.btnShowAll.IsEnabled = false;
+            this.btnNewRecord.IsEnabled = false;
+            this.btnEditRecord.IsEnabled = false;
+            this.btnSaveAll.IsEnabled = false;
+            this.btnDeleteRecords.IsEnabled = false;
 
             this._innerDataGrid.Focusable = false;
             this._innerDataGrid.IsEnabled = false;
@@ -638,6 +642,13 @@ namespace WpfToyDataForms
 
                     if (this._innerDataGrid.Focusable == false || this._innerDataGrid.IsEnabled == false)
                     {
+
+                        this.btnShowAll.IsEnabled = true;
+                        this.btnNewRecord.IsEnabled = true;
+                        this.btnEditRecord.IsEnabled = true;
+                        this.btnSaveAll.IsEnabled = true;
+                        this.btnDeleteRecords.IsEnabled = true;
+
                         this._innerDataGrid.IsEnabled = true;
                         this._innerDataGrid.Focusable = true;
                     }
@@ -660,6 +671,14 @@ namespace WpfToyDataForms
 
             if (this._innerDataGrid.Focusable == false || this._innerDataGrid.IsEnabled == false)
             {
+
+                this.btnShowAll.IsEnabled = true;
+                this.btnNewRecord.IsEnabled = true;
+                this.btnEditRecord.IsEnabled = true;
+                this.btnSaveAll.IsEnabled = true;
+                this.btnDeleteRecords.IsEnabled = true;
+
+
                 this._innerDataGrid.IsEnabled = true;
                 this._innerDataGrid.Focusable = true;
             }
