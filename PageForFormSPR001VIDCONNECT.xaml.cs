@@ -642,17 +642,12 @@ namespace WpfToyDataForms
                         this._innerDataGrid.Focusable = true;
                     }
 
-
                     this.popupRecordOperation.IsOpen = false;
                     this.popupRecordOperation.IsEnabled = false;
                     this.popupRecordOperation.Visibility = Visibility.Hidden;
                 }
-
-
-
             }
         }
-
 
 
 
