@@ -9,13 +9,13 @@ namespace WpfToyDataForms
 
     interface ILoggerTrivial
     {
-        int publicate(string msg);
+        public int publicate(string msg);
 
     }
 
     public class SimpleLogger : ILoggerTrivial
     {
-        int ILoggerTrivial.publicate(string msg)
+        public int publicate(string msg)
         {
             try
             {

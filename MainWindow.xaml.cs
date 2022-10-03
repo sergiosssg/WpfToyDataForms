@@ -38,6 +38,7 @@ namespace WpfToyDataForms
 
         private PO_TEL_VID_CONNECT? _selectedCurrentPO_TE_VID_CONNECT;
 
+        private ILoggerTrivial _logger;
 
         #endregion
 
@@ -93,7 +94,12 @@ namespace WpfToyDataForms
             ;
             this._selectedCurrentPO_TE_VID_CONNECT = null;
             this._PO_TEL_VID_CONNECTs_Is_changed = null;
+
+
+            this._logger = new SimpleLogger();
+
             InitializeComponent();
+
         }
 
 
@@ -401,9 +407,11 @@ namespace WpfToyDataForms
             }
             catch (Exception es)
             {
-                ;
+                this._logger.publicate(es.Message);
+                this._logger.publicate("\n \t\t--------\n");
+                this._logger.publicate(es.StackTrace);
+                this._logger.publicate("\n \t\t--------\n");
             }
-            ;
         }
 
 
