@@ -29,6 +29,7 @@ namespace WpfToyDataForms
         private bool _shouldBeSaved;
 
         private PO_TEL_VID_CONNECT? _pO_TEL_VID_CONNECT__selected;
+        private PO_TEL_OPERATOR? pO_TEL_OPERATOR_selected;
 
         private bool _isDirtyDataSource;
 
