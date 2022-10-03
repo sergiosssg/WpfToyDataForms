@@ -12,4 +12,24 @@ namespace WpfToyDataForms
         int publicate(string msg);
 
     }
+
+    public class SimpleLogger : ILoggerTrivial
+    {
+        int ILoggerTrivial.publicate(string msg)
+        {
+            try
+            {
+                Console.Write(msg);
+
+                return 1;
+            }
+            catch(Exception es)
+            {
+                Console.WriteLine("can't display exception ...");
+                Console.WriteLine(es.Message);
+            }
+            throw new NotImplementedException();
+        }
+    }
+
 }
